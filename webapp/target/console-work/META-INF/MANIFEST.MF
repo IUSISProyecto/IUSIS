@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Build-Time: 20140529-0339
+Build-Java: 1.7.0_25
+Build-OS: Linux
+Built-By: pablocliment
+Build-Jdk: 1.7.0_25
+Build-Maven: Maven 3.1.0
+Build-Label: 1.0-SNAPSHOT
+Created-By: Apache Maven 3.1.0
+Build-Host: 
+Build-User: pablocliment
+Archiver-Version: Plexus Archiver
+
