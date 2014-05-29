@@ -1,4 +1,5 @@
 IUSIS
 =====
 
-Proyecto de gestion para abogados
+Proyecto de software libre (GPLv3) de gestión para Estudios Jurídicos.
+
