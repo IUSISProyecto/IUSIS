@@ -1,4 +1,0 @@
--------------------------------------------------------------------------------
-Test set: integration.tests.repo.ToDoItemsTest_finders
--------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.3 sec - in integration.tests.repo.ToDoItemsTest_finders

@@ -1,4 +1,0 @@
--------------------------------------------------------------------------------
-Test set: integration.tests.actions.ToDoItemTest_notYetCompleted
--------------------------------------------------------------------------------
-Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.127 sec - in integration.tests.actions.ToDoItemTest_notYetCompleted

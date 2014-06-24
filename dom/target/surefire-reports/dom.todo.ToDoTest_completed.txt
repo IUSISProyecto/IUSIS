@@ -1,4 +1,0 @@
--------------------------------------------------------------------------------
-Test set: dom.todo.ToDoTest_completed
--------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.214 sec - in dom.todo.ToDoTest_completed
