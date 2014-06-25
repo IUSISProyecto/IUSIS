@@ -1,17 +1,19 @@
-IUSIS
-=====
+IUSIS 2014
+==========
 
 Proyecto de software libre (GPLv3) de gestión para Estudios Jurídicos.
 
-Lenguaje Obicuo
+por nacho cartees y pablo climent
+
+Lenguaje Ubicuo
 
 Procesos: Es un caso judicial.
 
-Caratula: Es la descripción de la caso 
+Carátula: Es la descripción de la caso 
 
 Tipos de procesos: Especifica la problemática. 
 
-Domicilio Constituido: Es el domicilio que figa el abogado a los efectos del proceso.
+Domicilio Constituido: Es el domicilio que fija el abogado a los efectos del proceso.
 
 Juzgado: Lugar donde cursa el caso.
 
