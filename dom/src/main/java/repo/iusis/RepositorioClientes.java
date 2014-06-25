@@ -1,16 +1,9 @@
 package repo.iusis;
 
 
-import java.util.Date;
-
-
-
-
-
 import org.apache.isis.applib.AbstractFactoryAndRepository;
 import org.apache.isis.applib.DomainObjectContainer;
 import org.apache.isis.applib.annotation.Named;
-import org.apache.isis.applib.annotation.Optional;
 
 import dom.iusis.Clientes;
 
@@ -27,27 +20,36 @@ public class RepositorioClientes extends AbstractFactoryAndRepository {
     }
 	//Defino nombre etiquetas para la clase
     //@Optional nos define si el campo es obligatorio u opcional
-	public Clientes ingresarClientes(@Named("id de Clientes")final String idNetbook ,
-	@Named("Nombre")final String modelo,
-	@Named("Apellido")final String numeroDeSerie,
-	@Named("Telefono")final String numeroLicenciaWindows,
-	@Named("Direccion Legal") @Optional final Date fechaDeExpiracion,
-	@Named("Direccion Real")final String direccionMac)
+	public Clientes ingresarClientes(@Named("id de Clientes")final String idCliente ,
+	@Named("Nombre")final String nombre,
+	@Named("Apellido")final String apellido,
+	@Named("Direccion")final String direccion,
+	@Named("Localidad")final String localidad,
+	@Named("Telefono")final String telefono,
+	@Named("Celular")final String celular,
+	@Named("E-mail")final String email,
+	@Named("Observaciones")final String observacion)
+	
+	//@Named("Direccion Legal") @Optional final Date fechaDeExpiracion,
+	//@Named("Direccion Real")final String direccionMac)
 	{
-		final Clientes netbook = container.newTransientInstance(Clientes.class);
-	    netbook.setFechaDeExpiracion(fechaDeExpiracion);
-	    netbook.setIdNetbook(idNetbook);
-	    netbook.setDireccionMac(direccionMac);
+		final Clientes cliente = container.newTransientInstance(Clientes.class);
+	   // netbook.setFechaDeExpiracion(fechaDeExpiracion);
+	    cliente.setIdCliente(idCliente);
+	    cliente.setNombre(nombre);
+	    cliente.setApellido(apellido);
+	    cliente.setDireccion(direccion);
+	    cliente.setLocalidad(localidad);
+	    cliente.setTelefono(telefono);
+	    cliente.setCelular(celular);
+	    cliente.setEmail(email);
+	    cliente.setObservacion(observacion);
 	    
-	    netbook.setModelo(modelo);
-	    netbook.setNumeroDeSerie(numeroDeSerie);
-	    netbook.setNumeroLicenciaWindows(numeroLicenciaWindows);
-	    netbook.setSituacionDeNetbook("Entregada");
+	    //netbook.setSituacionDeNetbook("Entregada");
 	    
+	    container.persistIfNotAlready(cliente);
 	    
-	    container.persistIfNotAlready(netbook);
-	    
-		return netbook;
+		return cliente;
 	}
 	
 	@javax.inject.Inject 

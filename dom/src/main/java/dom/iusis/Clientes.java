@@ -1,7 +1,7 @@
 package dom.iusis;
 
 
-import java.util.Date;
+//import java.util.Date;
 
 
 import javax.jdo.annotations.IdentityType;
@@ -22,71 +22,107 @@ import org.apache.isis.applib.annotation.Title;
 @ObjectType("Clientes")
 public class Clientes {
 	
-	private String idNetbook;
-	private String modelo;
-	private String numeroDeSerie;
-	private String numeroLicenciaWindows;
-	private Date fechaDeExpiracion;
-	private String direccionMac;
-	private String situacionDeNetbook;
+	private String idCliente;
+	private String nombre;
+	private String apellido;
+	private String direccion;
+	//private Date fecha;
+	private String localidad;
+	private String telefono;
+	private String celular;
+	private String email;
+	private String observacion;
 	
     public String iconName() {
-        return "netbook";
+        return "clientes";
     }
 	
+
 	@javax.jdo.annotations.Column(allowsNull="false")
-	public String getDireccionMac() {
-		return direccionMac;
+	public String getNombre() {
+		return nombre;
 	}
-	public void setDireccionMac(String direccionMac) {
-		this.direccionMac = direccionMac;
-	}
-	@javax.jdo.annotations.Column(allowsNull="false")
-	public String getModelo() {
-		return modelo;
-	}
-	public void setModelo(String modelo) {
-		this.modelo = modelo;
-	}
-	@javax.jdo.annotations.Column(allowsNull="false")
-	public String getNumeroDeSerie() {
-		return numeroDeSerie;
-	}
-	public void setNumeroDeSerie(String numeroDeSerie) {
-		this.numeroDeSerie = numeroDeSerie;
-	}
-	@javax.jdo.annotations.Column(allowsNull="false")
-	public String getNumeroLicenciaWindows() {
-		return numeroLicenciaWindows;
-	}
-	public void setNumeroLicenciaWindows(String numeroLicenciaWindows) {
-		this.numeroLicenciaWindows = numeroLicenciaWindows;
-	}
-	@javax.jdo.annotations.Column(allowsNull="true")
-	public Date getFechaDeExpiracion() {
-		return fechaDeExpiracion;
-	}
-	public void setFechaDeExpiracion(Date fechaDeExpiracion) {
-		this.fechaDeExpiracion = fechaDeExpiracion;
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
 	}
 	
 	@javax.jdo.annotations.Column(allowsNull="false")
-	public String getSituacionDeNetbook() {
-		return situacionDeNetbook;
+	public String getApellido() {
+		return apellido;
 	}
-	public void setSituacionDeNetbook(String situacionDeNetbook) {
-		this.situacionDeNetbook = situacionDeNetbook;
+	public void setApellido(String apellido) {
+		this.apellido = apellido;
 	}
+	@javax.jdo.annotations.Column(allowsNull="false")
+	public String getDireccion() {
+		return direccion;
+	}
+	public void setDireccion(String direccion) {
+		this.direccion = direccion;
+	}
+	//@javax.jdo.annotations.Column(allowsNull="true")
+	//public Date getFecha() {
+		//return fecha;
+	//}
+	//public void setFecha(Date fecha) {
+		//this.fecha = fecha;
+	//}
+	
+	@javax.jdo.annotations.Column(allowsNull="false")
+	public String getLocalidad() {
+		return localidad;
+	}
+	public void setLocalidad(String localidad) {
+		this.localidad = localidad;
+	}
+	
+	@javax.jdo.annotations.Column(allowsNull="false")
+	public String getTelefono() {
+		return telefono;
+	}
+	public void setTelefono(String telefono) {
+		this.telefono = telefono;
+	}
+	
+	@javax.jdo.annotations.Column(allowsNull="false")
+	public String getCelular() {
+		return celular;
+	}
+	public void setCelular(String celular) {
+		this.celular = celular;
+	}
+	
+	@javax.jdo.annotations.Column(allowsNull="true")
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	
+	@javax.jdo.annotations.Column(allowsNull="true")
+	public String getObservacion() {
+		return observacion;
+	}
+
+
+	public void setObservacion(String observacion) {
+		this.observacion = observacion;
+	}
+
+	
 	@javax.jdo.annotations.Column(allowsNull="false")
     @Title(sequence="1")
     @MemberOrder(sequence="1")
-	public String getIdNetbook() {
-		return idNetbook;
+	public String getIdCliente() {
+		return idCliente;
 	}
-	public void setIdNetbook(String idNetbook) {
-		this.idNetbook = idNetbook;
+	public void setIdCliente(String idCliente) {
+		this.idCliente = idCliente;
 	}
 	
+
 	@javax.inject.Inject
     @SuppressWarnings("unused")
     private DomainObjectContainer container;
