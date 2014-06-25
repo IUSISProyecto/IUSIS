@@ -116,12 +116,12 @@ public class ToDoApplication extends IsisWicketApplication {
             protected void configure() {
                 bind(ComponentFactoryRegistrar.class).to(ComponentFactoryRegistrarForToDoApp.class);
                 bind(PageClassList.class).to(PageClassListForToDoApp.class);
-                
-                bind(String.class).annotatedWith(Names.named("applicationName")).toInstance("ToDo App");
+                //Defino Valores de la aplicacion pantalla principal nacho
+                bind(String.class).annotatedWith(Names.named("applicationName")).toInstance("IUSIS App Nacho Pablo 2014");
                 bind(String.class).annotatedWith(Names.named("applicationCss")).toInstance("css/application.css");
                 bind(String.class).annotatedWith(Names.named("applicationJs")).toInstance("scripts/application.js");
                 bind(String.class).annotatedWith(Names.named("welcomeMessage")).toInstance(readLines("welcome.html"));
-                bind(String.class).annotatedWith(Names.named("aboutMessage")).toInstance("ToDo App");
+                bind(String.class).annotatedWith(Names.named("aboutMessage")).toInstance("IUSIS App");
                 bind(InputStream.class).annotatedWith(Names.named("metaInfManifest")).toProvider(Providers.of(getServletContext().getResourceAsStream("/META-INF/MANIFEST.MF")));
             }
         };
