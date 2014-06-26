@@ -2,5 +2,8 @@ dom/iusis/Estudios.class
 dom/iusis/Clientes.class
 repo/iusis/RepositorioEstudios.class
 dom/iusis/QClientes.class
-dom/iusis/QEstudios.class
 repo/iusis/RepositorioClientes.class
+dom/iusis/QEstudios.class
+repo/iusis/RepositorioProcesos.class
+dom/iusis/QProcesos.class
+dom/iusis/Procesos.class

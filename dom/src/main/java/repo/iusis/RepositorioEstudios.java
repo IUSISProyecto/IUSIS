@@ -1,7 +1,7 @@
 package repo.iusis;
 
 
-import java.util.Date;
+//import java.util.Date;
 
 
 import org.apache.isis.applib.AbstractFactoryAndRepository;
@@ -16,7 +16,7 @@ public class RepositorioEstudios extends AbstractFactoryAndRepository {
 
 
 	public String getId() {
-        return "Netbook";
+        return "Estudios";
     }
 //Cambio icono
     public String iconName() {

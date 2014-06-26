@@ -22,6 +22,7 @@ import org.apache.isis.applib.annotation.Title;
 @ObjectType("Clientes")
 public class Clientes {
 	
+	
 	private String idCliente;
 	private String nombre;
 	private String apellido;
@@ -125,6 +126,7 @@ public class Clientes {
 
 	@javax.inject.Inject
     @SuppressWarnings("unused")
+
     private DomainObjectContainer container;
 	
 }
