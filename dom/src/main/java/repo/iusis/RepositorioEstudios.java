@@ -7,7 +7,7 @@ package repo.iusis;
 import org.apache.isis.applib.AbstractFactoryAndRepository;
 import org.apache.isis.applib.DomainObjectContainer;
 import org.apache.isis.applib.annotation.Named;
-import org.apache.isis.applib.annotation.Optional;
+//import org.apache.isis.applib.annotation.Optional;
 
 import dom.iusis.Estudios;
 

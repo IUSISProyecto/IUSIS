@@ -7,7 +7,7 @@ import org.apache.isis.applib.annotation.Named;
 
 import dom.iusis.Procesos;
 
-@Named("Administrar Procesos")
+@Named("Administrar Estudios")
 public class RepositorioProcesos extends AbstractFactoryAndRepository {
 
 

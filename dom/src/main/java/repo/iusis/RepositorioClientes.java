@@ -3,7 +3,10 @@ package repo.iusis;
 
 import org.apache.isis.applib.AbstractFactoryAndRepository;
 import org.apache.isis.applib.DomainObjectContainer;
+import org.apache.isis.applib.annotation.Bookmarkable;
+import org.apache.isis.applib.annotation.MemberOrder;
 import org.apache.isis.applib.annotation.Named;
+import org.datanucleus.store.types.backed.List;
 
 import dom.iusis.Clientes;
 
@@ -12,7 +15,7 @@ public class RepositorioClientes extends AbstractFactoryAndRepository {
 
 
 	public String getId() {
-        return "Netbook";
+        return "Clientes";
     }
 //Cambio icono
     public String iconName() {
@@ -34,7 +37,7 @@ public class RepositorioClientes extends AbstractFactoryAndRepository {
 	//@Named("Direccion Real")final String direccionMac)
 	{
 		final Clientes cliente = container.newTransientInstance(Clientes.class);
-	   // netbook.setFechaDeExpiracion(fechaDeExpiracion);
+	   
 	    cliente.setIdCliente(idCliente);
 	    cliente.setNombre(nombre);
 	    cliente.setApellido(apellido);
@@ -45,13 +48,24 @@ public class RepositorioClientes extends AbstractFactoryAndRepository {
 	    cliente.setEmail(email);
 	    cliente.setObservacion(observacion);
 	    
-	    //netbook.setSituacionDeNetbook("Entregada");
-	    
 	    container.persistIfNotAlready(cliente);
 	    
 		return cliente;
 	}
 	
+	/*
+	 *  Listo todos los clientes del sistema
+	 *  @return
+	
+	@Named("Clientes")
+	@Bookmarkable
+    //@ActionSemantics(Of.SAFE)
+    @MemberOrder(sequence = "1")
+    public List<Clientes> listAll() {
+        return allInstances(Clientes.class);
+    }
+ */
+
 	@javax.inject.Inject 
     DomainObjectContainer container;
 		
