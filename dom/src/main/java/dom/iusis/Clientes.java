@@ -4,15 +4,16 @@ package dom.iusis;
 //import java.util.Date;
 
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.jdo.annotations.IdentityType;
 import javax.jdo.annotations.VersionStrategy;
-
-
-
 
 import org.apache.isis.applib.DomainObjectContainer;
 import org.apache.isis.applib.annotation.MemberOrder;
 import org.apache.isis.applib.annotation.ObjectType;
+import org.apache.isis.applib.annotation.RegEx;
 import org.apache.isis.applib.annotation.Title;
 
 @javax.jdo.annotations.PersistenceCapable(identityType=IdentityType.DATASTORE)
@@ -94,6 +95,7 @@ public class Clientes {
 	}
 	
 	@javax.jdo.annotations.Column(allowsNull="true")
+	@RegEx(validation = "(\\w+\\.)*\\w+@(\\w+\\.)+[A-Za-z]+")
 	public String getEmail() {
 		return email;
 	}
@@ -102,17 +104,15 @@ public class Clientes {
 		this.email = email;
 	}
 	
-	@javax.jdo.annotations.Column(allowsNull="true")
+	//@javax.jdo.annotations.Column(allowsNull="true")
 	public String getObservacion() {
 		return observacion;
 	}
-
 
 	public void setObservacion(String observacion) {
 		this.observacion = observacion;
 	}
 
-	
 	@javax.jdo.annotations.Column(allowsNull="false")
     @Title(sequence="1")
     @MemberOrder(sequence="1")
@@ -128,5 +128,12 @@ public class Clientes {
     @SuppressWarnings("unused")
 
     private DomainObjectContainer container;
+	
+	//lista clientes
+	private List<Clientes> listaClientes = new ArrayList<Clientes>();
+    public List <Clientes> getClientes() {
+        return listaClientes;
+    }
+
 	
 }

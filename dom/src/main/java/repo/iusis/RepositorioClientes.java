@@ -6,6 +6,7 @@ import org.apache.isis.applib.DomainObjectContainer;
 import org.apache.isis.applib.annotation.Bookmarkable;
 import org.apache.isis.applib.annotation.MemberOrder;
 import org.apache.isis.applib.annotation.Named;
+import org.apache.isis.applib.annotation.RegEx;
 import org.datanucleus.store.types.backed.List;
 
 import dom.iusis.Clientes;
@@ -30,6 +31,7 @@ public class RepositorioClientes extends AbstractFactoryAndRepository {
 	@Named("Localidad")final String localidad,
 	@Named("Telefono")final String telefono,
 	@Named("Celular")final String celular,
+	@RegEx(validation = "(\\w+\\.)*\\w+@(\\w+\\.)+[A-Za-z]+")
 	@Named("E-mail")final String email,
 	@Named("Observaciones")final String observacion)
 	
@@ -53,18 +55,6 @@ public class RepositorioClientes extends AbstractFactoryAndRepository {
 		return cliente;
 	}
 	
-	/*
-	 *  Listo todos los clientes del sistema
-	 *  @return
-	
-	@Named("Clientes")
-	@Bookmarkable
-    //@ActionSemantics(Of.SAFE)
-    @MemberOrder(sequence = "1")
-    public List<Clientes> listAll() {
-        return allInstances(Clientes.class);
-    }
- */
 
 	@javax.inject.Inject 
     DomainObjectContainer container;
