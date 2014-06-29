@@ -1,13 +1,12 @@
 package repo.iusis;
-
-
 //import java.util.Date;
-
+import java.util.List;
 
 import org.apache.isis.applib.AbstractFactoryAndRepository;
 import org.apache.isis.applib.DomainObjectContainer;
 import org.apache.isis.applib.annotation.Named;
-//import org.apache.isis.applib.annotation.Optional;
+
+import org.apache.isis.applib.query.QueryDefault;
 
 import dom.iusis.Estudios;
 
@@ -46,6 +45,10 @@ public class RepositorioEstudios extends AbstractFactoryAndRepository {
 	    
 		return netbook;
 	}
+	
+	public List<Estudios> listarEstudios() {
+        return allMatches(QueryDefault.create(Estudios.class, "listarTodosEstudios"));
+    }
 	
 	@javax.inject.Inject 
     DomainObjectContainer container;

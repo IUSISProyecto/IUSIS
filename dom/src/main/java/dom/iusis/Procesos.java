@@ -23,7 +23,7 @@ import org.apache.isis.applib.annotation.Title;
 
 @javax.jdo.annotations.Queries({
 	//{@javax.jdo.annotations.Query(name = "traerPorId", language = "JDOQL", value = "SELECT FROM dom.iusis.Clientes WHERE idCliente== :idCliente"),
-	@javax.jdo.annotations.Query(name = "listarTodoslosProcesos", language = "JDOQL", value = "SELECT FROM dom.iusi.Procesos ")})
+	@javax.jdo.annotations.Query(name = "listarTodoslosProcesos", language = "JDOQL", value = "SELECT FROM dom.iusis.Procesos ")})
 
 public class Procesos {
 	

@@ -20,6 +20,11 @@ import org.apache.isis.applib.annotation.Title;
         strategy=VersionStrategy.VERSION_NUMBER, 
         column="version")
 @ObjectType("Estudios")
+
+@javax.jdo.annotations.Queries({
+	@javax.jdo.annotations.Query(name = "listarTodosEstudios", language = "JDOQL", value = "SELECT FROM dom.iusis.Estudios ")})
+
+
 public class Estudios {
 	
 	private String idNetbook;
