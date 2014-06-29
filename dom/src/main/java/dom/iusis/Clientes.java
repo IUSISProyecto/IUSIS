@@ -4,8 +4,8 @@ package dom.iusis;
 //import java.util.Date;
 
 
-import java.util.ArrayList;
-import java.util.List;
+//import java.util.ArrayList;
+//import java.util.List;
 
 import javax.jdo.annotations.IdentityType;
 import javax.jdo.annotations.VersionStrategy;
@@ -13,16 +13,22 @@ import javax.jdo.annotations.VersionStrategy;
 import org.apache.isis.applib.DomainObjectContainer;
 import org.apache.isis.applib.annotation.MemberOrder;
 import org.apache.isis.applib.annotation.ObjectType;
-import org.apache.isis.applib.annotation.RegEx;
+//import org.apache.isis.applib.annotation.RegEx;
 import org.apache.isis.applib.annotation.Title;
+//import org.apache.isis.applib.query.QueryDefault;
 
 @javax.jdo.annotations.PersistenceCapable(identityType=IdentityType.DATASTORE)
 @javax.jdo.annotations.Version(
         strategy=VersionStrategy.VERSION_NUMBER, 
         column="version")
 @ObjectType("Clientes")
+
+
+@javax.jdo.annotations.Queries({@javax.jdo.annotations.Query(name = "traerPorId", language = "JDOQL", value = "SELECT FROM dom.iusis.Clientes WHERE idCliente== :idCliente"),
+@javax.jdo.annotations.Query(name = "listarTodosClientes", language = "JDOQL", value = "SELECT FROM dom.iusi.Clientes ")})
+
+
 public class Clientes {
-	
 	
 	private String idCliente;
 	private String nombre;
@@ -39,7 +45,6 @@ public class Clientes {
         return "clientes";
     }
 	
-
 	@javax.jdo.annotations.Column(allowsNull="false")
 	public String getNombre() {
 		return nombre;
@@ -95,7 +100,7 @@ public class Clientes {
 	}
 	
 	@javax.jdo.annotations.Column(allowsNull="true")
-	@RegEx(validation = "(\\w+\\.)*\\w+@(\\w+\\.)+[A-Za-z]+")
+	
 	public String getEmail() {
 		return email;
 	}
@@ -104,7 +109,7 @@ public class Clientes {
 		this.email = email;
 	}
 	
-	//@javax.jdo.annotations.Column(allowsNull="true")
+	@javax.jdo.annotations.Column(allowsNull="true")
 	public String getObservacion() {
 		return observacion;
 	}
@@ -122,18 +127,16 @@ public class Clientes {
 	public void setIdCliente(String idCliente) {
 		this.idCliente = idCliente;
 	}
-	
+
+	//public List<Clientes> listarClientes() {
+    //    return allMatches(QueryDefault.create(Clientes.class, "listarClientes"));
+    //}
+
 
 	@javax.inject.Inject
     @SuppressWarnings("unused")
 
     private DomainObjectContainer container;
-	
-	//lista clientes
-	private List<Clientes> listaClientes = new ArrayList<Clientes>();
-    public List <Clientes> getClientes() {
-        return listaClientes;
-    }
 
 	
 }
