@@ -1,9 +1,12 @@
 package repo.iusis;
 
 
+import java.util.List;
+
 import org.apache.isis.applib.AbstractFactoryAndRepository;
 import org.apache.isis.applib.DomainObjectContainer;
 import org.apache.isis.applib.annotation.Named;
+import org.apache.isis.applib.query.QueryDefault;
 
 import dom.iusis.Procesos;
 
@@ -41,6 +44,10 @@ public class RepositorioProcesos extends AbstractFactoryAndRepository {
 	    
 		return proceso;
 	}
+	
+	public List<Procesos> listarProcesos() {
+        return allMatches(QueryDefault.create(Procesos.class, "listarTodoslosProcesos"));
+    }
 	
 	@javax.inject.Inject 
     DomainObjectContainer container;
