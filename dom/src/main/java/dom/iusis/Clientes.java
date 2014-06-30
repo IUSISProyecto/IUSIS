@@ -13,9 +13,12 @@ import javax.jdo.annotations.VersionStrategy;
 import org.apache.isis.applib.DomainObjectContainer;
 import org.apache.isis.applib.annotation.MemberOrder;
 import org.apache.isis.applib.annotation.ObjectType;
+import org.apache.isis.applib.annotation.Optional;
 //import org.apache.isis.applib.annotation.RegEx;
 import org.apache.isis.applib.annotation.Title;
+
 //import org.apache.isis.applib.query.QueryDefault;
+import dom.iusis.Estudios;
 
 @javax.jdo.annotations.PersistenceCapable(identityType=IdentityType.DATASTORE)
 @javax.jdo.annotations.Version(
@@ -40,6 +43,8 @@ public class Clientes {
 	private String celular;
 	private String email;
 	private String observacion;
+	private Estudios estudios;
+	
 	
     public String iconName() {
         return "clientes";
@@ -116,6 +121,16 @@ public class Clientes {
 
 	public void setObservacion(String observacion) {
 		this.observacion = observacion;
+	}
+	
+	//Agrego relacion clases
+	@javax.jdo.annotations.Column(allowsNull="true")
+	@Optional
+	public Estudios getEstudios() {
+		return estudios;
+	}
+	public void setEstudios(Estudios estudios) {
+		this.estudios = estudios;
 	}
 
 	@javax.jdo.annotations.Column(allowsNull="false")

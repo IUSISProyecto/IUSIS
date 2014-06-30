@@ -24,6 +24,7 @@ public class Estudios {
 	
 	private String idEstudio;
 	private String nombre;
+	
 	private String localidad;
 	private String telefono;
 	private String direccion;

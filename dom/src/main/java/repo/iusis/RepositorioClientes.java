@@ -16,6 +16,7 @@ import org.apache.isis.applib.annotation.RegEx;
 import org.apache.isis.applib.query.QueryDefault;
 
 import dom.iusis.Clientes;
+import dom.iusis.Estudios;
 
 @Named("Administrar Clientes")
 public class RepositorioClientes extends AbstractFactoryAndRepository {
@@ -44,7 +45,8 @@ public class RepositorioClientes extends AbstractFactoryAndRepository {
 	@Named("Celular")final String celular,
 	@RegEx(validation = "(\\w+\\.)*\\w+@(\\w+\\.)+[A-Za-z]+")
 	@Named("E-mail")final String email,
-	@Named("Observaciones")final String observacion)
+	@Named("Observaciones")final String observacion,
+	@Named("Estudio")final Estudios estudio)
 	
 	//@Named("Direccion Legal") @Optional final Date fechaDeExpiracion,
 	//@Named("Direccion Real")final String direccionMac)
@@ -60,6 +62,7 @@ public class RepositorioClientes extends AbstractFactoryAndRepository {
 	    cliente.setCelular(celular);
 	    cliente.setEmail(email);
 	    cliente.setObservacion(observacion);
+	    cliente.setEstudios(estudio);
 	    
 	    container.persistIfNotAlready(cliente);
 	    
