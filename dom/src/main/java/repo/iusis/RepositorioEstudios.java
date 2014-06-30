@@ -21,29 +21,25 @@ public class RepositorioEstudios extends AbstractFactoryAndRepository {
     public String iconName() {
         return "Edificio";
     }
+    
 	//Defino nombre etiquetas para la clase
     //@Optional nos define si el campo es obligatorio u opcional
-	public Estudios ingresarEstudios(@Named("id de Estudio")final String idNetbook ,
-	@Named("Nombre Estudio")final String modelo,
-	@Named("Localidad")final String numeroDeSerie,
-	@Named("Telefono")final String numeroLicenciaWindows,
-	//@Named("Direccion Legal") @Optional final Date fechaDeExpiracion,
-	@Named("Direccion Real")final String direccionMac)
+	public Estudios ingresarEstudios(@Named("id de Estudio")final String idEstudio ,
+	@Named("Nombre Estudio")final String nombre,
+	@Named("Localidad")final String localidad,
+	@Named("Telefono")final String telefono,
+	@Named("Direccion")final String direccion)
 	{
-		final Estudios netbook = container.newTransientInstance(Estudios.class);
-	    //netbook.setFechaDeExpiracion(fechaDeExpiracion);
-	    netbook.setIdNetbook(idNetbook);
-	    netbook.setDireccionMac(direccionMac);
+		final Estudios estudio = container.newTransientInstance(Estudios.class);
+	    estudio.setIdEstudio(idEstudio);
+	    estudio.setNombre(nombre);
+	    estudio.setLocalidad(localidad);
+	    estudio.setTelefono(telefono);
+	    estudio.setDireccion(direccion);
 	    
-	    netbook.setModelo(modelo);
-	    netbook.setNumeroDeSerie(numeroDeSerie);
-	    netbook.setNumeroLicenciaWindows(numeroLicenciaWindows);
-	    netbook.setSituacionDeNetbook("Entregada");
+	    container.persistIfNotAlready(estudio);
 	    
-	    
-	    container.persistIfNotAlready(netbook);
-	    
-		return netbook;
+		return estudio;
 	}
 	
 	public List<Estudios> listarEstudios() {

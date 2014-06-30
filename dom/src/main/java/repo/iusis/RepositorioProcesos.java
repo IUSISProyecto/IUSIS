@@ -10,7 +10,7 @@ import org.apache.isis.applib.query.QueryDefault;
 
 import dom.iusis.Procesos;
 
-@Named("Administrar Estudios")
+@Named("Administrar Procesos")
 public class RepositorioProcesos extends AbstractFactoryAndRepository {
 
 
