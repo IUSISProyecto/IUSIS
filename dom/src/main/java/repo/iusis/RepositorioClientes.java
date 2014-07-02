@@ -2,12 +2,12 @@ package repo.iusis;
 
 import java.util.List;
 
-
 import org.apache.isis.applib.AbstractFactoryAndRepository;
 import org.apache.isis.applib.DomainObjectContainer;
 //import org.apache.isis.applib.annotation.Bookmarkable;
 //import org.apache.isis.applib.annotation.MemberOrder;
 import org.apache.isis.applib.annotation.Named;
+import org.apache.isis.applib.annotation.Optional;
 import org.apache.isis.applib.annotation.RegEx;
 //import org.datanucleus.store.types.backed.List;
 //import java.util.ArrayList;
@@ -41,11 +41,11 @@ public class RepositorioClientes extends AbstractFactoryAndRepository {
 	@Named("Direccion")final String direccion,
 	@RegEx(validation = "[A-Za-z ]+")
 	@Named("Localidad")final String localidad,
-	@Named("Telefono")final String telefono,
-	@Named("Celular")final String celular,
+	@Named("Telefono")final @Optional String telefono,
+	@Named("Celular")final @Optional String celular,
 	@RegEx(validation = "(\\w+\\.)*\\w+@(\\w+\\.)+[A-Za-z]+")
-	@Named("E-mail")final String email,
-	@Named("Observaciones")final String observacion,
+	@Named("E-mail")final @Optional String email,
+	@Named("Observaciones")final @Optional String observacion,
 	@Named("Estudio")final Estudios estudio)
 	
 	//@Named("Direccion Legal") @Optional final Date fechaDeExpiracion,
