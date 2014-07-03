@@ -4,8 +4,8 @@ import java.util.List;
 
 import org.apache.isis.applib.AbstractFactoryAndRepository;
 import org.apache.isis.applib.DomainObjectContainer;
+import org.apache.isis.applib.annotation.Hidden;
 import org.apache.isis.applib.annotation.Named;
-
 import org.apache.isis.applib.query.QueryDefault;
 
 import dom.iusis.Estudios;
@@ -44,6 +44,11 @@ public class RepositorioEstudios extends AbstractFactoryAndRepository {
 	
 	public List<Estudios> listarEstudios() {
         return allMatches(QueryDefault.create(Estudios.class, "listarTodosEstudios"));
+    }
+	
+	@Hidden
+    public List<Estudios> autoComplete(String searchPhrase) {        
+    	return allMatches(QueryDefault.create(Estudios.class, "estudiosPorNombre","nombre",searchPhrase));
     }
 	
 	@javax.inject.Inject 

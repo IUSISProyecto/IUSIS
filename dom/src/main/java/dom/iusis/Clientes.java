@@ -11,14 +11,20 @@ import javax.jdo.annotations.IdentityType;
 import javax.jdo.annotations.VersionStrategy;
 
 import org.apache.isis.applib.DomainObjectContainer;
+import org.apache.isis.applib.annotation.Audited;
+//import org.apache.isis.applib.annotation.AutoComplete;
 import org.apache.isis.applib.annotation.MemberOrder;
 import org.apache.isis.applib.annotation.ObjectType;
-import org.apache.isis.applib.annotation.Optional;
+//import org.apache.isis.applib.annotation.Optional;
 //import org.apache.isis.applib.annotation.RegEx;
 import org.apache.isis.applib.annotation.Title;
 
 //import org.apache.isis.applib.query.QueryDefault;
+//import repo.iusis.RepositorioClientes;
 import dom.iusis.Estudios;
+
+//import org.apache.isis.applib.query.QueryDefault;
+
 
 @javax.jdo.annotations.PersistenceCapable(identityType=IdentityType.DATASTORE)
 @javax.jdo.annotations.Version(
@@ -29,7 +35,9 @@ import dom.iusis.Estudios;
 
 @javax.jdo.annotations.Queries({
 		@javax.jdo.annotations.Query(name = "listarTodosClientes", language = "JDOQL", value = "SELECT FROM dom.iusis.Clientes ")})
-
+@Audited
+//@AutoComplete(repository = RepositorioClientes.class , action = "autoComplete")
+//@AutoComplete(repository = RepositorioEstudios.class , action = "autoCompleteEstudios")
 
 public class Clientes {
 	
@@ -51,6 +59,7 @@ public class Clientes {
     }
 	
 	@javax.jdo.annotations.Column(allowsNull="false")
+	 @MemberOrder(sequence="2")
 	public String getNombre() {
 		return nombre;
 	}
@@ -58,6 +67,7 @@ public class Clientes {
 		this.nombre = nombre;
 	}
 	
+	@MemberOrder(sequence="3")
 	@javax.jdo.annotations.Column(allowsNull="false")
 	public String getApellido() {
 		return apellido;
@@ -65,7 +75,9 @@ public class Clientes {
 	public void setApellido(String apellido) {
 		this.apellido = apellido;
 	}
+	
 	@javax.jdo.annotations.Column(allowsNull="false")
+	 @MemberOrder(sequence="4")
 	public String getDireccion() {
 		return direccion;
 	}
@@ -81,6 +93,7 @@ public class Clientes {
 	//}
 	
 	@javax.jdo.annotations.Column(allowsNull="false")
+	 @MemberOrder(sequence="5")
 	public String getLocalidad() {
 		return localidad;
 	}
@@ -88,7 +101,8 @@ public class Clientes {
 		this.localidad = localidad;
 	}
 	
-	@javax.jdo.annotations.Column(allowsNull="false")
+	@javax.jdo.annotations.Column(allowsNull="true")
+	@MemberOrder(sequence="5")
 	public String getTelefono() {
 		return telefono;
 	}
@@ -96,7 +110,8 @@ public class Clientes {
 		this.telefono = telefono;
 	}
 	
-	@javax.jdo.annotations.Column(allowsNull="false")
+	@javax.jdo.annotations.Column(allowsNull="true")
+	 @MemberOrder(sequence="6")
 	public String getCelular() {
 		return celular;
 	}
@@ -105,33 +120,31 @@ public class Clientes {
 	}
 	
 	@javax.jdo.annotations.Column(allowsNull="true")
-	
+	 @MemberOrder(sequence="7")
 	public String getEmail() {
 		return email;
 	}
-
 	public void setEmail(String email) {
 		this.email = email;
 	}
 	
 	@javax.jdo.annotations.Column(allowsNull="true")
+	 @MemberOrder(sequence="8")
 	public String getObservacion() {
 		return observacion;
 	}
-
 	public void setObservacion(String observacion) {
 		this.observacion = observacion;
 	}
 	
-	//Agrego relacion clases
-	@javax.jdo.annotations.Column(allowsNull="true")
-	@Optional
-	public Estudios getEstudios() {
-		return estudios;
-	}
-	public void setEstudios(Estudios estudios) {
-		this.estudios = estudios;
-	}
+    @javax.jdo.annotations.Column(allowsNull="true")
+    @MemberOrder(sequence = "9")
+    public Estudios getEstudios() {
+        return estudios;
+    }
+    public void setEstudios(Estudios estudios) {
+        this.estudios = estudios;
+    }
 
 	@javax.jdo.annotations.Column(allowsNull="false")
     @Title(sequence="1")
@@ -142,10 +155,6 @@ public class Clientes {
 	public void setIdCliente(String idCliente) {
 		this.idCliente = idCliente;
 	}
-
-	//public List<Clientes> listarClientes() {
-    //    return allMatches(QueryDefault.create(Clientes.class, "listarClientes"));
-    //}
 
 
 	@javax.inject.Inject
