@@ -21,7 +21,8 @@ import repo.iusis.RepositorioEstudios;
 
 @javax.jdo.annotations.Queries({
 	@javax.jdo.annotations.Query(name = "listarTodosEstudios", language = "JDOQL", value = "SELECT FROM dom.iusis.Estudios "),
-	@javax.jdo.annotations.Query(name = "estudiosPorNombre", language = "JDOQL", value = "SELECT FROM dom.iusis.Estudios  WHERE nombre== :nombre")
+	@javax.jdo.annotations.Query(name = "estudiosPorNombre", language = "JDOQL", value = "SELECT FROM dom.iusis.Estudios WHERE nombre.startsWith(:nombre) range 0, 4")
+	//@javax.jdo.annotations.Query(name = "estudiosPorNombre", language = "JDOQL", value = "SELECT FROM dom.iusis.Estudios WHERE nombre.startsWith(:nombre) range 0, 4")
 })
 @AutoComplete(repository = RepositorioEstudios.class , action = "autoComplete")
 
@@ -29,7 +30,6 @@ public class Estudios {
 	
 	private String idEstudio;
 	private String nombre;
-	
 	private String localidad;
 	private String telefono;
 	private String direccion;
@@ -49,6 +49,7 @@ public class Estudios {
 	}
 	
 	@javax.jdo.annotations.Column(allowsNull="false")
+	@MemberOrder(sequence="2")
 	public String getNombre() {
 		return nombre;
 	}
@@ -57,6 +58,7 @@ public class Estudios {
 	}
     
 	@javax.jdo.annotations.Column(allowsNull="false")
+	@MemberOrder(sequence="3")
 	public String getLocalidad() {
 		return localidad;
 	}
@@ -65,6 +67,7 @@ public class Estudios {
 	}
 	
 	@javax.jdo.annotations.Column(allowsNull="false")
+	@MemberOrder(sequence="4")
 	public String getTelefono() {
 		return telefono;
 	}
@@ -73,6 +76,7 @@ public class Estudios {
 	}
 	
 	@javax.jdo.annotations.Column(allowsNull="false")
+	@MemberOrder(sequence="5")
 	public String getDireccion() {
 		return direccion;
 	}
