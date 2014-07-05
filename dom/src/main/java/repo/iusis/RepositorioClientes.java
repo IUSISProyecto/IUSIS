@@ -76,7 +76,7 @@ public class RepositorioClientes extends AbstractFactoryAndRepository {
 	}
 	//Lleno el dropdown list segun el nombre del estudio
 	@Hidden
-    public List<Estudios> autoComplete(String searchPhrase) { 
+    public List<Estudios> autoComplete(final String searchPhrase) { 
     	return allMatches(QueryDefault.create(Estudios.class, "estudiosPorNombre","nombre",searchPhrase));
     }
 	

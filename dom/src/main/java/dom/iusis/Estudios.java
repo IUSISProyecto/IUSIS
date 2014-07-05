@@ -39,7 +39,7 @@ public class Estudios {
     }
 	
     @javax.jdo.annotations.Column(allowsNull="false")
-    @Title(sequence="1")
+    //@Title(sequence="1.0")
     @MemberOrder(sequence="1")
 	public String getIdEstudio() {
 		return idEstudio;
@@ -49,6 +49,7 @@ public class Estudios {
 	}
 	
 	@javax.jdo.annotations.Column(allowsNull="false")
+	@Title(sequence="1.1")//Especifico que valor busca estudiosPorNombre
 	@MemberOrder(sequence="2")
 	public String getNombre() {
 		return nombre;
@@ -83,7 +84,6 @@ public class Estudios {
 	public void setDireccion(String direccion) {
 		this.direccion = direccion;
 	}
-	
 	
 	@javax.inject.Inject
     @SuppressWarnings("unused")
