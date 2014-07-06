@@ -20,12 +20,12 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>com.mycompany</groupId>
-        <artifactId>myapp</artifactId>
+        <groupId>com.iusis</groupId>
+        <artifactId>IUSIS</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>myapp-webapp</artifactId>
+    <artifactId>IUSIS-webapp</artifactId>
     <name>Quickstart Wicket/Restful/JDO Webapp</name>
 
     <description>This module runs both the Wicket viewer and the Restfulobjects viewer in a single webapp configured to run using the datanucleus object store.</description>
@@ -147,18 +147,7 @@
         <!-- other modules in this project -->
         <dependency>
             <groupId>${project.groupId}</groupId>
-            <artifactId>myapp-dom</artifactId>
-            <exclusions>
-                <exclusion>
-                    <!-- so don't pick up transitive dependency to asm 4.0.0 -->
-                    <groupId>org.datanucleus</groupId>
-                    <artifactId>datanucleus-enhancer</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-        <dependency>
-            <groupId>${project.groupId}</groupId>
-            <artifactId>myapp-fixture</artifactId>
+            <artifactId>IUSIS-dom</artifactId>
             <exclusions>
                 <exclusion>
                     <!-- so don't pick up transitive dependency to asm 4.0.0 -->

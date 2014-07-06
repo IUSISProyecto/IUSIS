@@ -13,7 +13,6 @@ import dom.iusis.Estudios;
 @Named("Administrar Estudios")
 public class RepositorioEstudios extends AbstractFactoryAndRepository {
 
-
 	public String getId() {
         return "Estudios";
     }
