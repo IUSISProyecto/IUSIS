@@ -11,6 +11,7 @@ import org.apache.isis.applib.annotation.Optional;
 import org.apache.isis.applib.annotation.RegEx;
 import org.apache.isis.applib.query.QueryDefault;
 
+import dom.iusis.Abogados;
 import dom.iusis.Clientes;
 import dom.iusis.Peritos;
 import dom.iusis.Personas;
@@ -102,6 +103,45 @@ public class RepositorioPersonas extends AbstractFactoryAndRepository {
 		    
 			return perito;
 		}
+		
+		public Abogados ingresarAbogados(
+				
+				@Named("DNI")final String dni ,
+				@RegEx(validation = "[A-Za-z ]+")
+				@Named("Nombre")final String nombre,
+				@RegEx(validation = "[A-Za-z ]+")
+				@Named("Apellido")final String apellido,
+				@Named("Direccion")final String direccion,
+				@Named("Fecha Nacimiento")final Date fechaNacimiento,
+				@RegEx(validation = "[A-Za-z ]+")
+				@Named("Localidad")final String localidad,
+				@Named("Telefono")final @Optional String telefono,
+				@Named("Celular")final @Optional String celular,
+				@Named("Tipo Abogado")final @Optional String tipoabogado,
+				@RegEx(validation = "(\\w+\\.)*\\w+@(\\w+\\.)+[A-Za-z]+")
+				@Named("E-mail")final @Optional String email)
+
+				{
+					final Abogados abogado = container.newTransientInstance(Abogados.class);
+				   
+				    abogado.setDni(dni);
+				    abogado.setNombre(nombre);
+				    abogado.setApellido(apellido);
+				    abogado.setDireccion(direccion);
+				    abogado.setFechaNacimiento(fechaNacimiento);
+				    abogado.setLocalidad(localidad);
+				    abogado.setTelefono(telefono);
+				    abogado.setCelular(celular);
+				    abogado.setTipoAbogado(tipoabogado);
+				    abogado.setEmail(email);
+
+				    container.persistIfNotAlready(abogado);
+				    
+					return abogado;
+				}
+				
+				//======================================================
+		
 		//Listo todos los clientes en el sistema
 		public List<Personas> listarPersonas() {
 	        return allMatches(QueryDefault.create(Personas.class, "listarTodasPersonas")); 

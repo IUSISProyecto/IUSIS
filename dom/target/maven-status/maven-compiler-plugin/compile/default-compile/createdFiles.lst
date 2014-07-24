@@ -1,13 +1,14 @@
 dom/iusis/QPeritos.class
 repo/iusis/RepositorioPersonas.class
 dom/iusis/Estudios.class
+dom/iusis/QAbogados.class
 dom/iusis/Clientes.class
 repo/iusis/RepositorioEstudios.class
 dom/iusis/QClientes.class
 dom/iusis/Peritos.class
-repo/iusis/RepositorioClientes.class
 dom/iusis/QEstudios.class
 repo/iusis/RepositorioProcesos.class
+dom/iusis/Abogados.class
 dom/iusis/QProcesos.class
 dom/iusis/QPersonas.class
 dom/iusis/Personas.class
