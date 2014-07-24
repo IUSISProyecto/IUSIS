@@ -6,16 +6,10 @@ import javax.jdo.annotations.IdentityType;
 import javax.jdo.annotations.VersionStrategy;
 import org.apache.isis.applib.DomainObjectContainer;
 import org.apache.isis.applib.annotation.Audited;
-//import org.apache.isis.applib.annotation.AutoComplete;
 import org.apache.isis.applib.annotation.MemberOrder;
 import org.apache.isis.applib.annotation.ObjectType;
-//import org.apache.isis.applib.annotation.Optional;
-//import org.apache.isis.applib.annotation.RegEx;
 import org.apache.isis.applib.annotation.Title;
-//import org.apache.isis.applib.query.QueryDefault;
-//import repo.iusis.RepositorioClientes;
 import dom.iusis.Estudios;
-//import org.apache.isis.applib.query.QueryDefault;
 
 @javax.jdo.annotations.PersistenceCapable(identityType=IdentityType.DATASTORE)
 @javax.jdo.annotations.Version(
@@ -40,8 +34,6 @@ public class Personas{
 	private String telefono;
 	private String celular;
 	private String email;
-	private String observacion;
-	private Estudios estudios;
 	
 	public String iconName() {
         return "clientes";
@@ -127,24 +119,6 @@ public class Personas{
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	
-	@javax.jdo.annotations.Column(allowsNull="true")
-	 @MemberOrder(sequence="8")
-	public String getObservacion() {
-		return observacion;
-	}
-	public void setObservacion(String observacion) {
-		this.observacion = observacion;
-	}
-	
-    @javax.jdo.annotations.Column(allowsNull="true")
-    @MemberOrder(sequence = "9")
-    public Estudios getEstudios() {
-        return estudios;
-    }
-    public void setEstudios(Estudios estudios) {
-        this.estudios = estudios;
-    }
 
 	@javax.inject.Inject
     @SuppressWarnings("unused")

@@ -30,18 +30,7 @@ public class RepositorioClientes extends AbstractFactoryAndRepository {
     //@Optional nos define si el campo es obligatorio u opcional
 	public Clientes ingresarClientes(
 	
-	@Named("id de Clientes")final String idCliente ,
-	@RegEx(validation = "[A-Za-z ]+")
-	@Named("Nombre")final String nombre,
-	@RegEx(validation = "[A-Za-z ]+")
-	@Named("Apellido")final String apellido,
-	@Named("Direccion")final String direccion,
-	@RegEx(validation = "[A-Za-z ]+")
-	@Named("Localidad")final String localidad,
-	@Named("Telefono")final @Optional String telefono,
-	@Named("Celular")final @Optional String celular,
-	@RegEx(validation = "(\\w+\\.)*\\w+@(\\w+\\.)+[A-Za-z]+")
-	@Named("E-mail")final @Optional String email,
+	
 	@Named("Observaciones")final @Optional String observacion,
 	@Named("Estudio")final @Optional Estudios estudio)
 	
@@ -50,14 +39,7 @@ public class RepositorioClientes extends AbstractFactoryAndRepository {
 	{
 		final Clientes cliente = container.newTransientInstance(Clientes.class);
 	   
-	    cliente.setIdCliente(idCliente);
-	    cliente.setNombre(nombre);
-	    cliente.setApellido(apellido);
-	    cliente.setDireccion(direccion);
-	    cliente.setLocalidad(localidad);
-	    cliente.setTelefono(telefono);
-	    cliente.setCelular(celular);
-	    cliente.setEmail(email);
+	    
 	    cliente.setObservacion(observacion);
 	    cliente.setEstudios(estudio);
 	    
