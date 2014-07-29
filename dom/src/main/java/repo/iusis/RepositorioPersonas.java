@@ -13,6 +13,8 @@ import org.apache.isis.applib.query.QueryDefault;
 
 import dom.iusis.Abogados;
 import dom.iusis.Clientes;
+import dom.iusis.Fiscales;
+import dom.iusis.Jueces;
 import dom.iusis.Peritos;
 import dom.iusis.Personas;
 import dom.iusis.Estudios;
@@ -180,7 +182,83 @@ public Testigos ingresarTestigos(
 				}
 				
 				//======================================================
+
+public Jueces ingresarJueces(
 		
+		@Named("DNI")final String dni ,
+		@RegEx(validation = "[A-Za-z ]+")
+		@Named("Nombre")final String nombre,
+		@RegEx(validation = "[A-Za-z ]+")
+		@Named("Apellido")final String apellido,
+		@Named("Direccion")final String direccion,
+		@Named("Fecha Nacimiento")final Date fechaNacimiento,
+		@RegEx(validation = "[A-Za-z ]+")
+		@Named("Localidad")final String localidad,
+		@Named("Telefono")final @Optional String telefono,
+		@Named("Celular")final @Optional String celular,
+		@Named("Tipo Abogado")final @Optional String tipoabogado,
+		@RegEx(validation = "(\\w+\\.)*\\w+@(\\w+\\.)+[A-Za-z]+")
+		@Named("E-mail")final @Optional String email)
+
+		{
+			final Jueces juez = container.newTransientInstance(Jueces.class);
+		   
+		    juez.setDni(dni);
+		    juez.setNombre(nombre);
+		    juez.setApellido(apellido);
+		    juez.setDireccion(direccion);
+		    juez.setFechaNacimiento(fechaNacimiento);
+		    juez.setLocalidad(localidad);
+		    juez.setTelefono(telefono);
+		    juez.setCelular(celular);
+		    juez.setTipoAbogado(tipoabogado);
+		    juez.setEmail(email);
+
+		    container.persistIfNotAlready(juez);
+		    
+			return juez;
+		}
+		
+		//======================================================
+
+public Fiscales ingresarFiscales(
+		
+		@Named("DNI")final String dni ,
+		@RegEx(validation = "[A-Za-z ]+")
+		@Named("Nombre")final String nombre,
+		@RegEx(validation = "[A-Za-z ]+")
+		@Named("Apellido")final String apellido,
+		@Named("Direccion")final String direccion,
+		@Named("Fecha Nacimiento")final Date fechaNacimiento,
+		@RegEx(validation = "[A-Za-z ]+")
+		@Named("Localidad")final String localidad,
+		@Named("Telefono")final @Optional String telefono,
+		@Named("Celular")final @Optional String celular,
+		@Named("Tipo Abogado")final @Optional String tipoabogado,
+		@RegEx(validation = "(\\w+\\.)*\\w+@(\\w+\\.)+[A-Za-z]+")
+		@Named("E-mail")final @Optional String email)
+
+		{
+			final Fiscales fiscal = container.newTransientInstance(Fiscales.class);
+		   
+		    fiscal.setDni(dni);
+		    fiscal.setNombre(nombre);
+		    fiscal.setApellido(apellido);
+		    fiscal.setDireccion(direccion);
+		    fiscal.setFechaNacimiento(fechaNacimiento);
+		    fiscal.setLocalidad(localidad);
+		    fiscal.setTelefono(telefono);
+		    fiscal.setCelular(celular);
+		    fiscal.setTipoAbogado(tipoabogado);
+		    fiscal.setEmail(email);
+
+		    container.persistIfNotAlready(fiscal);
+		    
+			return fiscal;
+		}
+		
+		//======================================================
+
 		//Listo todos los clientes en el sistema
 		public List<Personas> listarPersonas() {
 	        return allMatches(QueryDefault.create(Personas.class, "listarTodasPersonas")); 

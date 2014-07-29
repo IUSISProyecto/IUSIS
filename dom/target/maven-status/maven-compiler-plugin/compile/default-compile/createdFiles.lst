@@ -1,5 +1,6 @@
 repo/iusis/RepositorioPersonas.class
 dom/iusis/Estudios.class
+dom/iusis/Jueces.class
 dom/iusis/Clientes.class
 repo/iusis/RepositorioEstudios.class
 dom/iusis/Testigos.class
@@ -9,9 +10,12 @@ repo/iusis/RepositorioProcesos.class
 dom/iusis/QPersonas.class
 dom/iusis/QPeritos.class
 dom/iusis/QAbogados.class
+dom/iusis/QJueces.class
 dom/iusis/Peritos.class
 dom/iusis/QTestigos.class
+dom/iusis/Fiscales.class
 dom/iusis/Abogados.class
 dom/iusis/QProcesos.class
+dom/iusis/QFiscales.class
 dom/iusis/Personas.class
 dom/iusis/Procesos.class
