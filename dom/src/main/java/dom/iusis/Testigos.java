@@ -20,7 +20,7 @@ import dom.iusis.Personas;
 /*@javax.jdo.annotations.Version(
         strategy=VersionStrategy.VERSION_NUMBER, 
         column="version")*/
-@ObjectType("Abogados")
+@ObjectType("Testigos")
 
 
 @javax.jdo.annotations.Queries({
@@ -31,7 +31,7 @@ import dom.iusis.Personas;
 //@AutoComplete(repository = RepositorioClientes.class , action = "autoComplete")
 //@AutoComplete(repository = RepositorioEstudios.class , action = "autoCompleteEstudios")
 
-public class Abogados extends Personas {
+public class Testigos extends Personas {
 	
 	private String tipoabogado;
 	//private Estudios estudios;

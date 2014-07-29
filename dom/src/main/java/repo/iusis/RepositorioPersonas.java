@@ -16,6 +16,7 @@ import dom.iusis.Clientes;
 import dom.iusis.Peritos;
 import dom.iusis.Personas;
 import dom.iusis.Estudios;
+import dom.iusis.Testigos;
 
 @Named("Administrar Personas")
 public class RepositorioPersonas extends AbstractFactoryAndRepository {
@@ -138,6 +139,44 @@ public class RepositorioPersonas extends AbstractFactoryAndRepository {
 				    container.persistIfNotAlready(abogado);
 				    
 					return abogado;
+				}
+				
+				//======================================================
+		
+public Testigos ingresarTestigos(
+				
+				@Named("DNI")final String dni ,
+				@RegEx(validation = "[A-Za-z ]+")
+				@Named("Nombre")final String nombre,
+				@RegEx(validation = "[A-Za-z ]+")
+				@Named("Apellido")final String apellido,
+				@Named("Direccion")final String direccion,
+				@Named("Fecha Nacimiento")final Date fechaNacimiento,
+				@RegEx(validation = "[A-Za-z ]+")
+				@Named("Localidad")final String localidad,
+				@Named("Telefono")final @Optional String telefono,
+				@Named("Celular")final @Optional String celular,
+				@Named("Tipo Abogado")final @Optional String tipoabogado,
+				@RegEx(validation = "(\\w+\\.)*\\w+@(\\w+\\.)+[A-Za-z]+")
+				@Named("E-mail")final @Optional String email)
+
+				{
+					final Testigos testigo = container.newTransientInstance(Testigos.class);
+				   
+				    testigo.setDni(dni);
+				    testigo.setNombre(nombre);
+				    testigo.setApellido(apellido);
+				    testigo.setDireccion(direccion);
+				    testigo.setFechaNacimiento(fechaNacimiento);
+				    testigo.setLocalidad(localidad);
+				    testigo.setTelefono(telefono);
+				    testigo.setCelular(celular);
+				    testigo.setTipoAbogado(tipoabogado);
+				    testigo.setEmail(email);
+
+				    container.persistIfNotAlready(testigo);
+				    
+					return testigo;
 				}
 				
 				//======================================================
