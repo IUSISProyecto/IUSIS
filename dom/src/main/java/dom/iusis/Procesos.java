@@ -1,15 +1,7 @@
 package dom.iusis;
 
-
-//import java.util.Date;
-
-
 import javax.jdo.annotations.IdentityType;
 import javax.jdo.annotations.VersionStrategy;
-
-
-
-
 import org.apache.isis.applib.DomainObjectContainer;
 import org.apache.isis.applib.annotation.MemberOrder;
 import org.apache.isis.applib.annotation.ObjectType;
@@ -26,17 +18,16 @@ import org.apache.isis.applib.annotation.Title;
 	@javax.jdo.annotations.Query(name = "listarTodoslosProcesos", language = "JDOQL", value = "SELECT FROM dom.iusis.Procesos ")})
 
 public class Procesos {
-	
-	
+
 	private String idProceso;
 	private String nombre;
 	private String descripcion;
+	private String domicilioConstituido;
 	
 	
     public String iconName() {
         return "procesos";
     }
-	
 
 	@javax.jdo.annotations.Column(allowsNull="false")
 	public String getNombre() {
@@ -54,6 +45,14 @@ public class Procesos {
 		this.descripcion = descripcion;
 	}
 	
+	@javax.jdo.annotations.Column(allowsNull="false")
+	public String getDomicilioConstituido() {
+		return domicilioConstituido;
+	}
+	public void setDomicilioConstituido(String domicilioConstituido) {
+		this.domicilioConstituido = domicilioConstituido;
+	}
+	
 	
 	@javax.jdo.annotations.Column(allowsNull="false")
     @Title(sequence="1")
@@ -65,7 +64,7 @@ public class Procesos {
 		this.idProceso = idProceso;
 	}
 	
-
+	
 	@javax.inject.Inject
     @SuppressWarnings("unused")
 

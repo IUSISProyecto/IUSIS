@@ -1,8 +1,6 @@
 package repo.iusis;
 
-
 import java.util.List;
-
 import org.apache.isis.applib.AbstractFactoryAndRepository;
 import org.apache.isis.applib.DomainObjectContainer;
 import org.apache.isis.applib.annotation.Named;
@@ -12,7 +10,6 @@ import dom.iusis.Procesos;
 
 @Named("Administrar Procesos")
 public class RepositorioProcesos extends AbstractFactoryAndRepository {
-
 
 	public String getId() {
         return "Procesos";
@@ -25,21 +22,16 @@ public class RepositorioProcesos extends AbstractFactoryAndRepository {
     //@Optional nos define si el campo es obligatorio u opcional
 	public Procesos ingresarProcesos(@Named("id de Procesos")final String idProcesos ,
 	@Named("Nombre")final String nombre,
-	@Named("Descripcion")final String descripcion)
+	@Named("Descripcion")final String descripcion,
+	@Named("DomicilioConstituido")final String domicilioConstituido)
 	
-	
-	//@Named("Direccion Legal") @Optional final Date fechaDeExpiracion,
-	//@Named("Direccion Real")final String direccionMac)
 	{
 		final Procesos proceso = container.newTransientInstance(Procesos.class);
-	   // netbook.setFechaDeExpiracion(fechaDeExpiracion);
 	    proceso.setIdProceso(idProcesos);
 	    proceso.setNombre(nombre);
 	    proceso.setDescripcion(descripcion);
+	    proceso.setDomicilioConstituido(domicilioConstituido);
 	 
-	    
-	    //netbook.setSituacionDeNetbook("Entregada");
-	    
 	    container.persistIfNotAlready(proceso);
 	    
 		return proceso;
