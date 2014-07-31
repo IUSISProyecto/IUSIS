@@ -14,6 +14,8 @@ datanucleus.log
 .settings/
 target/
 target-ide/
+pom.properties
+MANIFEST.MF
 
 #Eclipse
 *.pydevproject

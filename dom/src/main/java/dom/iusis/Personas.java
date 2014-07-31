@@ -3,12 +3,15 @@ package dom.iusis;
 import java.util.Date;
 
 import javax.jdo.annotations.IdentityType;
+import javax.jdo.annotations.Unique;
 import javax.jdo.annotations.VersionStrategy;
+
 import org.apache.isis.applib.DomainObjectContainer;
 import org.apache.isis.applib.annotation.Audited;
 import org.apache.isis.applib.annotation.MemberOrder;
 import org.apache.isis.applib.annotation.ObjectType;
 import org.apache.isis.applib.annotation.Title;
+
 import dom.iusis.Estudios;
 
 @javax.jdo.annotations.PersistenceCapable(identityType=IdentityType.DATASTORE)
@@ -42,7 +45,7 @@ public class Personas{
 	@javax.jdo.annotations.Column(allowsNull="false")
     @Title(sequence="1")
     @MemberOrder(sequence="1")
-
+	@Unique
 	public String getDni() {
 		return dni;
 	}
