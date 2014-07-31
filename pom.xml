@@ -353,8 +353,15 @@
                 <artifactId>IUSIS-webapp</artifactId>
                 <version>1.0-SNAPSHOT</version>
             </dependency>
-
-
+			
+          <!--  Agrego dependencia para utilizacion del Calendario -->
+        <dependency>
+            <groupId>com.danhaywood.isis.wicket</groupId>
+            <artifactId>danhaywood-isis-wicket-fullcalendar2</artifactId>
+            <version>1.4.0</version>
+            <type>pom</type>
+            <scope>import</scope>
+        </dependency>
 
             <!-- quartz scheduler integration -->
 

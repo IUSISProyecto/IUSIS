@@ -128,7 +128,11 @@
             <artifactId>cglib-nodep</artifactId>
             <scope>test</scope>
         </dependency>
-
+          <!--  Agrego dependencia para utilizacion del Calendario -->
+    <dependency>
+        <groupId>com.danhaywood.isis.wicket</groupId>
+        <artifactId>danhaywood-isis-wicket-fullcalendar2-applib</artifactId>
+    </dependency>
 	</dependencies>
     
 </project>

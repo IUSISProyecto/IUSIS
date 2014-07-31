@@ -7,6 +7,7 @@ dom/iusis/Testigos.class
 dom/iusis/QClientes.class
 dom/iusis/QEstudios.class
 repo/iusis/RepositorioProcesos.class
+dom/iusis/relacionAbogado.class
 dom/iusis/QPersonas.class
 dom/iusis/QPeritos.class
 dom/iusis/QAbogados.class

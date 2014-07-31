@@ -33,9 +33,9 @@ import dom.iusis.Personas;
 
 public class Abogados extends Personas {
 	
-	private String tipoabogado;
+	private String numeroMatricula;
 	//private Estudios estudios;
-	
+	private dom.iusis.relacionAbogado relacionAbogado;
 	
     public String iconName() {
         return "clientes";
@@ -48,14 +48,8 @@ public class Abogados extends Personas {
 
 	}
     
-	@javax.jdo.annotations.Column(allowsNull="true")
-	 @MemberOrder(sequence="8")
-	public String getTipoAbogado() {
-		return tipoabogado;
-	}
-	public void setTipoAbogado(String tipoabogado) {
-		this.tipoabogado = tipoabogado;
-	}
+
+
 	/*
     @javax.jdo.annotations.Column(allowsNull="true")
     @MemberOrder(sequence = "9")
@@ -66,6 +60,26 @@ public class Abogados extends Personas {
         this.estudios = estudios;
     }*/
 
+    
+	@javax.jdo.annotations.Column(allowsNull="false")	
+	public dom.iusis.relacionAbogado getRelacionAbogado() {
+		return relacionAbogado;
+	}
+	public void setRelacionAbogado(dom.iusis.relacionAbogado relacionAbogado) {
+		this.relacionAbogado = relacionAbogado;
+	}
+	
+		@javax.jdo.annotations.Column(allowsNull="true")
+	 @MemberOrder(sequence="8")
+	public String getNumeroMatricula() {
+		return numeroMatricula;
+	}
+
+	public void setNumeroMatricula(String numeroMatricula) {
+		this.numeroMatricula = numeroMatricula;
+	}
+
+	
 	@javax.inject.Inject
     @SuppressWarnings("unused")
 
