@@ -267,6 +267,11 @@ public Fiscales ingresarFiscales(
 	        return allMatches(QueryDefault.create(Personas.class, "listarTodasPersonas")); 
 		}
 		
+		//Listo todos los clientes en el sistema
+		public List<Abogados> listarAbogados() {
+	        return allMatches(QueryDefault.create(Abogados.class, "listarTodosAbogados")); 
+		}
+		
 		//Lleno el dropdown list segun el nombre del estudio
 		@Hidden
 	    public List<Estudios> autoComplete(final String searchPhrase) { 

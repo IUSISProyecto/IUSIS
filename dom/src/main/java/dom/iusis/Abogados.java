@@ -24,7 +24,7 @@ import dom.iusis.Personas;
 
 
 @javax.jdo.annotations.Queries({
-		@javax.jdo.annotations.Query(name = "listarTodosClientes", language = "JDOQL", value = "SELECT FROM dom.iusis.Clientes ")})
+		@javax.jdo.annotations.Query(name = "listarTodosAbogados", language = "JDOQL", value = "SELECT FROM dom.iusis.Abogados ")})
 
 @AutoComplete(repository = RepositorioPersonas.class, action = "autoComplete")
 @Audited
