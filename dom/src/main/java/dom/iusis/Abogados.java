@@ -22,7 +22,6 @@ import dom.iusis.Personas;
         column="version")*/
 @ObjectType("Abogados")
 
-
 @javax.jdo.annotations.Queries({
 		@javax.jdo.annotations.Query(name = "listarTodosAbogados", language = "JDOQL", value = "SELECT FROM dom.iusis.Abogados ")})
 
