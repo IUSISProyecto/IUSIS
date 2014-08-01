@@ -20,6 +20,7 @@ import dom.iusis.Personas;
 import dom.iusis.Estudios;
 import dom.iusis.Testigos;
 import dom.iusis.relacionAbogado;
+import dom.iusis.tipoCliente;
 
 @Named("Administrar Personas")
 public class RepositorioPersonas extends AbstractFactoryAndRepository {
@@ -46,6 +47,7 @@ public class RepositorioPersonas extends AbstractFactoryAndRepository {
 	@Named("Localidad")final String localidad,
 	@Named("Telefono")final @Optional String telefono,
 	@Named("Celular")final @Optional String celular,
+	@Named("Tipo Cliente")final  @Optional tipoCliente tipoCliente, 
 	@Named("Observaciones")final @Optional String observacion,
 	@Named("Estudio")final @Optional Estudios estudios,
 	@RegEx(validation = "(\\w+\\.)*\\w+@(\\w+\\.)+[A-Za-z]+")
@@ -62,6 +64,7 @@ public class RepositorioPersonas extends AbstractFactoryAndRepository {
 	    cliente.setLocalidad(localidad);
 	    cliente.setTelefono(telefono);
 	    cliente.setCelular(celular);
+	    cliente.setTipoCliente(tipoCliente);
 	    cliente.setObservacion(observacion);
 	    cliente.setEstudios(estudios);
 	    cliente.setEmail(email);

@@ -10,6 +10,7 @@ repo/iusis/RepositorioProcesos.class
 dom/iusis/relacionAbogado.class
 dom/iusis/QPersonas.class
 dom/iusis/QPeritos.class
+dom/iusis/tipoCliente.class
 dom/iusis/QAbogados.class
 dom/iusis/QJueces.class
 dom/iusis/Peritos.class

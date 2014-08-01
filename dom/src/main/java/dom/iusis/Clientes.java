@@ -29,7 +29,7 @@ public class Clientes extends Personas {
 	
 	private String observacion;
 	private Estudios estudios;
-	
+	private dom.iusis.tipoCliente tipoCliente;
 	
     public String iconName() {
         return "clientes";
@@ -38,6 +38,15 @@ public class Clientes extends Personas {
     public String title()
 	{
 		return this.getNombre().toString()+" "+this.getApellido().toString();
+	}
+    
+    @javax.jdo.annotations.Column(allowsNull="true")
+    @MemberOrder(sequence = "7")
+	public dom.iusis.tipoCliente getTipoCliente() {
+		return tipoCliente;
+	}
+	public void setTipoCliente(dom.iusis.tipoCliente tipoCliente) {
+		this.tipoCliente = tipoCliente;
 	}
     
 	@javax.jdo.annotations.Column(allowsNull="true")
