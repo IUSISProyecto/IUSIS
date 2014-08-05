@@ -1,4 +1,5 @@
 dom/iusis/listaProvincias.class
+com/danhaywood/isis/wicket/gmap3/applib/LocationSemanticsProvider$2.class
 repo/iusis/RepositorioPersonas.class
 dom/iusis/Estudios.class
 dom/iusis/Jueces.class
@@ -7,9 +8,12 @@ repo/iusis/RepositorioEstudios.class
 repo/iusis/RepositorioTribunales.class
 dom/iusis/Testigos.class
 dom/iusis/QClientes.class
+com/danhaywood/isis/wicket/gmap3/applib/Location.class
 dom/iusis/QEstudios.class
+com/danhaywood/isis/wicket/gmap3/applib/LocationSemanticsProvider$3.class
 repo/iusis/RepositorioProcesos.class
 dom/iusis/relacionAbogado.class
+com/danhaywood/isis/wicket/gmap3/applib/LocationSemanticsProvider.class
 dom/iusis/QPersonas.class
 dom/iusis/tipoTribunal.class
 dom/iusis/tipoCliente.class
@@ -19,6 +23,8 @@ dom/iusis/QJueces.class
 dom/iusis/QTestigos.class
 dom/iusis/Peritos.class
 dom/iusis/QTribunales.class
+com/danhaywood/isis/wicket/gmap3/applib/Locatable.class
+com/danhaywood/isis/wicket/gmap3/applib/LocationSemanticsProvider$1.class
 dom/iusis/Fiscales.class
 dom/iusis/Abogados.class
 dom/iusis/QProcesos.class

@@ -129,10 +129,16 @@
             <scope>test</scope>
         </dependency>
           <!--  Agrego dependencia para utilizacion del Calendario -->
-    <dependency>
-        <groupId>com.danhaywood.isis.wicket</groupId>
-        <artifactId>danhaywood-isis-wicket-fullcalendar2-applib</artifactId>
-    </dependency>
+		<dependency>
+			<groupId>com.danhaywood.isis.wicket</groupId>
+			<artifactId>danhaywood-isis-wicket-fullcalendar2-applib</artifactId>
+		</dependency>
+	 <!--  Agrego dependencia para utilizacion de los mapas -->
+		<dependency>
+			<groupId>com.danhaywood.isis.wicket</groupId>
+			<artifactId>danhaywood-isis-wicket-gmap3-service</artifactId>
+		</dependency>
+	
 	</dependencies>
     
 </project>

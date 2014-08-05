@@ -2,11 +2,17 @@ package dom.iusis;
 
 
 import javax.jdo.annotations.IdentityType;
+import javax.jdo.annotations.Persistent;
+
 import org.apache.isis.applib.DomainObjectContainer;
 import org.apache.isis.applib.annotation.Audited;
 import org.apache.isis.applib.annotation.AutoComplete;
 import org.apache.isis.applib.annotation.MemberOrder;
 import org.apache.isis.applib.annotation.ObjectType;
+import org.apache.isis.applib.annotation.Optional;
+
+import com.danhaywood.isis.wicket.gmap3.applib.Locatable;
+import com.danhaywood.isis.wicket.gmap3.applib.Location;
 
 import repo.iusis.RepositorioPersonas;
 
@@ -21,7 +27,7 @@ import repo.iusis.RepositorioPersonas;
 //@AutoComplete(repository = RepositorioClientes.class , action = "autoComplete")
 //@AutoComplete(repository = RepositorioEstudios.class , action = "autoCompleteEstudios")
 
-public class Tribunales {
+public class Tribunales implements Locatable{
 	
 	private String nombre;
 	private tipoTribunal tipoTribunal;
@@ -115,6 +121,23 @@ public class Tribunales {
 		this.fiscal = fiscal;
 	}
 
+	
+	// {{
+    @javax.jdo.annotations.Persistent
+    private Location location;
+    
+    @Optional
+    @MemberOrder(sequence="10")
+    public Location getLocation() {
+        return location;
+    }
+    public void setLocation(Location location) {
+        this.location = location;
+    }
+
+    // }}
+
+	
 
 	@javax.inject.Inject
     @SuppressWarnings("unused")
