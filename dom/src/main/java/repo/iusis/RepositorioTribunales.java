@@ -7,6 +7,8 @@ import org.apache.isis.applib.DomainObjectContainer;
 import org.apache.isis.applib.annotation.Named;
 import org.apache.isis.applib.query.QueryDefault;
 
+import com.danhaywood.isis.wicket.gmap3.applib.Location;
+
 import dom.iusis.Procesos;
 import dom.iusis.Tribunales;
 import dom.iusis.listaProvincias;
@@ -43,11 +45,16 @@ public class RepositorioTribunales extends AbstractFactoryAndRepository {
 		tribunal.setTelefono(telefono);
 		tribunal.setJuez(juez);
 		tribunal.setFiscal(fiscal);
-		
+		tribunal.setLocation(
+	            new Location(51.5172+random(-0.05, +0.05), 0.1182 + random(-0.05, +0.05)));
 	    container.persistIfNotAlready(tribunal);
 	    
 		return tribunal;
 	}
+	
+    private static double random(double from, double to) {
+        return Math.random() * (to-from) + from;
+    }
 	
 	public List<Tribunales> listarTodoslosTribunales() {
         return allMatches(QueryDefault.create(Tribunales.class, "listarTodoslosTribunales"));

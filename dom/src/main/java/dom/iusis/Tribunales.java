@@ -115,19 +115,16 @@ public class Tribunales implements Locatable{
     @MemberOrder(sequence = "8")
 	public String getFiscal() {
 		return fiscal;
-	}
-    
+	}   
 	public void setFiscal(String fiscal) {
 		this.fiscal = fiscal;
 	}
-
 	
 	// {{
     @javax.jdo.annotations.Persistent
     private Location location;
-    
     @Optional
-    @MemberOrder(sequence="10")
+    @MemberOrder(name="Ubicacion", sequence = "10")
     public Location getLocation() {
         return location;
     }
@@ -136,8 +133,6 @@ public class Tribunales implements Locatable{
     }
 
     // }}
-
-	
 
 	@javax.inject.Inject
     @SuppressWarnings("unused")
