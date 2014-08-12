@@ -23,7 +23,7 @@ public class Procesos {
 	private String nombre;
 	private String descripcion;
 	private String domicilioConstituido;
-	
+	private tipoNivel tipoNivel;
 	
     public String iconName() {
         return "procesos";
@@ -64,7 +64,17 @@ public class Procesos {
 		this.idProceso = idProceso;
 	}
 	
-	
+	@javax.jdo.annotations.Column(allowsNull="false")
+    @MemberOrder(sequence="4")
+	public tipoNivel getTipoNivel() {
+		return tipoNivel;
+	}
+
+	public void setTipoNivel(tipoNivel tipoNivel) {
+		this.tipoNivel = tipoNivel;
+	}
+
+
 	@javax.inject.Inject
     @SuppressWarnings("unused")
 

@@ -1,12 +1,14 @@
 package repo.iusis;
 
 import java.util.List;
+
 import org.apache.isis.applib.AbstractFactoryAndRepository;
 import org.apache.isis.applib.DomainObjectContainer;
 import org.apache.isis.applib.annotation.Named;
 import org.apache.isis.applib.query.QueryDefault;
 
 import dom.iusis.Procesos;
+import dom.iusis.tipoNivel;
 
 @Named("Administrar Procesos")
 public class RepositorioProcesos extends AbstractFactoryAndRepository {
@@ -23,6 +25,7 @@ public class RepositorioProcesos extends AbstractFactoryAndRepository {
 	public Procesos ingresarProcesos(@Named("id de Procesos")final String idProcesos ,
 	@Named("Nombre")final String nombre,
 	@Named("Descripcion")final String descripcion,
+	@Named("Tipo Nivel")final tipoNivel tipoNivel,
 	@Named("DomicilioConstituido")final String domicilioConstituido)
 	
 	{
@@ -30,6 +33,7 @@ public class RepositorioProcesos extends AbstractFactoryAndRepository {
 	    proceso.setIdProceso(idProcesos);
 	    proceso.setNombre(nombre);
 	    proceso.setDescripcion(descripcion);
+	    proceso.setTipoNivel(tipoNivel);
 	    proceso.setDomicilioConstituido(domicilioConstituido);
 	 
 	    container.persistIfNotAlready(proceso);
