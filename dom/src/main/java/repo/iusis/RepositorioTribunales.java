@@ -46,11 +46,15 @@ public class RepositorioTribunales extends AbstractFactoryAndRepository {
 		tribunal.setJuez(juez);
 		tribunal.setFiscal(fiscal);
 		tribunal.setLocation(
-	            new Location(37.1953+random(-0.05, +0.05), 12.2149 + random(-0.05, +0.05)));
+		//tribunal.setLocation(location);
+	            new Location(37.3321+random(-0.05, +0.05), -122.0307 + random(-0.05, +0.05)));
+
 				//new Location(37.195382,12.214927));
 	    container.persistIfNotAlready(tribunal);
-	    //37.195382,12.214927 coordenadas campus apple
+	    //37.195382,122.214927 coordenadas campus apple
+	    
 		return tribunal;
+				        
 	}
 	
     private static double random(double from, double to) {

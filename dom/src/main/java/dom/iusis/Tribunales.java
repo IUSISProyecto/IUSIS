@@ -7,12 +7,15 @@ import javax.jdo.annotations.Persistent;
 import org.apache.isis.applib.DomainObjectContainer;
 import org.apache.isis.applib.annotation.Audited;
 import org.apache.isis.applib.annotation.AutoComplete;
+import org.apache.isis.applib.annotation.DescribedAs;
 import org.apache.isis.applib.annotation.MemberOrder;
+import org.apache.isis.applib.annotation.Named;
 import org.apache.isis.applib.annotation.ObjectType;
 import org.apache.isis.applib.annotation.Optional;
 
 import com.danhaywood.isis.wicket.gmap3.applib.Locatable;
 import com.danhaywood.isis.wicket.gmap3.applib.Location;
+import com.danhaywood.isis.wicket.gmap3.service.LocationLookupService;
 
 import repo.iusis.RepositorioPersonas;
 
@@ -37,6 +40,7 @@ public class Tribunales implements Locatable{
 	private String telefono;
 	private String juez;
 	private String fiscal;
+	private LocationLookupService locationLookupService;
 
     public String iconName() {
         return "clientes";
@@ -120,18 +124,48 @@ public class Tribunales implements Locatable{
 		this.fiscal = fiscal;
 	}
 	
-	// {{
     @javax.jdo.annotations.Persistent
     private Location location;
     @Optional
-    @MemberOrder(name="Ubicacion", sequence = "10")
-    public Location getLocation() {
+   // @MemberOrder(name="Ubicacion", sequence = "10")
+   /* public Location getLocation() {
         return location;
     }
     public void setLocation(Location location) {
         this.location = location;
     }
+    
+    @MemberOrder(name="location", sequence="1")
+    public Tribunales updateLocation(@Named("Direccion") final String direccion) {
+        final Location location = this.locationLookupService.lookup(direccion);
+        setLocation(location);
+        return this;
+    }
+    
+    public Tribunales updateLocation2(@Named("Address") @DescribedAs("Example: Herengracht 469, Amsterdam, NL") final String address) {
+        final Location location = this.locationLookupService.lookup(address);
+        setLocation(location);
+        return this;
+    }*/
+    public Location getLocation() {
+        return location;
+    }
 
+    public void setLocation(final Location location) {
+        this.location = location;
+    }
+    
+   // @ActionSemantics(Of.IDEMPOTENT)
+    @Named("Lookup")
+    public Tribunales lookupLocation(
+            final @Named("Direccion") @DescribedAs("Example: Herengracht 469, Amsterdam, NL") String direccion) {
+        if (locationLookupService != null) {
+            // TODO: service does not seem to be loaded in tests
+            setLocation(locationLookupService.lookup(direccion));
+        }
+        return this;
+    }
+    
     // }}
 
 	@javax.inject.Inject
