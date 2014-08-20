@@ -130,13 +130,13 @@ public class CollectionOfEntitiesAsLocatables extends
         
         final ResourceReference imageResource = determineImageResource(adapter);
         //final String urlFor = (String)urlFor(imageResource, new PageParameters());
-        //final String urlFor = (String)urlFor(imageResource, new PageParameters());
+        final String urlFor = ("http://maps.google.com/mapfiles/kml/paddle/blu-stars.png");
         @SuppressWarnings("unused")
-        //final GIcon gicon = new GIcon(urlFor);
+        final GIcon gicon = new GIcon(urlFor);
         //final GIcon gicon = new GIcon("http://maps.google.com/mapfiles/kml/paddle/blu-stars.png");
         //Icon hotelIcon = new GIcon("http://www.yourdomain/img/Hotel.png"); 
        // final GIcon icon = new GIcon(urlFor("http://maps.google.com/mapfiles/kml/paddle/blu-stars.png"));
-        GIcon icon = new GIcon("http://maps.google.com/mapfiles/kml/paddle/blu-stars.png");
+        //GIcon icon = new GIcon("http://maps.google.com/mapfiles/kml/paddle/blu-stars.png");
         
         
         GLatLng gLatLng = asGLatLng(locatable);

@@ -2,14 +2,11 @@ package dom.iusis;
 
 
 import javax.jdo.annotations.IdentityType;
-import javax.jdo.annotations.Persistent;
 
 import org.apache.isis.applib.DomainObjectContainer;
 import org.apache.isis.applib.annotation.Audited;
 import org.apache.isis.applib.annotation.AutoComplete;
-import org.apache.isis.applib.annotation.DescribedAs;
 import org.apache.isis.applib.annotation.MemberOrder;
-import org.apache.isis.applib.annotation.Named;
 import org.apache.isis.applib.annotation.ObjectType;
 import org.apache.isis.applib.annotation.Optional;
 
@@ -41,7 +38,8 @@ public class Tribunales implements Locatable{
 	private String juez;
 	private String fiscal;
 	private Location location;
-	private LocationLookupService locationLookupService;
+	//private String dircomp;
+	//private LocationLookupService locationLookupService;
 
     public String iconName() {
         return "clientes";
@@ -99,8 +97,9 @@ public class Tribunales implements Locatable{
     */
 	public void setDireccion(String direccion) {
 		LocationLookupService loc = new LocationLookupService();
-		setLocation(loc.lookup(direccion));
+		setLocation(loc.lookup(direccion + "," + ciudad));
 		this.direccion = direccion;
+		//String msg = "'" + numeratorName + "' numerator already exists";
 	}
 	
     @javax.jdo.annotations.Column(allowsNull="false")
@@ -113,8 +112,9 @@ public class Tribunales implements Locatable{
 		this.telefono = telefono;
 	}
 
-    @javax.jdo.annotations.Column(allowsNull="false")
+    @javax.jdo.annotations.Column(allowsNull="true")
     @MemberOrder(sequence = "7")
+    @Optional
 	public String getJuez() {
 		return juez;
 	}
@@ -122,8 +122,9 @@ public class Tribunales implements Locatable{
 		this.juez = juez;
 	}
 
-    @javax.jdo.annotations.Column(allowsNull="false")
+    @javax.jdo.annotations.Column(allowsNull="true")
     @MemberOrder(sequence = "8")
+    @Optional
 	public String getFiscal() {
 		return fiscal;
 	}   
@@ -141,47 +142,16 @@ public class Tribunales implements Locatable{
     public void setLocation(Location location) {
         this.location = location;
     }
-
-   // @ActionSemantics(Of.IDEMPOTENT)
-   /* @Named("Lookup")
-    public Tribunales lookupLocation(
-            final @Named("Address") @DescribedAs("Example: Herengracht 469, Amsterdam, NL") String address) {
-        if (locationLookupService != null) {
-            // TODO: service does not seem to be loaded in tests
-            setLocation(locationLookupService.lookup(address));
-        }
-        return this;
-    }*/
-
     
-    
-    
-    
-    
-    /*public Location getLocation() {
-        return location;
+	/*@javax.jdo.annotations.Column(allowsNull="false")
+	@MemberOrder(sequence = "10")
+    public String getDirComp() {
+        return dircomp;
     }
-	public void setLocation(Location location) {
-		this.location = location;
-	}
+    public void setDirComp(String dircomp) {
+        this.dircomp = direccion + "'" + ciudad;
+    }*/
     
-   // @ActionSemantics(Of.IDEMPOTENT)
-    @Named("Direccion")
-    public Tribunales updateLocation(@Named("Direccion") final String direccion){
-            final Location location = this.locationLookupService.lookup("Roca 545, Neuquen");
-            setLocation(location);
-            return this;
-        }*/
-    //public Tribunales lookupLocation(
-      //      final @Named("Direccion") @DescribedAs("Example: Herengracht 469, Amsterdam, NL") String direccion) {
-        //if (locationLookupService != null) {
-            // TODO: service does not seem to be loaded in tests
-          //  setLocation(locationLookupService.lookup(direccion));
-        //}
-        //return this;
-    //}
-    
-    // }}
 
 	@javax.inject.Inject
     @SuppressWarnings("unused")

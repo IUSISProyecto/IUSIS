@@ -8,9 +8,6 @@ import org.apache.isis.applib.annotation.DescribedAs;
 import org.apache.isis.applib.annotation.Named;
 import org.apache.isis.applib.query.QueryDefault;
 
-import com.danhaywood.isis.wicket.gmap3.applib.Location;
-
-import dom.iusis.Procesos;
 import dom.iusis.Tribunales;
 import dom.iusis.listaProvincias;
 import dom.iusis.tipoTribunal;
@@ -31,10 +28,9 @@ public class RepositorioTribunales extends AbstractFactoryAndRepository {
 	@Named("Tipo Tribunal")final tipoTribunal tipoTribunal,
 	@Named("Provincia")final listaProvincias provincia,
 	@Named("Ciudad")final String ciudad,
-	//@Named("Direccion")final String direccion,
-	@Named("Direccion") @DescribedAs("Example: Herengracht 469, Amsterdam, NL")final String direccion,
+	@Named("Direccion") @DescribedAs("Example: Neuquen")final String direccion,
 	@Named("Telefono")@DescribedAs("Example: 299 154 681860")final String telefono,		
-	@Named("Juez")final String juez,
+	@Named("Juez")final @DescribedAs("Example: Jose Gago") String juez,
 	@Named("Fiscal")final String fiscal)
 	
 				
