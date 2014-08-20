@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.apache.isis.applib.AbstractFactoryAndRepository;
 import org.apache.isis.applib.DomainObjectContainer;
+import org.apache.isis.applib.annotation.DescribedAs;
 import org.apache.isis.applib.annotation.Named;
 import org.apache.isis.applib.query.QueryDefault;
 
@@ -30,10 +31,12 @@ public class RepositorioTribunales extends AbstractFactoryAndRepository {
 	@Named("Tipo Tribunal")final tipoTribunal tipoTribunal,
 	@Named("Provincia")final listaProvincias provincia,
 	@Named("Ciudad")final String ciudad,
-	@Named("Direccion")final String direccion,
-	@Named("Telefono")final String telefono,		
+	//@Named("Direccion")final String direccion,
+	@Named("Direccion") @DescribedAs("Example: Herengracht 469, Amsterdam, NL")final String direccion,
+	@Named("Telefono")@DescribedAs("Example: 299 154 681860")final String telefono,		
 	@Named("Juez")final String juez,
 	@Named("Fiscal")final String fiscal)
+	
 				
 	{
 		final Tribunales tribunal = container.newTransientInstance(Tribunales.class);
@@ -45,21 +48,13 @@ public class RepositorioTribunales extends AbstractFactoryAndRepository {
 		tribunal.setTelefono(telefono);
 		tribunal.setJuez(juez);
 		tribunal.setFiscal(fiscal);
-		tribunal.setLocation(
 		//tribunal.setLocation(location);
-	            new Location(37.3321+random(-0.05, +0.05), -122.0307 + random(-0.05, +0.05)));
-
-				//new Location(37.195382,12.214927));
+		
 	    container.persistIfNotAlready(tribunal);
-	    //37.195382,122.214927 coordenadas campus apple
 	    
 		return tribunal;
 				        
 	}
-	
-    private static double random(double from, double to) {
-        return Math.random() * (to-from) + from;
-    }
 	
 	public List<Tribunales> listarTodoslosTribunales() {
         return allMatches(QueryDefault.create(Tribunales.class, "listarTodoslosTribunales"));

@@ -40,6 +40,7 @@ public class Tribunales implements Locatable{
 	private String telefono;
 	private String juez;
 	private String fiscal;
+	private Location location;
 	private LocationLookupService locationLookupService;
 
     public String iconName() {
@@ -92,10 +93,16 @@ public class Tribunales implements Locatable{
 		return direccion;
 	}
 
-	public void setDireccion(String direccion) {
+    /*public void setDireccion(String direccion) {
 		this.direccion = direccion;
 	}
-    
+    */
+	public void setDireccion(String direccion) {
+		LocationLookupService loc = new LocationLookupService();
+		setLocation(loc.lookup(direccion));
+		this.direccion = direccion;
+	}
+	
     @javax.jdo.annotations.Column(allowsNull="false")
     @MemberOrder(sequence = "6")
 	public String getTelefono() {
@@ -124,47 +131,55 @@ public class Tribunales implements Locatable{
 		this.fiscal = fiscal;
 	}
 	
-    @javax.jdo.annotations.Persistent
-    private Location location;
-    @Optional
-   // @MemberOrder(name="Ubicacion", sequence = "10")
-   /* public Location getLocation() {
+    //@Hidden
+	//@Optional
+	@javax.jdo.annotations.Column(allowsNull="false")
+	@MemberOrder(sequence = "9")
+    public Location getLocation() {
         return location;
     }
     public void setLocation(Location location) {
         this.location = location;
     }
-    
-    @MemberOrder(name="location", sequence="1")
-    public Tribunales updateLocation(@Named("Direccion") final String direccion) {
-        final Location location = this.locationLookupService.lookup(direccion);
-        setLocation(location);
-        return this;
-    }
-    
-    public Tribunales updateLocation2(@Named("Address") @DescribedAs("Example: Herengracht 469, Amsterdam, NL") final String address) {
-        final Location location = this.locationLookupService.lookup(address);
-        setLocation(location);
-        return this;
-    }*/
-    public Location getLocation() {
-        return location;
-    }
 
-    public void setLocation(final Location location) {
-        this.location = location;
-    }
-    
    // @ActionSemantics(Of.IDEMPOTENT)
-    @Named("Lookup")
+   /* @Named("Lookup")
     public Tribunales lookupLocation(
-            final @Named("Direccion") @DescribedAs("Example: Herengracht 469, Amsterdam, NL") String direccion) {
+            final @Named("Address") @DescribedAs("Example: Herengracht 469, Amsterdam, NL") String address) {
         if (locationLookupService != null) {
             // TODO: service does not seem to be loaded in tests
-            setLocation(locationLookupService.lookup(direccion));
+            setLocation(locationLookupService.lookup(address));
         }
         return this;
+    }*/
+
+    
+    
+    
+    
+    
+    /*public Location getLocation() {
+        return location;
     }
+	public void setLocation(Location location) {
+		this.location = location;
+	}
+    
+   // @ActionSemantics(Of.IDEMPOTENT)
+    @Named("Direccion")
+    public Tribunales updateLocation(@Named("Direccion") final String direccion){
+            final Location location = this.locationLookupService.lookup("Roca 545, Neuquen");
+            setLocation(location);
+            return this;
+        }*/
+    //public Tribunales lookupLocation(
+      //      final @Named("Direccion") @DescribedAs("Example: Herengracht 469, Amsterdam, NL") String direccion) {
+        //if (locationLookupService != null) {
+            // TODO: service does not seem to be loaded in tests
+          //  setLocation(locationLookupService.lookup(direccion));
+        //}
+        //return this;
+    //}
     
     // }}
 
