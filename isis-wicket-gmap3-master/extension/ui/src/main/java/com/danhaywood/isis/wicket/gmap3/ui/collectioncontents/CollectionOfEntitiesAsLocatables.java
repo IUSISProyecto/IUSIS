@@ -129,22 +129,16 @@ public class CollectionOfEntitiesAsLocatables extends
         final Locatable locatable = (Locatable) adapter.getObject();
         
         final ResourceReference imageResource = determineImageResource(adapter);
-        //final String urlFor = (String)urlFor(imageResource, new PageParameters());
-        final String urlFor = ("http://maps.google.com/mapfiles/kml/paddle/blu-stars.png");
+        final String urlFor = (String)urlFor(imageResource, new PageParameters());
         @SuppressWarnings("unused")
         final GIcon gicon = new GIcon(urlFor);
-        //final GIcon gicon = new GIcon("http://maps.google.com/mapfiles/kml/paddle/blu-stars.png");
-        //Icon hotelIcon = new GIcon("http://www.yourdomain/img/Hotel.png"); 
-       // final GIcon icon = new GIcon(urlFor("http://maps.google.com/mapfiles/kml/paddle/blu-stars.png"));
-        //GIcon icon = new GIcon("http://maps.google.com/mapfiles/kml/paddle/blu-stars.png");
-        
         
         GLatLng gLatLng = asGLatLng(locatable);
         if(gLatLng == null) {
             return null;
         }
         final GMarkerOptions markerOptions = new GMarkerOptions(
-                map, gLatLng,
+                map, gLatLng, 
                 adapter.titleString(null)   ).draggable(false);
         return markerOptions;
     }

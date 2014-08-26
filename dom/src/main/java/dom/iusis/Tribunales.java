@@ -9,6 +9,7 @@ import org.apache.isis.applib.annotation.AutoComplete;
 import org.apache.isis.applib.annotation.MemberOrder;
 import org.apache.isis.applib.annotation.ObjectType;
 import org.apache.isis.applib.annotation.Optional;
+import org.apache.isis.applib.value.Blob;
 
 import com.danhaywood.isis.wicket.gmap3.applib.Locatable;
 import com.danhaywood.isis.wicket.gmap3.applib.Location;
@@ -44,6 +45,11 @@ public class Tribunales implements Locatable{
     public String iconName() {
         return "clientes";
     }
+    
+    public String title()
+	{
+		return this.getNombre().toString();
+	}
     
     @javax.jdo.annotations.Column(allowsNull="false")
     @MemberOrder(sequence = "1")
@@ -98,6 +104,7 @@ public class Tribunales implements Locatable{
 	public void setDireccion(String direccion) {
 		LocationLookupService loc = new LocationLookupService();
 		setLocation(loc.lookup(direccion + "," + ciudad));
+		
 		this.direccion = direccion;
 		//String msg = "'" + numeratorName + "' numerator already exists";
 	}
@@ -141,18 +148,22 @@ public class Tribunales implements Locatable{
     }
     public void setLocation(Location location) {
         this.location = location;
+       
     }
     
-	/*@javax.jdo.annotations.Column(allowsNull="false")
-	@MemberOrder(sequence = "10")
-    public String getDirComp() {
-        return dircomp;
-    }
-    public void setDirComp(String dircomp) {
-        this.dircomp = direccion + "'" + ciudad;
-    }*/
-    
+    /*Esta porcion de codigo nos permite insertar documentos en nuestra clase.*/
+    private Blob attachment;
 
+    @javax.jdo.annotations.Persistent(defaultFetchGroup="false")
+    @javax.jdo.annotations.Column(allowsNull="true")
+    public Blob getAttachment() {
+        return attachment;
+    }
+
+    public void setAttachment(final Blob attachment) {
+        this.attachment = attachment;
+    }
+      
 	@javax.inject.Inject
     @SuppressWarnings("unused")
     private DomainObjectContainer container;

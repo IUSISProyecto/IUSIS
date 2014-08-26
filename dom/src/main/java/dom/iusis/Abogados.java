@@ -40,14 +40,11 @@ public class Abogados extends Personas {
         return "clientes";
     }
 	
-    
     public String title()
 	{
 		return this.getNombre().toString()+" "+this.getApellido().toString();
 
 	}
-    
-
 
 	/*
     @javax.jdo.annotations.Column(allowsNull="true")
