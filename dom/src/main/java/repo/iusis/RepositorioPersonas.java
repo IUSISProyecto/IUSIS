@@ -6,9 +6,11 @@ import java.util.List;
 import org.apache.isis.applib.AbstractFactoryAndRepository;
 import org.apache.isis.applib.DomainObjectContainer;
 import org.apache.isis.applib.annotation.Hidden;
+import org.apache.isis.applib.annotation.MultiLine;
 import org.apache.isis.applib.annotation.Named;
 import org.apache.isis.applib.annotation.Optional;
 import org.apache.isis.applib.annotation.RegEx;
+import org.apache.isis.applib.annotation.TypicalLength;
 import org.apache.isis.applib.query.QueryDefault;
 
 import dom.iusis.Abogados;
@@ -41,6 +43,7 @@ public class RepositorioPersonas extends AbstractFactoryAndRepository {
 	@Named("Nombre")final String nombre,
 	@RegEx(validation = "[A-Za-z ]+")
 	@Named("Apellido")final String apellido,
+	@TypicalLength(50)
 	@Named("Direccion")final String direccion,
 	@Named("Fecha Nacimiento")final Date fechaNacimiento,
 	@RegEx(validation = "[A-Za-z ]+")
@@ -48,9 +51,11 @@ public class RepositorioPersonas extends AbstractFactoryAndRepository {
 	@Named("Telefono")final @Optional String telefono,
 	@Named("Celular")final @Optional String celular,
 	@Named("Tipo Cliente")final  @Optional tipoCliente tipoCliente, 
+	@MultiLine(numberOfLines=10)//Indica que el campo es multiline y se permiten hasta diez lineas
 	@Named("Observaciones")final @Optional String observacion,
 	@Named("Estudio")final @Optional Estudios estudios,
 	@RegEx(validation = "(\\w+\\.)*\\w+@(\\w+\\.)+[A-Za-z]+")
+	@TypicalLength(50)//Defino en 50 caracteres el ancho del campo
 	@Named("E-mail")final @Optional String email)
 
 	{

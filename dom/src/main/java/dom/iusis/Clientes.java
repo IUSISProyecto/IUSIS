@@ -10,6 +10,7 @@ import org.apache.isis.applib.annotation.Audited;
 import org.apache.isis.applib.annotation.AutoComplete;
 import org.apache.isis.applib.annotation.MemberOrder;
 import org.apache.isis.applib.annotation.ObjectType;
+import org.apache.isis.applib.annotation.MultiLine;
 import dom.iusis.Estudios;
 import repo.iusis.RepositorioPersonas;
 import dom.iusis.Personas;
@@ -50,7 +51,8 @@ public class Clientes extends Personas {
 	}
     
 	@javax.jdo.annotations.Column(allowsNull="true")
-	 @MemberOrder(sequence="8")
+	@MemberOrder(sequence="8")
+	//Indica que el campo es multiline y se permiten hasta diez lineas
 	public String getObservacion() {
 		return observacion;
 	}

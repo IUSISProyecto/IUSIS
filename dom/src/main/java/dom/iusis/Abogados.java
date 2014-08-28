@@ -1,9 +1,5 @@
 package dom.iusis;
 
-
-//import java.util.Date;
-//import java.util.ArrayList;
-//import java.util.List;
 import javax.jdo.annotations.IdentityType;
 import org.apache.isis.applib.DomainObjectContainer;
 import org.apache.isis.applib.annotation.Audited;
@@ -33,30 +29,27 @@ import dom.iusis.Personas;
 public class Abogados extends Personas {
 	
 	private String numeroMatricula;
-	//private Estudios estudios;
+	//private Estudios estudios;//Utiliso clase estudio para relacionarlas
 	private dom.iusis.relacionAbogado relacionAbogado;
 	
     public String iconName() {
         return "clientes";
     }
-	
     public String title()
 	{
 		return this.getNombre().toString()+" "+this.getApellido().toString();
 
 	}
-
-	/*
-    @javax.jdo.annotations.Column(allowsNull="true")
-    @MemberOrder(sequence = "9")
+	
+    /*@javax.jdo.annotations.Column(allowsNull="true")
+    @MemberOrder(sequence = "7")
     public Estudios getEstudios() {
         return estudios;
     }
     public void setEstudios(Estudios estudios) {
         this.estudios = estudios;
     }*/
-
-    
+    @MemberOrder(sequence = "8")
 	@javax.jdo.annotations.Column(allowsNull="false")	
 	public dom.iusis.relacionAbogado getRelacionAbogado() {
 		return relacionAbogado;
@@ -66,7 +59,7 @@ public class Abogados extends Personas {
 	}
 	
 		@javax.jdo.annotations.Column(allowsNull="true")
-	 @MemberOrder(sequence="8")
+	 @MemberOrder(sequence="9")
 	public String getNumeroMatricula() {
 		return numeroMatricula;
 	}
