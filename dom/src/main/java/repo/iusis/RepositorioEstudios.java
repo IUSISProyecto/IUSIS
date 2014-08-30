@@ -23,14 +23,13 @@ public class RepositorioEstudios extends AbstractFactoryAndRepository {
     
 	//Defino nombre etiquetas para la clase
     //@Optional nos define si el campo es obligatorio u opcional
-	public Estudios ingresarEstudios(@Named("id de Estudio")final String idEstudio ,
+	public Estudios ingresarEstudios(
 	@Named("Nombre Estudio")final String nombre,
 	@Named("Localidad")final String localidad,
 	@Named("Telefono")final String telefono,
 	@Named("Direccion")final String direccion)
 	{
 		final Estudios estudio = container.newTransientInstance(Estudios.class);
-	    estudio.setIdEstudio(idEstudio);
 	    estudio.setNombre(nombre);
 	    estudio.setLocalidad(localidad);
 	    estudio.setTelefono(telefono);

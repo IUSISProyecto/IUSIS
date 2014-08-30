@@ -28,7 +28,6 @@ import repo.iusis.RepositorioEstudios;
 
 public class Estudios {
 	
-	private String idEstudio;
 	private String nombre;
 	private String localidad;
 	private String telefono;
@@ -37,16 +36,6 @@ public class Estudios {
     public String iconName() {
         return "Edificio";
     }
-	
-    @javax.jdo.annotations.Column(allowsNull="false")
-    //@Title(sequence="1.0")
-    @MemberOrder(sequence="1")
-	public String getIdEstudio() {
-		return idEstudio;
-	}
-	public void setIdEstudio(String idEstudio) {
-		this.idEstudio = idEstudio;
-	}
 	
 	@javax.jdo.annotations.Column(allowsNull="false")
 	@Title(sequence="1.1")//Especifico que valor busca estudiosPorNombre

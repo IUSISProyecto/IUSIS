@@ -9,11 +9,13 @@ dom/iusis/Testigos.class
 dom/iusis/QClientes.class
 dom/iusis/QEstudios.class
 repo/iusis/RepositorioProcesos.class
+dom/iusis/tipoPersona.class
 dom/iusis/relacionAbogado.class
 dom/iusis/QPersonas.class
 dom/iusis/tipoTribunal.class
 dom/iusis/tipoCliente.class
 dom/iusis/QPeritos.class
+dom/iusis/estadoCivil.class
 dom/iusis/QAbogados.class
 dom/iusis/QJueces.class
 dom/iusis/QTestigos.class

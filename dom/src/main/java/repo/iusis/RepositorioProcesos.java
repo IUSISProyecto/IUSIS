@@ -10,7 +10,7 @@ import org.apache.isis.applib.query.QueryDefault;
 import dom.iusis.Procesos;
 import dom.iusis.tipoNivel;
 
-@Named("Administrar Procesos")
+@Named("Procesos")//Nombre del menu
 public class RepositorioProcesos extends AbstractFactoryAndRepository {
 
 	public String getId() {

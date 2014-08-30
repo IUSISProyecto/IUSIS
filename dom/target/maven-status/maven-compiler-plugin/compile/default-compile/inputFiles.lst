@@ -4,6 +4,7 @@
 /Users/roccovalois/Desktop/IFES2014/IUSIS/dom/src/main/java/dom/iusis/tipoTribunal.java
 /Users/roccovalois/Desktop/IFES2014/IUSIS/dom/src/main/java/dom/iusis/Fiscales.java
 /Users/roccovalois/Desktop/IFES2014/IUSIS/dom/src/main/java/dom/iusis/Procesos.java
+/Users/roccovalois/Desktop/IFES2014/IUSIS/dom/src/main/java/dom/iusis/tipoPersona.java
 /Users/roccovalois/Desktop/IFES2014/IUSIS/dom/src/main/java/dom/iusis/Tribunales.java
 /Users/roccovalois/Desktop/IFES2014/IUSIS/dom/src/main/java/dom/iusis/Personas.java
 /Users/roccovalois/Desktop/IFES2014/IUSIS/dom/src/main/java/dom/iusis/Jueces.java
@@ -14,6 +15,7 @@
 /Users/roccovalois/Desktop/IFES2014/IUSIS/dom/src/main/java/dom/iusis/relacionAbogado.java
 /Users/roccovalois/Desktop/IFES2014/IUSIS/dom/src/main/java/dom/iusis/listaProvincias.java
 /Users/roccovalois/Desktop/IFES2014/IUSIS/dom/src/main/java/repo/iusis/RepositorioPersonas.java
+/Users/roccovalois/Desktop/IFES2014/IUSIS/dom/src/main/java/dom/iusis/estadoCivil.java
 /Users/roccovalois/Desktop/IFES2014/IUSIS/dom/src/main/java/dom/iusis/Clientes.java
 /Users/roccovalois/Desktop/IFES2014/IUSIS/dom/src/main/java/dom/iusis/tipoCliente.java
 /Users/roccovalois/Desktop/IFES2014/IUSIS/dom/src/main/java/dom/iusis/Abogados.java
