@@ -6,6 +6,7 @@ import java.util.List;
 import org.apache.isis.applib.AbstractFactoryAndRepository;
 import org.apache.isis.applib.DomainObjectContainer;
 import org.apache.isis.applib.annotation.Hidden;
+import org.apache.isis.applib.annotation.MemberOrder;
 import org.apache.isis.applib.annotation.MultiLine;
 import org.apache.isis.applib.annotation.Named;
 import org.apache.isis.applib.annotation.Optional;
@@ -21,10 +22,12 @@ import dom.iusis.Peritos;
 import dom.iusis.Personas;
 import dom.iusis.Estudios;
 import dom.iusis.Testigos;
+import dom.iusis.estadoCivil;
 import dom.iusis.relacionAbogado;
 import dom.iusis.tipoCliente;
+import dom.iusis.tipoPersona;
 
-@Named("Administrar Personas")
+@Named("Personas")
 public class RepositorioPersonas extends AbstractFactoryAndRepository {
 
 	public String getId() {
@@ -36,8 +39,8 @@ public class RepositorioPersonas extends AbstractFactoryAndRepository {
     }
 	//Defino nombre etiquetas para la clase
     //@Optional nos define si el campo es obligatorio u opcional
-	public Clientes ingresarClientes(
-	
+    @MemberOrder(name="Personas", sequence="20.1")//Ordeno la visualizacion del menu
+    public Clientes ingresarClientes(
 	@Named("DNI")final String dni ,
 	@RegEx(validation = "[A-Za-z ]+")
 	@Named("Nombre")final String nombre,
@@ -45,6 +48,8 @@ public class RepositorioPersonas extends AbstractFactoryAndRepository {
 	@Named("Apellido")final String apellido,
 	@TypicalLength(50)
 	@Named("Direccion")final String direccion,
+	@Named("Estado Civil")final estadoCivil estadoCivil,
+	@Named("Tipo Persona")final @Optional tipoPersona tipoPersona,
 	@Named("Fecha Nacimiento")final Date fechaNacimiento,
 	@RegEx(validation = "[A-Za-z ]+")
 	@Named("Localidad")final String localidad,
@@ -65,6 +70,8 @@ public class RepositorioPersonas extends AbstractFactoryAndRepository {
 	    cliente.setNombre(nombre);
 	    cliente.setApellido(apellido);
 	    cliente.setDireccion(direccion);
+	    cliente.setEstadoCivil(estadoCivil);
+	    cliente.setTipoPersona(tipoPersona);
 	    cliente.setFechaNacimiento(fechaNacimiento);
 	    cliente.setLocalidad(localidad);
 	    cliente.setTelefono(telefono);
@@ -82,7 +89,8 @@ public class RepositorioPersonas extends AbstractFactoryAndRepository {
 	//======================================================
 		//Defino nombre etiquetas para la clase
 	    //@Optional nos define si el campo es obligatorio u opcional
-		public Peritos ingresarPeritos(
+    @MemberOrder(name="Personas", sequence="20.2")//Ordeno la visualizacion del menu
+    public Peritos ingresarPeritos(
 		
 		@Named("DNI")final String dni ,
 		@RegEx(validation = "[A-Za-z ]+")
@@ -115,7 +123,7 @@ public class RepositorioPersonas extends AbstractFactoryAndRepository {
 		    
 			return perito;
 		}
-		
+    @MemberOrder(name="Personas", sequence="20.3")//Ordeno la visualizacion del menu
 		public Abogados ingresarAbogados(
 				
 				@Named("DNI")final String dni ,
@@ -155,8 +163,8 @@ public class RepositorioPersonas extends AbstractFactoryAndRepository {
 				}
 				
 				//======================================================
-		
-public Testigos ingresarTestigos(
+    @MemberOrder(name="Personas", sequence="20.4")//Ordeno la visualizacion del menu
+    public Testigos ingresarTestigos(
 				
 				@Named("DNI")final String dni ,
 				@RegEx(validation = "[A-Za-z ]+")
@@ -193,7 +201,7 @@ public Testigos ingresarTestigos(
 				}
 				
 				//======================================================
-
+    @MemberOrder(name="Personas", sequence="20.5")//Ordeno la visualizacion del menu
 public Jueces ingresarJueces(
 		
 		@Named("DNI")final String dni ,
@@ -231,7 +239,7 @@ public Jueces ingresarJueces(
 		}
 		
 		//======================================================
-
+    @MemberOrder(name="Personas", sequence="20.6")//Ordeno la visualizacion del menu
 public Fiscales ingresarFiscales(
 		
 		@Named("DNI")final String dni ,
