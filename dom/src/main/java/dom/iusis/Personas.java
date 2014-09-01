@@ -21,7 +21,9 @@ import dom.iusis.Estudios;
 @ObjectType("Personas")
 
 @javax.jdo.annotations.Queries({
-		@javax.jdo.annotations.Query(name = "listarTodasPersonas", language = "JDOQL", value = "SELECT FROM dom.iusis.Personas ")})
+		@javax.jdo.annotations.Query(name = "listarTodasPersonas", language = "JDOQL", value = "SELECT FROM dom.iusis.Personas "),
+		@javax.jdo.annotations.Query(name = "listarPorDni", language = "JDOQL", value = "SELECT FROM dom.iusis.Clientes WHERE dni== :dni")		
+})
 @Audited
 //@AutoComplete(repository = RepositorioClientes.class , action = "autoComplete")
 //@AutoComplete(repository = RepositorioEstudios.class , action = "autoCompleteEstudios")
@@ -71,7 +73,7 @@ public class Personas{
 		this.apellido = apellido;
 	}
 	
-	@javax.jdo.annotations.Column(allowsNull="false")
+	@javax.jdo.annotations.Column(allowsNull="true")
 	 @MemberOrder(sequence="4")
 	public String getDireccion() {
 		return direccion;
@@ -87,7 +89,7 @@ public class Personas{
 		this.fechaNacimiento = fechaNacimiento;
 	}
 	
-	@javax.jdo.annotations.Column(allowsNull="false")
+	@javax.jdo.annotations.Column(allowsNull="true")
 	 @MemberOrder(sequence="5")
 	public String getLocalidad() {
 		return localidad;

@@ -1,7 +1,6 @@
 package repo.iusis;
 
 import java.util.Date;
-import java.util.List;
 
 import org.apache.isis.applib.AbstractFactoryAndRepository;
 import org.apache.isis.applib.DomainObjectContainer;
@@ -48,12 +47,12 @@ public class RepositorioPersonas extends AbstractFactoryAndRepository {
 	@RegEx(validation = "[A-Za-z ]+")
 	@Named("Apellido")final String apellido,
 	@TypicalLength(50)
-	@Named("Direccion")final String direccion,
-	@Named("Estado Civil")final estadoCivil estadoCivil,
+	@Named("Direccion")final @Optional String direccion,
+	@Named("Estado Civil")final @Optional estadoCivil estadoCivil,
 	@Named("Tipo Persona")final @Optional tipoPersona tipoPersona,
-	@Named("Fecha Nacimiento")final Date fechaNacimiento,
+	@Named("Fecha Nacimiento")final @Optional Date fechaNacimiento,
 	@RegEx(validation = "[A-Za-z ]+")
-	@Named("Localidad")final String localidad,
+	@Named("Localidad")final @Optional String localidad,
 	@Named("Telefono")final @Optional String telefono,
 	@Named("Celular")final @Optional String celular,
 	@Named("Tipo Cliente")final  @Optional tipoCliente tipoCliente, 
@@ -98,13 +97,13 @@ public class RepositorioPersonas extends AbstractFactoryAndRepository {
 		@Named("Nombre")final String nombre,
 		@RegEx(validation = "[A-Za-z ]+")
 		@Named("Apellido")final String apellido,
-		@Named("Direccion")final String direccion,
-		@Named("Fecha Nacimiento")final Date fechaNacimiento,
+		@Named("Direccion")final @Optional String direccion,
+		@Named("Fecha Nacimiento")final @Optional Date fechaNacimiento,
 		@RegEx(validation = "[A-Za-z ]+")
-		@Named("Localidad")final String localidad,
+		@Named("Localidad")final @Optional String localidad,
 		@Named("Telefono")final @Optional String telefono,
 		@Named("Celular")final @Optional String celular,
-		@Named("Tipo Perito")final String tipoperito,
+		@Named("Tipo Perito")final @Optional String tipoperito,
 		@RegEx(validation = "(\\w+\\.)*\\w+@(\\w+\\.)+[A-Za-z]+")
 		@Named("E-mail")final @Optional String email)
 		
@@ -133,11 +132,11 @@ public class RepositorioPersonas extends AbstractFactoryAndRepository {
 				@Named("Nombre")final String nombre,
 				@RegEx(validation = "[A-Za-z ]+")
 				@Named("Apellido")final String apellido,
-				@Named("Numero Matricula")final String numeroMatricula,
-				@Named("Direccion")final String direccion,
-				@Named("Fecha Nacimiento")final Date fechaNacimiento,
+				@Named("Numero Matricula")final @Optional String numeroMatricula,
+				@Named("Direccion")final @Optional String direccion,
+				@Named("Fecha Nacimiento")final @Optional Date fechaNacimiento,
 				@RegEx(validation = "[A-Za-z ]+")
-				@Named("Localidad")final String localidad,
+				@Named("Localidad")final @Optional String localidad,
 				@Named("Telefono")final @Optional String telefono,
 				@Named("Celular")final @Optional String celular,
 				@Named("Estudio")final @Optional Estudios estudios, 
@@ -175,10 +174,10 @@ public class RepositorioPersonas extends AbstractFactoryAndRepository {
 				@Named("Nombre")final String nombre,
 				@RegEx(validation = "[A-Za-z ]+")
 				@Named("Apellido")final String apellido,
-				@Named("Direccion")final String direccion,
-				@Named("Fecha Nacimiento")final Date fechaNacimiento,
+				@Named("Direccion")final @Optional String direccion,
+				@Named("Fecha Nacimiento")final @Optional Date fechaNacimiento,
 				@RegEx(validation = "[A-Za-z ]+")
-				@Named("Localidad")final String localidad,
+				@Named("Localidad")final @Optional String localidad,
 				@Named("Telefono")final @Optional String telefono,
 				@Named("Celular")final @Optional String celular,
 				@Named("Tipo Abogado")final @Optional String tipoabogado,
@@ -213,10 +212,10 @@ public Jueces ingresarJueces(
 		@Named("Nombre")final String nombre,
 		@RegEx(validation = "[A-Za-z ]+")
 		@Named("Apellido")final String apellido,
-		@Named("Direccion")final String direccion,
-		@Named("Fecha Nacimiento")final Date fechaNacimiento,
+		@Named("Direccion")final @Optional String direccion,
+		@Named("Fecha Nacimiento")final @Optional Date fechaNacimiento,
 		@RegEx(validation = "[A-Za-z ]+")
-		@Named("Localidad")final String localidad,
+		@Named("Localidad")final @Optional String localidad,
 		@Named("Telefono")final @Optional String telefono,
 		@Named("Celular")final @Optional String celular,
 		@Named("Tipo Abogado")final @Optional String tipoabogado,
@@ -251,10 +250,10 @@ public Fiscales ingresarFiscales(
 		@Named("Nombre")final String nombre,
 		@RegEx(validation = "[A-Za-z ]+")
 		@Named("Apellido")final String apellido,
-		@Named("Direccion")final String direccion,
-		@Named("Fecha Nacimiento")final Date fechaNacimiento,
+		@Named("Direccion")final @Optional String direccion,
+		@Named("Fecha Nacimiento")final @Optional Date fechaNacimiento,
 		@RegEx(validation = "[A-Za-z ]+")
-		@Named("Localidad")final String localidad,
+		@Named("Localidad")final @Optional String localidad,
 		@Named("Telefono")final @Optional String telefono,
 		@Named("Celular")final @Optional String celular,
 		@Named("Tipo Abogado")final @Optional String tipoabogado,
@@ -281,7 +280,7 @@ public Fiscales ingresarFiscales(
 		}
 		
 		//======================================================
-
+    /*
 		//Listo todos los clientes en el sistema
 		public List<Personas> listarPersonas() {
 	        return allMatches(QueryDefault.create(Personas.class, "listarTodasPersonas")); 
@@ -293,10 +292,10 @@ public Fiscales ingresarFiscales(
 		}
 		
 		//Lleno el dropdown list segun el nombre del estudio
-		@Hidden
-	    public List<Estudios> autoComplete(final String searchPhrase) { 
-	    	return allMatches(QueryDefault.create(Estudios.class, "estudiosPorNombre","nombre",searchPhrase));
-	    }
+		//@Hidden
+	    //public List<Estudios> autoComplete(final String searchPhrase) { 
+	    	//return allMatches(QueryDefault.create(Estudios.class, "estudiosPorNombre","nombre",searchPhrase));
+	    //}*/
 	@javax.inject.Inject 
 	    DomainObjectContainer container;
 }
