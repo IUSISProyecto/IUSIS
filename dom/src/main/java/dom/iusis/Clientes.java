@@ -9,7 +9,7 @@ import org.apache.isis.applib.annotation.MemberOrder;
 import org.apache.isis.applib.annotation.ObjectType;
 
 
-import dom.iusis.Estudios;
+//import dom.iusis.Estudios;
 import repo.iusis.RepositorioPersonas;
 import dom.iusis.Personas;
 
@@ -22,13 +22,11 @@ import dom.iusis.Personas;
 
 @AutoComplete(repository = RepositorioPersonas.class, action = "autoComplete")
 @Audited
-//@AutoComplete(repository = RepositorioClientes.class , action = "autoComplete")
-//@AutoComplete(repository = RepositorioEstudios.class , action = "autoCompleteEstudios")
 
 public class Clientes extends Personas {
 	
 	private String observacion;
-	private Estudios estudios;
+	//private Estudios estudios;
 	private dom.iusis.tipoCliente tipoCliente;
 	private dom.iusis.tipoPersona tipoPersona;
 	private dom.iusis.estadoCivil estadoCivil;
@@ -78,7 +76,7 @@ public class Clientes extends Personas {
 	public void setObservacion(String observacion) {
 		this.observacion = observacion;
 	}
-	
+	/*
     @javax.jdo.annotations.Column(allowsNull="true")
     @MemberOrder(sequence = "9")
     public Estudios getEstudios() {
@@ -86,7 +84,7 @@ public class Clientes extends Personas {
     }
     public void setEstudios(Estudios estudios) {
         this.estudios = estudios;
-    }
+    }*/
 
 	@javax.inject.Inject
     @SuppressWarnings("unused")

@@ -1,10 +1,7 @@
 package dom.iusis;
 
-//import java.util.Date;
-
 import javax.jdo.annotations.IdentityType;
 import javax.jdo.annotations.VersionStrategy;
-
 import org.apache.isis.applib.DomainObjectContainer;
 import org.apache.isis.applib.annotation.AutoComplete;
 import org.apache.isis.applib.annotation.MemberOrder;
@@ -22,8 +19,7 @@ import repo.iusis.RepositorioEstudios;
 @javax.jdo.annotations.Queries({
 	@javax.jdo.annotations.Query(name = "listarTodosEstudios", language = "JDOQL", value = "SELECT FROM dom.iusis.Estudios "),
 	@javax.jdo.annotations.Query(name = "estudiosPorNombre", language = "JDOQL", value = "SELECT FROM dom.iusis.Estudios WHERE nombre.startsWith(:nombre) range 0, 4")
-	//@javax.jdo.annotations.Query(name = "estudiosPorNombre", language = "JDOQL", value = "SELECT FROM dom.iusis.Estudios WHERE nombre.startsWith(:nombre) range 0, 4")
-})
+	})
 @AutoComplete(repository = RepositorioEstudios.class , action = "autoComplete")
 
 public class Estudios {

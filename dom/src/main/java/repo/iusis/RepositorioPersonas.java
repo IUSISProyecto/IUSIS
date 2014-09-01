@@ -40,6 +40,7 @@ public class RepositorioPersonas extends AbstractFactoryAndRepository {
 	//Defino nombre etiquetas para la clase
     //@Optional nos define si el campo es obligatorio u opcional
     @MemberOrder(name="Personas", sequence="20.1")//Ordeno la visualizacion del menu
+    
     public Clientes ingresarClientes(
 	@Named("DNI")final String dni ,
 	@RegEx(validation = "[A-Za-z ]+")
@@ -58,7 +59,7 @@ public class RepositorioPersonas extends AbstractFactoryAndRepository {
 	@Named("Tipo Cliente")final  @Optional tipoCliente tipoCliente, 
 	@MultiLine(numberOfLines=10)//Indica que el campo es multiline y se permiten hasta diez lineas
 	@Named("Observaciones")final @Optional String observacion,
-	@Named("Estudio")final @Optional Estudios estudios,
+	//@Named("Estudio")final @Optional Estudios estudios,
 	@RegEx(validation = "(\\w+\\.)*\\w+@(\\w+\\.)+[A-Za-z]+")
 	@TypicalLength(50)//Defino en 50 caracteres el ancho del campo
 	@Named("E-mail")final @Optional String email)
@@ -78,7 +79,7 @@ public class RepositorioPersonas extends AbstractFactoryAndRepository {
 	    cliente.setCelular(celular);
 	    cliente.setTipoCliente(tipoCliente);
 	    cliente.setObservacion(observacion);
-	    cliente.setEstudios(estudios);
+	    //cliente.setEstudios(estudios);
 	    cliente.setEmail(email);
 
 	    container.persistIfNotAlready(cliente);
@@ -123,8 +124,9 @@ public class RepositorioPersonas extends AbstractFactoryAndRepository {
 		    
 			return perito;
 		}
+    	
     @MemberOrder(name="Personas", sequence="20.3")//Ordeno la visualizacion del menu
-		public Abogados ingresarAbogados(
+	public Abogados ingresarAbogados(
 				
 				@Named("DNI")final String dni ,
 				@RegEx(validation = "[A-Za-z ]+")
@@ -138,6 +140,7 @@ public class RepositorioPersonas extends AbstractFactoryAndRepository {
 				@Named("Localidad")final String localidad,
 				@Named("Telefono")final @Optional String telefono,
 				@Named("Celular")final @Optional String celular,
+				@Named("Estudio")final @Optional Estudios estudios, 
 				@Named("Relacion Abogado")final @Optional relacionAbogado relacionabogado,
 				@RegEx(validation = "(\\w+\\.)*\\w+@(\\w+\\.)+[A-Za-z]+")
 				@Named("E-mail")final @Optional String email)
@@ -153,6 +156,7 @@ public class RepositorioPersonas extends AbstractFactoryAndRepository {
 				    abogado.setLocalidad(localidad);
 				    abogado.setTelefono(telefono);
 				    abogado.setCelular(celular);
+				    abogado.setEstudios(estudios);
 				    abogado.setRelacionAbogado(relacionabogado);
 				    abogado.setNumeroMatricula(numeroMatricula);
 				    abogado.setEmail(email);

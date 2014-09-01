@@ -1,10 +1,11 @@
 package dom.iusis;
 
 import javax.jdo.annotations.IdentityType;
+import javax.jdo.annotations.Unique;
+
 import org.apache.isis.applib.DomainObjectContainer;
 import org.apache.isis.applib.annotation.Audited;
 import org.apache.isis.applib.annotation.AutoComplete;
-//import org.apache.isis.applib.annotation.AutoComplete;
 import org.apache.isis.applib.annotation.MemberOrder;
 import org.apache.isis.applib.annotation.ObjectType;
 
@@ -13,9 +14,6 @@ import repo.iusis.RepositorioPersonas;
 import dom.iusis.Personas;
 
 @javax.jdo.annotations.PersistenceCapable(identityType=IdentityType.DATASTORE)
-/*@javax.jdo.annotations.Version(
-        strategy=VersionStrategy.VERSION_NUMBER, 
-        column="version")*/
 @ObjectType("Abogados")
 
 @javax.jdo.annotations.Queries({
@@ -29,7 +27,7 @@ import dom.iusis.Personas;
 public class Abogados extends Personas {
 	
 	private String numeroMatricula;
-	//private Estudios estudios;//Utiliso clase estudio para relacionarlas
+	private Estudios estudios;//Utiliso clase estudio para relacionarlas
 	private dom.iusis.relacionAbogado relacionAbogado;
 	
     public String iconName() {
@@ -41,14 +39,6 @@ public class Abogados extends Personas {
 
 	}
 	
-    /*@javax.jdo.annotations.Column(allowsNull="true")
-    @MemberOrder(sequence = "7")
-    public Estudios getEstudios() {
-        return estudios;
-    }
-    public void setEstudios(Estudios estudios) {
-        this.estudios = estudios;
-    }*/
     @MemberOrder(sequence = "8")
 	@javax.jdo.annotations.Column(allowsNull="false")	
 	public dom.iusis.relacionAbogado getRelacionAbogado() {
@@ -58,8 +48,9 @@ public class Abogados extends Personas {
 		this.relacionAbogado = relacionAbogado;
 	}
 	
-		@javax.jdo.annotations.Column(allowsNull="true")
-	 @MemberOrder(sequence="9")
+	@javax.jdo.annotations.Column(allowsNull="true")
+	@MemberOrder(sequence="9")
+	@Unique //Indica que este campo debe ser unico
 	public String getNumeroMatricula() {
 		return numeroMatricula;
 	}
@@ -68,6 +59,14 @@ public class Abogados extends Personas {
 		this.numeroMatricula = numeroMatricula;
 	}
 
+    @javax.jdo.annotations.Column(allowsNull="true")
+    @MemberOrder(sequence = "10")
+    public Estudios getEstudios() {
+        return estudios;
+    }
+    public void setEstudios(Estudios estudios) {
+        this.estudios = estudios;
+    }
 	
 	@javax.inject.Inject
     @SuppressWarnings("unused")
