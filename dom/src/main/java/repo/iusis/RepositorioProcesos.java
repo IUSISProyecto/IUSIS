@@ -22,7 +22,7 @@ public class RepositorioProcesos extends AbstractFactoryAndRepository {
     }
 	//Defino nombre etiquetas para la clase
     //@Optional nos define si el campo es obligatorio u opcional
-	public Procesos ingresarProcesos(@Named("id de Procesos")final String idProcesos ,
+	public Procesos agregarProcesos(@Named("id de Procesos")final String idProcesos ,
 	@Named("Nombre")final String nombre,
 	@Named("Descripcion")final String descripcion,
 	@Named("Tipo Nivel")final tipoNivel tipoNivel,
@@ -41,7 +41,7 @@ public class RepositorioProcesos extends AbstractFactoryAndRepository {
 		return proceso;
 	}
 	
-	public List<Procesos> listarProcesos() {
+	public List<Procesos> verProcesos() {
         return allMatches(QueryDefault.create(Procesos.class, "listarTodoslosProcesos"));
     }
 	
