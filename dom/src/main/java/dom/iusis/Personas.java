@@ -33,7 +33,7 @@ public class Personas{
 	private String dni;
 	private String nombre;
 	private String apellido;
-	private String direccion;
+	private String domicilio;
 	private Date fechaNacimiento;
 	private String localidad;
 	private String telefono;
@@ -75,11 +75,11 @@ public class Personas{
 	
 	@javax.jdo.annotations.Column(allowsNull="true")
 	 @MemberOrder(sequence="4")
-	public String getDireccion() {
-		return direccion;
+	public String getDomicilio() {
+		return domicilio;
 	}
-	public void setDireccion(String direccion) {
-		this.direccion = direccion;
+	public void setDomicilio(String domicilio) {
+		this.domicilio = domicilio;
 	}
 	@javax.jdo.annotations.Column(allowsNull="true")
 	public Date getFechaNacimiento() {

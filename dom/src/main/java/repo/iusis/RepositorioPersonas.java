@@ -47,7 +47,7 @@ public class RepositorioPersonas extends AbstractFactoryAndRepository {
 	@RegEx(validation = "[A-Za-z ]+")
 	@Named("Apellido")final String apellido,
 	@TypicalLength(50)
-	@Named("Direccion")final @Optional String direccion,
+	@Named("Domicilio")final @Optional String domicilio,
 	@Named("Estado Civil")final @Optional estadoCivil estadoCivil,
 	@Named("Tipo Persona")final @Optional tipoPersona tipoPersona,
 	@Named("Fecha Nacimiento")final @Optional Date fechaNacimiento,
@@ -69,7 +69,7 @@ public class RepositorioPersonas extends AbstractFactoryAndRepository {
 	    cliente.setDni(dni);
 	    cliente.setNombre(nombre);
 	    cliente.setApellido(apellido);
-	    cliente.setDireccion(direccion);
+	    cliente.setDomicilio(domicilio);
 	    cliente.setEstadoCivil(estadoCivil);
 	    cliente.setTipoPersona(tipoPersona);
 	    cliente.setFechaNacimiento(fechaNacimiento);
@@ -97,7 +97,7 @@ public class RepositorioPersonas extends AbstractFactoryAndRepository {
 		@Named("Nombre")final String nombre,
 		@RegEx(validation = "[A-Za-z ]+")
 		@Named("Apellido")final String apellido,
-		@Named("Direccion")final @Optional String direccion,
+		@Named("Domicilio")final @Optional String domicilio,
 		@Named("Fecha Nacimiento")final @Optional Date fechaNacimiento,
 		@RegEx(validation = "[A-Za-z ]+")
 		@Named("Localidad")final @Optional String localidad,
@@ -112,7 +112,7 @@ public class RepositorioPersonas extends AbstractFactoryAndRepository {
 			perito.setDni(dni);
 		    perito.setNombre(nombre);
 		    perito.setApellido(apellido);
-		    perito.setDireccion(direccion);
+		    perito.setDomicilio(domicilio);
 		    perito.setFechaNacimiento(fechaNacimiento);
 		    perito.setLocalidad(localidad);
 		    perito.setTelefono(telefono);
@@ -133,7 +133,7 @@ public class RepositorioPersonas extends AbstractFactoryAndRepository {
 				@RegEx(validation = "[A-Za-z ]+")
 				@Named("Apellido")final String apellido,
 				@Named("Numero Matricula")final @Optional String numeroMatricula,
-				@Named("Direccion")final @Optional String direccion,
+				@Named("Domicilio")final @Optional String domicilio,
 				@Named("Fecha Nacimiento")final @Optional Date fechaNacimiento,
 				@RegEx(validation = "[A-Za-z ]+")
 				@Named("Localidad")final @Optional String localidad,
@@ -150,7 +150,7 @@ public class RepositorioPersonas extends AbstractFactoryAndRepository {
 				    abogado.setDni(dni);
 				    abogado.setNombre(nombre);
 				    abogado.setApellido(apellido);
-				    abogado.setDireccion(direccion);
+				    abogado.setDomicilio(domicilio);
 				    abogado.setFechaNacimiento(fechaNacimiento);
 				    abogado.setLocalidad(localidad);
 				    abogado.setTelefono(telefono);
@@ -174,7 +174,7 @@ public class RepositorioPersonas extends AbstractFactoryAndRepository {
 				@Named("Nombre")final String nombre,
 				@RegEx(validation = "[A-Za-z ]+")
 				@Named("Apellido")final String apellido,
-				@Named("Direccion")final @Optional String direccion,
+				@Named("Domicilio")final @Optional String domicilio,
 				@Named("Fecha Nacimiento")final @Optional Date fechaNacimiento,
 				@RegEx(validation = "[A-Za-z ]+")
 				@Named("Localidad")final @Optional String localidad,
@@ -190,7 +190,7 @@ public class RepositorioPersonas extends AbstractFactoryAndRepository {
 				    testigo.setDni(dni);
 				    testigo.setNombre(nombre);
 				    testigo.setApellido(apellido);
-				    testigo.setDireccion(direccion);
+				    testigo.setDomicilio(domicilio);
 				    testigo.setFechaNacimiento(fechaNacimiento);
 				    testigo.setLocalidad(localidad);
 				    testigo.setTelefono(telefono);
@@ -212,7 +212,7 @@ public Jueces ingresarJueces(
 		@Named("Nombre")final String nombre,
 		@RegEx(validation = "[A-Za-z ]+")
 		@Named("Apellido")final String apellido,
-		@Named("Direccion")final @Optional String direccion,
+		@Named("Domicilio")final @Optional String domicilio,
 		@Named("Fecha Nacimiento")final @Optional Date fechaNacimiento,
 		@RegEx(validation = "[A-Za-z ]+")
 		@Named("Localidad")final @Optional String localidad,
@@ -228,7 +228,7 @@ public Jueces ingresarJueces(
 		    juez.setDni(dni);
 		    juez.setNombre(nombre);
 		    juez.setApellido(apellido);
-		    juez.setDireccion(direccion);
+		    juez.setDomicilio(domicilio);
 		    juez.setFechaNacimiento(fechaNacimiento);
 		    juez.setLocalidad(localidad);
 		    juez.setTelefono(telefono);
@@ -250,7 +250,7 @@ public Fiscales ingresarFiscales(
 		@Named("Nombre")final String nombre,
 		@RegEx(validation = "[A-Za-z ]+")
 		@Named("Apellido")final String apellido,
-		@Named("Direccion")final @Optional String direccion,
+		@Named("Domicilio")final @Optional String domicilio,
 		@Named("Fecha Nacimiento")final @Optional Date fechaNacimiento,
 		@RegEx(validation = "[A-Za-z ]+")
 		@Named("Localidad")final @Optional String localidad,
@@ -266,7 +266,7 @@ public Fiscales ingresarFiscales(
 		    fiscal.setDni(dni);
 		    fiscal.setNombre(nombre);
 		    fiscal.setApellido(apellido);
-		    fiscal.setDireccion(direccion);
+		    fiscal.setDomicilio(domicilio);
 		    fiscal.setFechaNacimiento(fechaNacimiento);
 		    fiscal.setLocalidad(localidad);
 		    fiscal.setTelefono(telefono);
