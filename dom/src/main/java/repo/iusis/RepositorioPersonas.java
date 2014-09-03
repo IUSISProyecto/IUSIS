@@ -1,25 +1,22 @@
 package repo.iusis;
 
 import java.util.Date;
-
 import org.apache.isis.applib.AbstractFactoryAndRepository;
 import org.apache.isis.applib.DomainObjectContainer;
-import org.apache.isis.applib.annotation.Hidden;
 import org.apache.isis.applib.annotation.MemberOrder;
 import org.apache.isis.applib.annotation.MultiLine;
 import org.apache.isis.applib.annotation.Named;
 import org.apache.isis.applib.annotation.Optional;
 import org.apache.isis.applib.annotation.RegEx;
 import org.apache.isis.applib.annotation.TypicalLength;
-import org.apache.isis.applib.query.QueryDefault;
 
 import dom.iusis.Abogados;
 import dom.iusis.Clientes;
 import dom.iusis.Fiscales;
 import dom.iusis.Jueces;
 import dom.iusis.Peritos;
-import dom.iusis.Personas;
 import dom.iusis.Estudios;
+//import dom.iusis.Programmatic;
 import dom.iusis.Testigos;
 import dom.iusis.estadoCivil;
 import dom.iusis.relacionAbogado;
@@ -42,16 +39,16 @@ public class RepositorioPersonas extends AbstractFactoryAndRepository {
     
     public Clientes ingresarClientes(
 	@Named("DNI")final String dni ,
-	@RegEx(validation = "[a-zA-Záéíóú]+")//Sirve para delimitar el tipo de caracteres a ingresar
+	@RegEx(validation = "[a-z A-Záéíóú]+")//Sirve para delimitar el tipo de caracteres a ingresar
 	@Named("Nombre")final String nombre,
-	@RegEx(validation = "[a-zA-Záéíóú]+")//Sirve para delimitar el tipo de caracteres a ingresar
+	@RegEx(validation = "[a-z A-Záéíóú]+")//Sirve para delimitar el tipo de caracteres a ingresar
 	@Named("Apellido")final String apellido,
 	@TypicalLength(50)
 	@Named("Domicilio")final @Optional String domicilio,
 	@Named("Estado Civil")final @Optional estadoCivil estadoCivil,
 	@Named("Tipo Persona")final @Optional tipoPersona tipoPersona,
 	@Named("Fecha Nacimiento")final @Optional Date fechaNacimiento,
-	@RegEx(validation = "[a-zA-Záéíóú]+")//Sirve para delimitar el tipo de caracteres a ingresar
+	@RegEx(validation = "[a-z A-Záéíóú]+")//Sirve para delimitar el tipo de caracteres a ingresar
 	@Named("Localidad")final @Optional String localidad,
 	@Named("Telefono")final @Optional String telefono,
 	@Named("Celular")final @Optional String celular,
@@ -93,13 +90,13 @@ public class RepositorioPersonas extends AbstractFactoryAndRepository {
     public Peritos ingresarPeritos(
 		
 		@Named("DNI")final String dni ,
-		@RegEx(validation = "[a-zA-Záéíóú]+")//Sirve para delimitar el tipo de caracteres a ingresar
+		@RegEx(validation = "[a-z A-Záéíóú]+")//Sirve para delimitar el tipo de caracteres a ingresar
 		@Named("Nombre")final String nombre,
-		@RegEx(validation = "[a-zA-Záéíóú]+")//Sirve para delimitar el tipo de caracteres a ingresar
+		@RegEx(validation = "[a-z A-Záéíóú]+")//Sirve para delimitar el tipo de caracteres a ingresar
 		@Named("Apellido")final String apellido,
 		@Named("Domicilio")final @Optional String domicilio,
 		@Named("Fecha Nacimiento")final @Optional Date fechaNacimiento,
-		@RegEx(validation = "[A-Za-z ]+")
+		@RegEx(validation = "[a-z A-Záéíóú]+")//Sirve para delimitar el tipo de caracteres a ingresar
 		@Named("Localidad")final @Optional String localidad,
 		@Named("Telefono")final @Optional String telefono,
 		@Named("Celular")final @Optional String celular,
@@ -128,14 +125,14 @@ public class RepositorioPersonas extends AbstractFactoryAndRepository {
 	public Abogados ingresarAbogados(
 				
 				@Named("DNI")final String dni ,
-				@RegEx(validation = "[a-zA-Záéíóú]+")//Sirve para delimitar el tipo de caracteres a ingresar
+				@RegEx(validation = "[a-z A-Záéíóú]+")//Sirve para delimitar el tipo de caracteres a ingresar
 				@Named("Nombre")final String nombre,
-				@RegEx(validation = "[a-zA-Záéíóú]+")//Sirve para delimitar el tipo de caracteres a ingresar
+				@RegEx(validation = "[a-z A-Záéíóú]+")//Sirve para delimitar el tipo de caracteres a ingresar
 				@Named("Apellido")final String apellido,
 				@Named("Numero Matricula")final @Optional String numeroMatricula,
 				@Named("Domicilio")final @Optional String domicilio,
 				@Named("Fecha Nacimiento")final @Optional Date fechaNacimiento,
-				@RegEx(validation = "[A-Za-z ]+")
+				@RegEx(validation = "[a-z A-Záéíóú]+")//Sirve para delimitar el tipo de caracteres a ingresar
 				@Named("Localidad")final @Optional String localidad,
 				@Named("Telefono")final @Optional String telefono,
 				@Named("Celular")final @Optional String celular,
@@ -170,13 +167,13 @@ public class RepositorioPersonas extends AbstractFactoryAndRepository {
     public Testigos ingresarTestigos(
 				
 				@Named("DNI")final String dni ,
-				@RegEx(validation = "[a-zA-Záéíóú]+")//Sirve para delimitar el tipo de caracteres a ingresar
+				@RegEx(validation = "[a-z A-Záéíóú]+")//Sirve para delimitar el tipo de caracteres a ingresar
 				@Named("Nombre")final String nombre,
-				@RegEx(validation = "[a-zA-Záéíóú]+")//Sirve para delimitar el tipo de caracteres a ingresar
+				@RegEx(validation = "[a-z A-Záéíóú]+")//Sirve para delimitar el tipo de caracteres a ingresar
 				@Named("Apellido")final String apellido,
 				@Named("Domicilio")final @Optional String domicilio,
 				@Named("Fecha Nacimiento")final @Optional Date fechaNacimiento,
-				@RegEx(validation = "[A-Za-z ]+")
+				@RegEx(validation = "[a-z A-Záéíóú]+")//Sirve para delimitar el tipo de caracteres a ingresar
 				@Named("Localidad")final @Optional String localidad,
 				@Named("Telefono")final @Optional String telefono,
 				@Named("Celular")final @Optional String celular,
@@ -208,13 +205,13 @@ public class RepositorioPersonas extends AbstractFactoryAndRepository {
 public Jueces ingresarJueces(
 		
 		@Named("DNI")final String dni ,
-		@RegEx(validation = "[a-zA-Záéíóú]+")//Sirve para delimitar el tipo de caracteres a ingresar
+		@RegEx(validation = "[a-z A-Záéíóú]+")//Sirve para delimitar el tipo de caracteres a ingresar
 		@Named("Nombre")final String nombre,
-		@RegEx(validation = "[a-zA-Záéíóú]+")//Sirve para delimitar el tipo de caracteres a ingresar
+		@RegEx(validation = "[a-z A-Záéíóú]+")//Sirve para delimitar el tipo de caracteres a ingresar
 		@Named("Apellido")final String apellido,
 		@Named("Domicilio")final @Optional String domicilio,
 		@Named("Fecha Nacimiento")final @Optional Date fechaNacimiento,
-		@RegEx(validation = "[A-Za-z ]+")
+		@RegEx(validation = "[a-z A-Záéíóú]+")//Sirve para delimitar el tipo de caracteres a ingresar
 		@Named("Localidad")final @Optional String localidad,
 		@Named("Telefono")final @Optional String telefono,
 		@Named("Celular")final @Optional String celular,
@@ -246,13 +243,13 @@ public Jueces ingresarJueces(
 public Fiscales ingresarFiscales(
 		
 		@Named("DNI")final String dni ,
-		@RegEx(validation = "[a-zA-Záéíóú]+")//Sirve para delimitar el tipo de caracteres a ingresar
+		@RegEx(validation = "[a-z A-Záéíóú]+")//Sirve para delimitar el tipo de caracteres a ingresar
 		@Named("Nombre")final String nombre,
-		@RegEx(validation = "[a-zA-Záéíóú]+")//Sirve para delimitar el tipo de caracteres a ingresar
+		@RegEx(validation = "[a-z A-Záéíóú]+")//Sirve para delimitar el tipo de caracteres a ingresar
 		@Named("Apellido")final String apellido,
 		@Named("Domicilio")final @Optional String domicilio,
 		@Named("Fecha Nacimiento")final @Optional Date fechaNacimiento,
-		@RegEx(validation = "[A-Za-z ]+")
+		@RegEx(validation = "[a-z A-Záéíóú]+")//Sirve para delimitar el tipo de caracteres a ingresar
 		@Named("Localidad")final @Optional String localidad,
 		@Named("Telefono")final @Optional String telefono,
 		@Named("Celular")final @Optional String celular,
@@ -296,6 +293,7 @@ public Fiscales ingresarFiscales(
 	    //public List<Estudios> autoComplete(final String searchPhrase) { 
 	    	//return allMatches(QueryDefault.create(Estudios.class, "estudiosPorNombre","nombre",searchPhrase));
 	    //}*/
+    
 	@javax.inject.Inject 
 	    DomainObjectContainer container;
 }

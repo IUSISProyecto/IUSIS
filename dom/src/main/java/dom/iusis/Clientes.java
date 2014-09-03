@@ -11,9 +11,9 @@ import org.apache.isis.applib.annotation.AutoComplete;
 import org.apache.isis.applib.annotation.MemberOrder;
 import org.apache.isis.applib.annotation.Named;
 import org.apache.isis.applib.annotation.ObjectType;
-
-
+import org.apache.isis.applib.annotation.Programmatic;
 import org.apache.isis.applib.query.QueryDefault;
+
 
 //import dom.iusis.Estudios;
 import repo.iusis.RepositorioPersonas;
@@ -25,7 +25,10 @@ import dom.iusis.Personas;
 
 @javax.jdo.annotations.Queries({
 		//@javax.jdo.annotations.Query(name = "listarTodosClientes", language = "JDOQL", value = "SELECT FROM dom.iusis.Clientes ")})
-	@javax.jdo.annotations.Query(name = "listarPorDni", language = "JDOQL", value = "SELECT FROM dom.iusis.Clientes WHERE dni== :dni")})
+	@javax.jdo.annotations.Query(name = "buscarPorDni", language = "JDOQL", value = "SELECT FROM dom.iusis.Clientes WHERE dni== :dni"),
+    @javax.jdo.annotations.Query(name = "buscarPorNombre", language = "JDOQL", value = "SELECT FROM dom.simple.Clientes WHERE nombre.startsWith(:nombre)"),
+    @javax.jdo.annotations.Query(name = "buscarPorApellido", language = "JDOQL", value = "SELECT FROM dom.simple.Clientes WHERE nombre.startsWith(:apellido)")
+})
 
 @AutoComplete(repository = RepositorioPersonas.class, action = "autoComplete")
 @Audited
@@ -93,20 +96,61 @@ public class Clientes extends Personas {
         this.estudios = estudios;
     }*/
 
-	@javax.inject.Inject
-    @SuppressWarnings("unused")
-    private DomainObjectContainer container;
-	
-    @Named("Buscar Personas")//Ordeno la visualizacion del menu)
-    public List<Clientes> autoComplete(@Named("Ingrese DNI")String searchPhrase) {        
-    	Long temp = Long.parseLong(searchPhrase);
-		return allMatches(QueryDefault.create(Clientes.class, "listarPorDni","dni",temp));
-    }
+///////////////////////////////////////
+//Buscar clientes por DNI
+////////////////////////////////////////
 
-	private List<Clientes> allMatches(QueryDefault<Clientes> queryDefault) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-    
-	
+@MemberOrder(sequence = "9")
+@Named ("Buscar por DNI")
+public List<Clientes> ListByDni(
+final @Named("DNI") String dni){
+
+return listByDni(dni);
+
+}
+
+@Programmatic
+public List<Clientes> listByDni(String dni) {
+return container.allMatches(new QueryDefault<Clientes>(Clientes.class, "buscarPorDni", "dni", dni));
+
+}
+
+///////////////////////////////////////
+//Buscar clientes por Nombre
+////////////////////////////////////////
+
+@MemberOrder(sequence = "9")
+@Named ("Buscar por Nombre")
+public List<Clientes> ListByName(
+final @Named("Nombre") String nombre){
+
+return listByName(nombre);
+
+}
+
+@Programmatic
+public List<Clientes> listByName(String nombre) {
+return container.allMatches(new QueryDefault<Clientes>(Clientes.class, "buscarPorNombre", "nombre", nombre));
+}
+
+///////////////////////////////////////
+//Buscar clientes por Apellido
+////////////////////////////////////////
+
+@MemberOrder(sequence = "9")
+@Named ("Buscar por Apellido")
+public List<Clientes> ListByLastname(
+final @Named("Apellido") String apellido){
+
+return listByName(apellido);
+
+}
+
+@Programmatic
+public List<Clientes> listByLastname(String apellido) {
+return container.allMatches(new QueryDefault<Clientes>(Clientes.class, "buscarPorApellido", "apellido", apellido));
+}
+
+@javax.inject.Inject
+private DomainObjectContainer container;	
 }

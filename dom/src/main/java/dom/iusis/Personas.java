@@ -22,7 +22,8 @@ import dom.iusis.Estudios;
 
 @javax.jdo.annotations.Queries({
 		@javax.jdo.annotations.Query(name = "listarTodasPersonas", language = "JDOQL", value = "SELECT FROM dom.iusis.Personas "),
-		@javax.jdo.annotations.Query(name = "listarPorDni", language = "JDOQL", value = "SELECT FROM dom.iusis.Clientes WHERE dni== :dni")		
+		@javax.jdo.annotations.Query(name = "listarPorDni", language = "JDOQL", value = "SELECT FROM dom.iusis.Clientes WHERE dni== :dni"),
+		@javax.jdo.annotations.Query(name = "findByName", language = "JDOQL", value = "SELECT FROM dom.simple.Clientes WHERE nombre.startsWith(:nombre)")
 })
 @Audited
 //@AutoComplete(repository = RepositorioClientes.class , action = "autoComplete")
