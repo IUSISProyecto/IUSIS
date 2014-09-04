@@ -9,6 +9,7 @@ import org.apache.isis.applib.annotation.AutoComplete;
 import org.apache.isis.applib.annotation.MemberOrder;
 import org.apache.isis.applib.annotation.ObjectType;
 
+import dom.iusis.CategoriaFiscal;
 import dom.iusis.Estudios;
 import repo.iusis.RepositorioPersonas;
 import dom.iusis.Personas;
@@ -26,6 +27,8 @@ import dom.iusis.Personas;
 
 public class Abogados extends Personas {
 	
+	private String cuit;
+	private CategoriaFiscal CategoriaFiscal;
 	private String numeroMatricula;
 	private Estudios estudios;//Utiliso clase estudio para relacionarlas
 	private dom.iusis.relacionAbogado relacionAbogado;
@@ -38,8 +41,26 @@ public class Abogados extends Personas {
 		return this.getNombre().toString()+" "+this.getApellido().toString();
 
 	}
+    
+    @javax.jdo.annotations.Column(allowsNull="false")
+	@MemberOrder(sequence="7")
+	public String getCuit() {
+		return cuit;
+	}
+	public void setCuit(String cuit) {
+		this.cuit = cuit;
+	}
 	
-    @MemberOrder(sequence = "8")
+	@MemberOrder(sequence = "8")
+	@javax.jdo.annotations.Column(allowsNull="false")	
+	public CategoriaFiscal getCategoriaFiscal() {
+		return CategoriaFiscal;
+	}
+	public void setCategoriaFiscal(CategoriaFiscal CategoriaFiscal) {
+		this.CategoriaFiscal = CategoriaFiscal;
+	}
+	
+    @MemberOrder(sequence = "9")
 	@javax.jdo.annotations.Column(allowsNull="false")	
 	public dom.iusis.relacionAbogado getRelacionAbogado() {
 		return relacionAbogado;
@@ -48,8 +69,8 @@ public class Abogados extends Personas {
 		this.relacionAbogado = relacionAbogado;
 	}
 	
-	@javax.jdo.annotations.Column(allowsNull="true")
-	@MemberOrder(sequence="9")
+	@javax.jdo.annotations.Column(allowsNull="false")
+	@MemberOrder(sequence="10")
 	@Unique //Indica que este campo debe ser unico
 	public String getNumeroMatricula() {
 		return numeroMatricula;
@@ -60,7 +81,7 @@ public class Abogados extends Personas {
 	}
 
     @javax.jdo.annotations.Column(allowsNull="true")
-    @MemberOrder(sequence = "10")
+    @MemberOrder(sequence = "11")
     public Estudios getEstudios() {
         return estudios;
     }

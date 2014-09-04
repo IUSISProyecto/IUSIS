@@ -22,6 +22,7 @@ dom/iusis/QTestigos.class
 dom/iusis/Peritos.class
 dom/iusis/QTribunales.class
 dom/iusis/tipoNivel.class
+dom/iusis/CategoriaFiscal.class
 dom/iusis/Fiscales.class
 dom/iusis/Abogados.class
 dom/iusis/QProcesos.class

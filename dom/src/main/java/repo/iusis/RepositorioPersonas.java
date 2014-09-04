@@ -15,6 +15,7 @@ import org.apache.isis.applib.annotation.TypicalLength;
 import org.apache.isis.applib.query.QueryDefault;
 
 import dom.iusis.Abogados;
+import dom.iusis.CategoriaFiscal;
 import dom.iusis.Clientes;
 import dom.iusis.Fiscales;
 import dom.iusis.Jueces;
@@ -128,11 +129,13 @@ public class RepositorioPersonas extends AbstractFactoryAndRepository {
     @MemberOrder(name="Personas", sequence="20.3")//Ordeno la visualizacion del menu
 	public Abogados ingresarAbogados(
 				
-				@Named("DNI")final String dni ,
+				@Named("DNI")final String dni,
 				@RegEx(validation = "[a-z A-Záéíóú]+")//Sirve para delimitar el tipo de caracteres a ingresar
 				@Named("Nombre")final String nombre,
 				@RegEx(validation = "[a-z A-Záéíóú]+")//Sirve para delimitar el tipo de caracteres a ingresar
 				@Named("Apellido")final String apellido,
+				@Named("CUIT")final String cuit,
+				@Named("Categoria Fiscal")final CategoriaFiscal CategoriaFiscal,
 				@Named("Numero Matricula")final @Optional String numeroMatricula,
 				@Named("Domicilio")final @Optional String domicilio,
 				@Named("Fecha Nacimiento")final @Optional Date fechaNacimiento,
@@ -151,6 +154,8 @@ public class RepositorioPersonas extends AbstractFactoryAndRepository {
 				    abogado.setDni(dni);
 				    abogado.setNombre(nombre);
 				    abogado.setApellido(apellido);
+				    abogado.setCuit(cuit);
+				    abogado.setCategoriaFiscal(CategoriaFiscal);
 				    abogado.setDomicilio(domicilio);
 				    abogado.setFechaNacimiento(fechaNacimiento);
 				    abogado.setLocalidad(localidad);
