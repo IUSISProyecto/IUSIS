@@ -88,45 +88,8 @@ public class RepositorioPersonas extends AbstractFactoryAndRepository {
 		return cliente;
 	}
 	
-	//======================================================
-		//Defino nombre etiquetas para la clase
-	    //@Optional nos define si el campo es obligatorio u opcional
-    @MemberOrder(name="Personas", sequence="20.2")//Ordeno la visualizacion del menu
-    public Peritos ingresarPeritos(
-		
-		@Named("DNI")final String dni ,
-		@RegEx(validation = "[a-z A-Záéíóú]+")//Sirve para delimitar el tipo de caracteres a ingresar
-		@Named("Nombre")final String nombre,
-		@RegEx(validation = "[a-z A-Záéíóú]+")//Sirve para delimitar el tipo de caracteres a ingresar
-		@Named("Apellido")final String apellido,
-		@Named("Domicilio")final @Optional String domicilio,
-		@Named("Fecha Nacimiento")final @Optional Date fechaNacimiento,
-		@RegEx(validation = "[a-z A-Záéíóú]+")//Sirve para delimitar el tipo de caracteres a ingresar
-		@Named("Localidad")final @Optional String localidad,
-		@Named("Telefono")final @Optional String telefono,
-		@Named("Celular")final @Optional String celular,
-		@Named("Tipo Perito")final @Optional String tipoperito,
-		@RegEx(validation = "(\\w+\\.)*\\w+@(\\w+\\.)+[A-Za-z]+")
-		@Named("E-mail")final @Optional String email)
-		
-		{
-			final Peritos perito = container.newTransientInstance(Peritos.class);
-			perito.setDni(dni);
-		    perito.setNombre(nombre);
-		    perito.setApellido(apellido);
-		    perito.setDomicilio(domicilio);
-		    perito.setFechaNacimiento(fechaNacimiento);
-		    perito.setLocalidad(localidad);
-		    perito.setTelefono(telefono);
-		    perito.setCelular(celular);
-		    perito.setTipoPerito(tipoperito);
-		    perito.setEmail(email);
-		    container.persistIfNotAlready(perito);
-		    
-			return perito;
-		}
     	
-    @MemberOrder(name="Personas", sequence="20.3")//Ordeno la visualizacion del menu
+    @MemberOrder(name="Personas", sequence="20.2")//Ordeno la visualizacion del menu
 	public Abogados ingresarAbogados(
 				
 				@Named("DNI")final String dni,
@@ -172,6 +135,45 @@ public class RepositorioPersonas extends AbstractFactoryAndRepository {
 				}
 				
 				//======================================================
+    
+  //======================================================
+  		//Defino nombre etiquetas para la clase
+  	    //@Optional nos define si el campo es obligatorio u opcional
+      @MemberOrder(name="Personas", sequence="20.3")//Ordeno la visualizacion del menu
+      public Peritos ingresarPeritos(
+  		
+  		@Named("DNI")final String dni ,
+  		@RegEx(validation = "[a-z A-Záéíóú]+")//Sirve para delimitar el tipo de caracteres a ingresar
+  		@Named("Nombre")final String nombre,
+  		@RegEx(validation = "[a-z A-Záéíóú]+")//Sirve para delimitar el tipo de caracteres a ingresar
+  		@Named("Apellido")final String apellido,
+  		@Named("Domicilio")final @Optional String domicilio,
+  		@Named("Fecha Nacimiento")final @Optional Date fechaNacimiento,
+  		@RegEx(validation = "[a-z A-Záéíóú]+")//Sirve para delimitar el tipo de caracteres a ingresar
+  		@Named("Localidad")final @Optional String localidad,
+  		@Named("Telefono")final @Optional String telefono,
+  		@Named("Celular")final @Optional String celular,
+  		@Named("Tipo Perito")final @Optional String tipoperito,
+  		@RegEx(validation = "(\\w+\\.)*\\w+@(\\w+\\.)+[A-Za-z]+")
+  		@Named("E-mail")final @Optional String email)
+  		
+  		{
+  			final Peritos perito = container.newTransientInstance(Peritos.class);
+  			perito.setDni(dni);
+  		    perito.setNombre(nombre);
+  		    perito.setApellido(apellido);
+  		    perito.setDomicilio(domicilio);
+  		    perito.setFechaNacimiento(fechaNacimiento);
+  		    perito.setLocalidad(localidad);
+  		    perito.setTelefono(telefono);
+  		    perito.setCelular(celular);
+  		    perito.setTipoPerito(tipoperito);
+  		    perito.setEmail(email);
+  		    container.persistIfNotAlready(perito);
+  		    
+  			return perito;
+  		}
+    
     @MemberOrder(name="Personas", sequence="20.4")//Ordeno la visualizacion del menu
     public Testigos ingresarTestigos(
 				
@@ -248,7 +250,7 @@ public Jueces ingresarJueces(
 		}
 		
 		//======================================================
-    @MemberOrder(name="Personas", sequence="20.6")//Ordeno la visualizacion del menu
+@MemberOrder(name="Personas", sequence="20.6")//Ordeno la visualizacion del menu
 public Fiscales ingresarFiscales(
 		
 		@Named("DNI")final String dni ,
