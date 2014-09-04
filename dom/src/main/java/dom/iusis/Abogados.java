@@ -28,7 +28,9 @@ import dom.iusis.Personas;
 public class Abogados extends Personas {
 	
 	private String cuit;
-	private CategoriaFiscal CategoriaFiscal;
+	private CategoriaFiscal categoriaFiscal;
+	private int tomo;
+	private int folio;
 	private String numeroMatricula;
 	private Estudios estudios;//Utiliso clase estudio para relacionarlas
 	private dom.iusis.relacionAbogado relacionAbogado;
@@ -54,12 +56,30 @@ public class Abogados extends Personas {
 	@MemberOrder(sequence = "8")
 	@javax.jdo.annotations.Column(allowsNull="false")	
 	public CategoriaFiscal getCategoriaFiscal() {
-		return CategoriaFiscal;
+		return categoriaFiscal;
 	}
-	public void setCategoriaFiscal(CategoriaFiscal CategoriaFiscal) {
-		this.CategoriaFiscal = CategoriaFiscal;
+	public void setCategoriaFiscal(CategoriaFiscal categoriaFiscal) {
+		this.categoriaFiscal = categoriaFiscal;
 	}
 	
+    @javax.jdo.annotations.Column(allowsNull="false")
+	@MemberOrder(sequence="7")
+	public int getTomo() {
+		return tomo;
+	}
+	public void setTomo(int tomo) {
+		this.tomo = tomo;
+	}
+
+    @javax.jdo.annotations.Column(allowsNull="false")
+	@MemberOrder(sequence="7")
+	public int getFolio() {
+		return folio;
+	}
+	public void setFolio(int folio) {
+		this.folio = folio;
+	}
+
     @MemberOrder(sequence = "9")
 	@javax.jdo.annotations.Column(allowsNull="false")	
 	public dom.iusis.relacionAbogado getRelacionAbogado() {

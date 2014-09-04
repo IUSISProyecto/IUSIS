@@ -88,7 +88,6 @@ public class RepositorioPersonas extends AbstractFactoryAndRepository {
 		return cliente;
 	}
 	
-    	
     @MemberOrder(name="Personas", sequence="20.2")//Ordeno la visualizacion del menu
 	public Abogados ingresarAbogados(
 				
@@ -100,6 +99,10 @@ public class RepositorioPersonas extends AbstractFactoryAndRepository {
 				@Named("CUIT")final String cuit,
 				@Named("Categoria Fiscal")final CategoriaFiscal CategoriaFiscal,
 				@Named("Numero Matricula")final @Optional String numeroMatricula,
+				@RegEx(validation="\\d{6,8}")//Sirve para delimitar el tipo de caracteres a ingresar
+				@Named("Tomo")final @Optional int tomo,
+				@RegEx(validation="\\d{6,8}")//Sirve para delimitar el tipo de caracteres a ingresar
+				@Named("Folio")final @Optional int folio,
 				@Named("Domicilio")final @Optional String domicilio,
 				@Named("Fecha Nacimiento")final @Optional Date fechaNacimiento,
 				@RegEx(validation = "[a-z A-Záéíóú]+")//Sirve para delimitar el tipo de caracteres a ingresar
