@@ -43,7 +43,7 @@ public class Tribunales implements Locatable{
 	//private LocationLookupService locationLookupService;
 
     public String iconName() {
-        return "clientes";
+        return "tribunales";
     }
     
     public String title()

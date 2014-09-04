@@ -1,14 +1,18 @@
 package repo.iusis;
 
 import java.util.Date;
+import java.util.List;
+
 import org.apache.isis.applib.AbstractFactoryAndRepository;
 import org.apache.isis.applib.DomainObjectContainer;
+import org.apache.isis.applib.annotation.Hidden;
 import org.apache.isis.applib.annotation.MemberOrder;
 import org.apache.isis.applib.annotation.MultiLine;
 import org.apache.isis.applib.annotation.Named;
 import org.apache.isis.applib.annotation.Optional;
 import org.apache.isis.applib.annotation.RegEx;
 import org.apache.isis.applib.annotation.TypicalLength;
+import org.apache.isis.applib.query.QueryDefault;
 
 import dom.iusis.Abogados;
 import dom.iusis.Clientes;
@@ -287,12 +291,12 @@ public Fiscales ingresarFiscales(
 		public List<Abogados> listarAbogados() {
 	        return allMatches(QueryDefault.create(Abogados.class, "listarTodosAbogados")); 
 		}
-		
+		*/
 		//Lleno el dropdown list segun el nombre del estudio
-		//@Hidden
-	    //public List<Estudios> autoComplete(final String searchPhrase) { 
-	    	//return allMatches(QueryDefault.create(Estudios.class, "estudiosPorNombre","nombre",searchPhrase));
-	    //}*/
+		@Hidden
+	    public List<Estudios> autoComplete(final String searchPhrase) { 
+	    	return allMatches(QueryDefault.create(Estudios.class, "estudiosPorNombre","nombre",searchPhrase));
+	    }
     
 	@javax.inject.Inject 
 	    DomainObjectContainer container;

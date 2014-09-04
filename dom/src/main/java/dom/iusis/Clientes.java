@@ -24,7 +24,6 @@ import dom.iusis.Personas;
 @ObjectType("Clientes")
 
 @javax.jdo.annotations.Queries({
-		//@javax.jdo.annotations.Query(name = "listarTodosClientes", language = "JDOQL", value = "SELECT FROM dom.iusis.Clientes ")})
 	@javax.jdo.annotations.Query(name = "buscarPorDni", language = "JDOQL", value = "SELECT FROM dom.iusis.Clientes WHERE dni== :dni"),
     @javax.jdo.annotations.Query(name = "buscarPorNombre", language = "JDOQL", value = "SELECT FROM dom.simple.Clientes WHERE nombre.startsWith(:nombre)"),
     @javax.jdo.annotations.Query(name = "buscarPorApellido", language = "JDOQL", value = "SELECT FROM dom.simple.Clientes WHERE nombre.startsWith(:apellido)")
