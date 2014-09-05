@@ -24,6 +24,8 @@ public class Procesos {
 	private String descripcion;
 	private String domicilioConstituido;
 	private tipoNivel tipoNivel;
+	private tipoInstancia tipoInstancia;
+	
 	
     public String iconName() {
         return "procesos";
@@ -72,6 +74,16 @@ public class Procesos {
 
 	public void setTipoNivel(tipoNivel tipoNivel) {
 		this.tipoNivel = tipoNivel;
+	}
+
+	@javax.jdo.annotations.Column(allowsNull="false")
+    @MemberOrder(sequence="5")
+	public tipoInstancia getTipoInstancia() {
+		return tipoInstancia;
+	}
+
+	public void setTipoInstancia(tipoInstancia tipoInstancia) {
+		this.tipoInstancia = tipoInstancia;
 	}
 
 

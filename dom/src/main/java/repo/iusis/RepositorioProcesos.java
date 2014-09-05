@@ -8,6 +8,7 @@ import org.apache.isis.applib.annotation.Named;
 import org.apache.isis.applib.query.QueryDefault;
 
 import dom.iusis.Procesos;
+import dom.iusis.tipoInstancia;
 import dom.iusis.tipoNivel;
 
 @Named("Procesos")//Nombre del menu
@@ -27,6 +28,7 @@ public class RepositorioProcesos extends AbstractFactoryAndRepository {
 	@Named("Nombre")final String nombre,
 	@Named("Descripcion")final String descripcion,
 	@Named("Tipo Nivel")final tipoNivel tipoNivel,
+	@Named("Instancia")final tipoInstancia tipoInstancia,
 	@Named("DomicilioConstituido")final String domicilioConstituido)
 	
 	{
@@ -35,6 +37,7 @@ public class RepositorioProcesos extends AbstractFactoryAndRepository {
 	    proceso.setNombre(nombre);
 	    proceso.setDescripcion(descripcion);
 	    proceso.setTipoNivel(tipoNivel);
+	    proceso.setTipoInstancia(tipoInstancia);
 	    proceso.setDomicilioConstituido(domicilioConstituido);
 	 
 	    container.persistIfNotAlready(proceso);
