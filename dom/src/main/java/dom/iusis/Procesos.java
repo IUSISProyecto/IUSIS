@@ -20,6 +20,7 @@ import org.apache.isis.applib.annotation.Title;
 public class Procesos {
 
 	private String idProceso;
+	private String caratula;
 	private String nombre;
 	private String descripcion;
 	private String domicilioConstituido;
@@ -84,6 +85,15 @@ public class Procesos {
 
 	public void setTipoInstancia(tipoInstancia tipoInstancia) {
 		this.tipoInstancia = tipoInstancia;
+	}
+
+	@javax.jdo.annotations.Column(allowsNull="true")
+	public String getCaratula() {
+		return caratula;
+	}
+
+	public void setCaratula(String caratula) {
+		this.caratula = caratula;
 	}
 
 
