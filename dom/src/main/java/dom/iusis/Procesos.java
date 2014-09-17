@@ -58,8 +58,8 @@ public class Procesos {
 	
 	
 	@javax.jdo.annotations.Column(allowsNull="false")
-    @Title(sequence="1")
-    @MemberOrder(sequence="1")
+    
+    @MemberOrder(sequence="2")
 	public String getIdProceso() {
 		return idProceso;
 	}
@@ -86,8 +86,9 @@ public class Procesos {
 	public void setTipoInstancia(tipoInstancia tipoInstancia) {
 		this.tipoInstancia = tipoInstancia;
 	}
-
-	@javax.jdo.annotations.Column(allowsNull="true")
+	@Title(sequence="1")
+	@MemberOrder(sequence="1")
+	@javax.jdo.annotations.Column(allowsNull="false")
 	public String getCaratula() {
 		return caratula;
 	}
