@@ -24,9 +24,21 @@ public class Procesos {
 	private String nombre;
 	private String descripcion;
 	private String domicilioConstituido;
+
+	private String numeroCarpeta;
 	private tipoNivel tipoNivel;
 	private tipoInstancia tipoInstancia;
 	
+	@Title(sequence="1")
+	@MemberOrder(sequence="1")
+	@javax.jdo.annotations.Column(allowsNull="false")
+	public String getCaratula() {
+		return caratula;
+	}
+
+	public void setCaratula(String caratula) {
+		this.caratula = caratula;
+	}
 	
     public String iconName() {
         return "procesos";
@@ -86,16 +98,19 @@ public class Procesos {
 	public void setTipoInstancia(tipoInstancia tipoInstancia) {
 		this.tipoInstancia = tipoInstancia;
 	}
-	@Title(sequence="1")
-	@MemberOrder(sequence="1")
+	
+
+
+
 	@javax.jdo.annotations.Column(allowsNull="false")
-	public String getCaratula() {
-		return caratula;
+	public String getNumeroCarpeta() {
+		return numeroCarpeta;
 	}
 
-	public void setCaratula(String caratula) {
-		this.caratula = caratula;
+	public void setNumeroCarpeta(String numeroCarpeta) {
+		this.numeroCarpeta = numeroCarpeta;
 	}
+
 
 
 	@javax.inject.Inject

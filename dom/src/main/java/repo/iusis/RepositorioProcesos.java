@@ -28,10 +28,11 @@ public class RepositorioProcesos extends AbstractFactoryAndRepository {
 	public Procesos agregarProcesos(
 	@Named("id de Procesos")final String idProcesos ,
 	@MultiLine(numberOfLines=6)//Indica que el campo es multiline y se permiten hasta seis lineas
-	@Named("Caratula")final @Optional String caratula,
+	@Named("Caratula")final  String caratula,
 	@Named("Nombre")final String nombre,
 	@Named("Descripcion")final String descripcion,
 	@Named("Tipo Nivel")final tipoNivel tipoNivel,
+	@Named("N Carpeta")final String numeroCarpeta,
 	@Named("Instancia")final tipoInstancia tipoInstancia,
 	@Named("DomicilioConstituido")final String domicilioConstituido)
 	
@@ -41,6 +42,7 @@ public class RepositorioProcesos extends AbstractFactoryAndRepository {
 	    proceso.setCaratula(caratula);
 	    proceso.setNombre(nombre);
 	    proceso.setDescripcion(descripcion);
+	    proceso.setNumeroCarpeta(numeroCarpeta);
 	    proceso.setTipoNivel(tipoNivel);
 	    proceso.setTipoInstancia(tipoInstancia);
 	    proceso.setDomicilioConstituido(domicilioConstituido);
