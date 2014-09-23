@@ -12,15 +12,14 @@ import org.apache.isis.applib.annotation.AutoComplete;
 import org.apache.isis.applib.annotation.MemberOrder;
 import org.apache.isis.applib.annotation.ObjectType;
 
-//import dom.iusis.Estudios;
 import repo.iusis.RepositorioPersonas;
-import dom.iusis.Personas;
+import dom.iusis.Persona;
 
 @javax.jdo.annotations.PersistenceCapable(identityType=IdentityType.DATASTORE)
 /*@javax.jdo.annotations.Version(
         strategy=VersionStrategy.VERSION_NUMBER, 
         column="version")*/
-@ObjectType("Fiscales")
+@ObjectType("Peritos")
 
 
 @javax.jdo.annotations.Queries({
@@ -31,9 +30,9 @@ import dom.iusis.Personas;
 //@AutoComplete(repository = RepositorioClientes.class , action = "autoComplete")
 //@AutoComplete(repository = RepositorioEstudios.class , action = "autoCompleteEstudios")
 
-public class Fiscales extends Personas {
+public class Perito extends Persona {
 	
-	private String tipoabogado;
+	private String tipoperito;
 	//private Estudios estudios;
 	
 	
@@ -50,21 +49,12 @@ public class Fiscales extends Personas {
     
 	@javax.jdo.annotations.Column(allowsNull="true")
 	 @MemberOrder(sequence="8")
-	public String getTipoAbogado() {
-		return tipoabogado;
+	public String getTipoPerito() {
+		return tipoperito;
 	}
-	public void setTipoAbogado(String tipoabogado) {
-		this.tipoabogado = tipoabogado;
+	public void setTipoPerito(String tipoperito) {
+		this.tipoperito = tipoperito;
 	}
-	/*
-    @javax.jdo.annotations.Column(allowsNull="true")
-    @MemberOrder(sequence = "9")
-    public Estudios getEstudios() {
-        return estudios;
-    }
-    public void setEstudios(Estudios estudios) {
-        this.estudios = estudios;
-    }*/
 
 	@javax.inject.Inject
     @SuppressWarnings("unused")

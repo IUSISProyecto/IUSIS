@@ -1,6 +1,6 @@
 package dom.iusis;
 
-public enum tipoPersona {
+public enum TipoPersona {
 
 		FISICA, JURIDICA
 

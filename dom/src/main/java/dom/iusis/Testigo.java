@@ -5,8 +5,6 @@ package dom.iusis;
 //import java.util.ArrayList;
 //import java.util.List;
 import javax.jdo.annotations.IdentityType;
-import javax.jdo.annotations.VersionStrategy;
-
 import org.apache.isis.applib.DomainObjectContainer;
 import org.apache.isis.applib.annotation.Audited;
 import org.apache.isis.applib.annotation.AutoComplete;
@@ -14,15 +12,14 @@ import org.apache.isis.applib.annotation.AutoComplete;
 import org.apache.isis.applib.annotation.MemberOrder;
 import org.apache.isis.applib.annotation.ObjectType;
 
-import dom.iusis.Estudios;
 import repo.iusis.RepositorioPersonas;
-import dom.iusis.Personas;
+import dom.iusis.Persona;
 
 @javax.jdo.annotations.PersistenceCapable(identityType=IdentityType.DATASTORE)
 /*@javax.jdo.annotations.Version(
         strategy=VersionStrategy.VERSION_NUMBER, 
         column="version")*/
-@ObjectType("Peritos")
+@ObjectType("Testigos")
 
 
 @javax.jdo.annotations.Queries({
@@ -33,9 +30,9 @@ import dom.iusis.Personas;
 //@AutoComplete(repository = RepositorioClientes.class , action = "autoComplete")
 //@AutoComplete(repository = RepositorioEstudios.class , action = "autoCompleteEstudios")
 
-public class Peritos extends Personas {
+public class Testigo extends Persona {
 	
-	private String tipoperito;
+	private String tipoabogado;
 	//private Estudios estudios;
 	
 	
@@ -52,21 +49,12 @@ public class Peritos extends Personas {
     
 	@javax.jdo.annotations.Column(allowsNull="true")
 	 @MemberOrder(sequence="8")
-	public String getTipoPerito() {
-		return tipoperito;
+	public String getTipoAbogado() {
+		return tipoabogado;
 	}
-	public void setTipoPerito(String tipoperito) {
-		this.tipoperito = tipoperito;
+	public void setTipoAbogado(String tipoabogado) {
+		this.tipoabogado = tipoabogado;
 	}
-	/*
-    @javax.jdo.annotations.Column(allowsNull="true")
-    @MemberOrder(sequence = "9")
-    public Estudios getEstudios() {
-        return estudios;
-    }
-    public void setEstudios(Estudios estudios) {
-        this.estudios = estudios;
-    }*/
 
 	@javax.inject.Inject
     @SuppressWarnings("unused")

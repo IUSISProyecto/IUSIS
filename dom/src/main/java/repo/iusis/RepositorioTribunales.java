@@ -9,9 +9,9 @@ import org.apache.isis.applib.annotation.Named;
 import org.apache.isis.applib.annotation.RegEx;
 import org.apache.isis.applib.query.QueryDefault;
 
-import dom.iusis.Tribunales;
-import dom.iusis.listaProvincias;
-import dom.iusis.tipoTribunal;
+import dom.iusis.Tribunal;
+import dom.iusis.ListaProvincia;
+import dom.iusis.TipoTribunal;
 
 @Named("Administrar Tribunales")
 public class RepositorioTribunales extends AbstractFactoryAndRepository {
@@ -25,11 +25,11 @@ public class RepositorioTribunales extends AbstractFactoryAndRepository {
     }
 	//Defino nombre etiquetas para la clase
     //@Optional nos define si el campo es obligatorio u opcional
-	public Tribunales ingresarTribunales(
+	public Tribunal ingresarTribunales(
 	@RegEx(validation = "[a-z A-Záéíóú]+")//Sirve para delimitar el tipo de caracteres a ingresar
 	@Named("nombre")final String nombre ,
-	@Named("Tipo Tribunal")final tipoTribunal tipoTribunal,
-	@Named("Provincia")final listaProvincias provincia,
+	@Named("Tipo Tribunal")final TipoTribunal tipoTribunal,
+	@Named("Provincia")final ListaProvincia provincia,
 	@Named("Ciudad")final String ciudad,
 	@Named("Direccion") @DescribedAs("Example: Neuquen")final String direccion,
 	@Named("Telefono")@DescribedAs("Example: 299 154 681860")final String telefono,		
@@ -40,7 +40,7 @@ public class RepositorioTribunales extends AbstractFactoryAndRepository {
 	
 				
 	{
-		final Tribunales tribunal = container.newTransientInstance(Tribunales.class);
+		final Tribunal tribunal = container.newTransientInstance(Tribunal.class);
 		tribunal.setNombre(nombre);
 		tribunal.setTipoTribunal(tipoTribunal);
 		tribunal.setProvincia(provincia);
@@ -57,8 +57,8 @@ public class RepositorioTribunales extends AbstractFactoryAndRepository {
 				        
 	}
 	
-	public List<Tribunales> listarTodoslosTribunales() {
-        return allMatches(QueryDefault.create(Tribunales.class, "listarTodoslosTribunales"));
+	public List<Tribunal> listarTodoslosTribunales() {
+        return allMatches(QueryDefault.create(Tribunal.class, "listarTodoslosTribunales"));
     }
 	
 	@javax.inject.Inject 

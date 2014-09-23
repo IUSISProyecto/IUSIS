@@ -17,7 +17,7 @@ import org.apache.isis.applib.query.QueryDefault;
 
 //import dom.iusis.Estudios;
 import repo.iusis.RepositorioPersonas;
-import dom.iusis.Personas;
+import dom.iusis.Persona;
 
 
 @javax.jdo.annotations.PersistenceCapable(identityType=IdentityType.DATASTORE)
@@ -32,13 +32,13 @@ import dom.iusis.Personas;
 @AutoComplete(repository = RepositorioPersonas.class, action = "autoComplete")
 @Audited
 
-public class Clientes extends Personas {
+public class Cliente extends Persona {
 	
 	private String observacion;
 	//private Estudios estudios;
 	private dom.iusis.TipoCliente tipoCliente;
-	private dom.iusis.tipoPersona tipoPersona;
-	private dom.iusis.estadoCivil estadoCivil;
+	private TipoPersona tipoPersona;
+	private EstadoCivil estadoCivil;
 	
     public String iconName() {
         return "clientes";
@@ -60,19 +60,19 @@ public class Clientes extends Personas {
 	
     @javax.jdo.annotations.Column(allowsNull="true")
     @MemberOrder(sequence = "8")
-	public dom.iusis.tipoPersona getTipoPersona() {
+	public TipoPersona getTipoPersona() {
 		return tipoPersona;
 	}
-	public void setTipoPersona(dom.iusis.tipoPersona tipoPersona) {
+	public void setTipoPersona(TipoPersona tipoPersona) {
 		this.tipoPersona = tipoPersona;
 	}
 	
     @javax.jdo.annotations.Column(allowsNull="true")
     @MemberOrder(sequence = "8")
-	public dom.iusis.estadoCivil getEstadoCivil() {
+	public EstadoCivil getEstadoCivil() {
 		return estadoCivil;
 	}
-	public void setEstadoCivil(dom.iusis.estadoCivil estadoCivil) {
+	public void setEstadoCivil(EstadoCivil estadoCivil) {
 		this.estadoCivil = estadoCivil;
 	}
 	
@@ -101,7 +101,7 @@ public class Clientes extends Personas {
 
 @MemberOrder(sequence = "9")
 @Named ("Buscar por DNI")
-public List<Clientes> ListByDni(
+public List<Cliente> ListByDni(
 final @Named("DNI") String dni){
 
 return listByDni(dni);
@@ -109,8 +109,8 @@ return listByDni(dni);
 }
 
 @Programmatic
-public List<Clientes> listByDni(String dni) {
-return container.allMatches(new QueryDefault<Clientes>(Clientes.class, "buscarPorDni", "dni", dni));
+public List<Cliente> listByDni(String dni) {
+return container.allMatches(new QueryDefault<Cliente>(Cliente.class, "buscarPorDni", "dni", dni));
 
 }
 
@@ -120,7 +120,7 @@ return container.allMatches(new QueryDefault<Clientes>(Clientes.class, "buscarPo
 
 @MemberOrder(sequence = "9")
 @Named ("Buscar por Nombre")
-public List<Clientes> ListByName(
+public List<Cliente> ListByName(
 final @Named("Nombre") String nombre){
 
 return listByName(nombre);
@@ -128,8 +128,8 @@ return listByName(nombre);
 }
 
 @Programmatic
-public List<Clientes> listByName(String nombre) {
-return container.allMatches(new QueryDefault<Clientes>(Clientes.class, "buscarPorNombre", "nombre", nombre));
+public List<Cliente> listByName(String nombre) {
+return container.allMatches(new QueryDefault<Cliente>(Cliente.class, "buscarPorNombre", "nombre", nombre));
 }
 
 ///////////////////////////////////////
@@ -138,7 +138,7 @@ return container.allMatches(new QueryDefault<Clientes>(Clientes.class, "buscarPo
 
 @MemberOrder(sequence = "9")
 @Named ("Buscar por Apellido")
-public List<Clientes> ListByLastname(
+public List<Cliente> ListByLastname(
 final @Named("Apellido") String apellido){
 
 return listByName(apellido);
@@ -146,8 +146,8 @@ return listByName(apellido);
 }
 
 @Programmatic
-public List<Clientes> listByLastname(String apellido) {
-return container.allMatches(new QueryDefault<Clientes>(Clientes.class, "buscarPorApellido", "apellido", apellido));
+public List<Cliente> listByLastname(String apellido) {
+return container.allMatches(new QueryDefault<Cliente>(Cliente.class, "buscarPorApellido", "apellido", apellido));
 }
 
 @javax.inject.Inject

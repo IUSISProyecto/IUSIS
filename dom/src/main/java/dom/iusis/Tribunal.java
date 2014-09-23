@@ -28,11 +28,11 @@ import repo.iusis.RepositorioPersonas;
 //@AutoComplete(repository = RepositorioClientes.class , action = "autoComplete")
 //@AutoComplete(repository = RepositorioEstudios.class , action = "autoCompleteEstudios")
 
-public class Tribunales implements Locatable{
+public class Tribunal implements Locatable{
 	
 	private String nombre;
-	private tipoTribunal tipoTribunal;
-	private listaProvincias provincia;
+	private TipoTribunal tipoTribunal;
+	private ListaProvincia provincia;
 	private String ciudad;
 	private String direccion;
 	private String telefono;
@@ -62,21 +62,21 @@ public class Tribunales implements Locatable{
     
     @javax.jdo.annotations.Column(allowsNull="false")
     @MemberOrder(sequence = "2")
-	public dom.iusis.tipoTribunal getTipoTribunal() {
+	public TipoTribunal getTipoTribunal() {
 		return tipoTribunal;
 	}
-	public void setTipoTribunal(dom.iusis.tipoTribunal tipoTribunal) {
+	public void setTipoTribunal(TipoTribunal tipoTribunal) {
 		this.tipoTribunal = tipoTribunal;
 	}
 
     @javax.jdo.annotations.Column(allowsNull="false")
     @MemberOrder(sequence = "3")
 
-    public listaProvincias getProvincia() {
+    public ListaProvincia getProvincia() {
 		return provincia;
 	}
 
-	public void setProvincia(listaProvincias provincia) {
+	public void setProvincia(ListaProvincia provincia) {
 		this.provincia = provincia;
 	}
 

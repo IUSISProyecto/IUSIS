@@ -14,19 +14,18 @@ import org.apache.isis.applib.annotation.RegEx;
 import org.apache.isis.applib.annotation.TypicalLength;
 import org.apache.isis.applib.query.QueryDefault;
 
-import dom.iusis.Abogados;
+import dom.iusis.Abogado;
 import dom.iusis.CategoriaFiscal;
-import dom.iusis.Clientes;
-import dom.iusis.Fiscales;
-import dom.iusis.Jueces;
-import dom.iusis.Peritos;
-import dom.iusis.Estudios;
-//import dom.iusis.Programmatic;
-import dom.iusis.Testigos;
-import dom.iusis.estadoCivil;
-import dom.iusis.relacionAbogado;
+import dom.iusis.Cliente;
+import dom.iusis.EstadoCivil;
+import dom.iusis.Estudio;
+import dom.iusis.Fiscal;
+import dom.iusis.Juez;
+import dom.iusis.Perito;
+import dom.iusis.RelacionAbogado;
+import dom.iusis.Testigo;
 import dom.iusis.TipoCliente;
-import dom.iusis.tipoPersona;
+import dom.iusis.TipoPersona;
 
 @Named("Personas")
 public class RepositorioPersonas extends AbstractFactoryAndRepository {
@@ -42,7 +41,7 @@ public class RepositorioPersonas extends AbstractFactoryAndRepository {
     //@Optional nos define si el campo es obligatorio u opcional
     @MemberOrder(name="Personas", sequence="20.1")//Ordeno la visualizacion del menu
     
-    public Clientes ingresarClientes(
+    public Cliente ingresarClientes(
 	@Named("DNI")final String dni ,
 	@RegEx(validation = "[a-z A-Záéíóú]+")//Sirve para delimitar el tipo de caracteres a ingresar
 	@Named("Nombre")final String nombre,
@@ -50,8 +49,8 @@ public class RepositorioPersonas extends AbstractFactoryAndRepository {
 	@Named("Apellido")final String apellido,
 	@TypicalLength(50)
 	@Named("Domicilio")final @Optional String domicilio,
-	@Named("Estado Civil")final @Optional estadoCivil estadoCivil,
-	@Named("Tipo Persona")final @Optional tipoPersona tipoPersona,
+	@Named("Estado Civil")final @Optional EstadoCivil estadoCivil,
+	@Named("Tipo Persona")final @Optional TipoPersona tipoPersona,
 	@Named("Fecha Nacimiento")final @Optional Date fechaNacimiento,
 	@RegEx(validation = "[a-z A-Záéíóú]+")//Sirve para delimitar el tipo de caracteres a ingresar
 	@Named("Localidad")final @Optional String localidad,
@@ -66,7 +65,7 @@ public class RepositorioPersonas extends AbstractFactoryAndRepository {
 	@Named("E-mail")final @Optional String email)
 
 	{
-		final Clientes cliente = container.newTransientInstance(Clientes.class);
+		final Cliente cliente = container.newTransientInstance(Cliente.class);
 	   
 	    cliente.setDni(dni);
 	    cliente.setNombre(nombre);
@@ -89,7 +88,7 @@ public class RepositorioPersonas extends AbstractFactoryAndRepository {
 	}
 	
     @MemberOrder(name="Personas", sequence="20.2")//Ordeno la visualizacion del menu
-	public Abogados ingresarAbogados(
+	public Abogado ingresarAbogados(
 				
 				@Named("DNI")final String dni,
 				@RegEx(validation = "[a-z A-Záéíóú]+")//Sirve para delimitar el tipo de caracteres a ingresar
@@ -109,13 +108,13 @@ public class RepositorioPersonas extends AbstractFactoryAndRepository {
 				@Named("Localidad")final @Optional String localidad,
 				@Named("Telefono")final @Optional String telefono,
 				@Named("Celular")final @Optional String celular,
-				@Named("Estudio")final @Optional Estudios estudios, 
-				@Named("Relacion Abogado")final @Optional relacionAbogado relacionabogado,
+				@Named("Estudio")final @Optional Estudio estudio, 
+				@Named("Relacion Abogado")final @Optional RelacionAbogado relacionabogado,
 				@RegEx(validation = "(\\w+\\.)*\\w+@(\\w+\\.)+[A-Za-z]+")
 				@Named("E-mail")final @Optional String email)
 
 				{
-					final Abogados abogado = container.newTransientInstance(Abogados.class);
+					final Abogado abogado = container.newTransientInstance(Abogado.class);
 				   
 				    abogado.setDni(dni);
 				    abogado.setNombre(nombre);
@@ -127,7 +126,7 @@ public class RepositorioPersonas extends AbstractFactoryAndRepository {
 				    abogado.setLocalidad(localidad);
 				    abogado.setTelefono(telefono);
 				    abogado.setCelular(celular);
-				    abogado.setEstudios(estudios);
+				    abogado.setEstudio(estudio);
 				    abogado.setRelacionAbogado(relacionabogado);
 				    abogado.setNumeroMatricula(numeroMatricula);
 				    abogado.setEmail(email);
@@ -143,7 +142,7 @@ public class RepositorioPersonas extends AbstractFactoryAndRepository {
   		//Defino nombre etiquetas para la clase
   	    //@Optional nos define si el campo es obligatorio u opcional
       @MemberOrder(name="Personas", sequence="20.3")//Ordeno la visualizacion del menu
-      public Peritos ingresarPeritos(
+      public Perito ingresarPeritos(
   		
   		@Named("DNI")final String dni ,
   		@RegEx(validation = "[a-z A-Záéíóú]+")//Sirve para delimitar el tipo de caracteres a ingresar
@@ -161,7 +160,7 @@ public class RepositorioPersonas extends AbstractFactoryAndRepository {
   		@Named("E-mail")final @Optional String email)
   		
   		{
-  			final Peritos perito = container.newTransientInstance(Peritos.class);
+  			final Perito perito = container.newTransientInstance(Perito.class);
   			perito.setDni(dni);
   		    perito.setNombre(nombre);
   		    perito.setApellido(apellido);
@@ -178,7 +177,7 @@ public class RepositorioPersonas extends AbstractFactoryAndRepository {
   		}
     
     @MemberOrder(name="Personas", sequence="20.4")//Ordeno la visualizacion del menu
-    public Testigos ingresarTestigos(
+    public Testigo ingresarTestigos(
 				
 				@Named("DNI")final String dni ,
 				@RegEx(validation = "[a-z A-Záéíóú]+")//Sirve para delimitar el tipo de caracteres a ingresar
@@ -196,7 +195,7 @@ public class RepositorioPersonas extends AbstractFactoryAndRepository {
 				@Named("E-mail")final @Optional String email)
 
 				{
-					final Testigos testigo = container.newTransientInstance(Testigos.class);
+					final Testigo testigo = container.newTransientInstance(Testigo.class);
 				   
 				    testigo.setDni(dni);
 				    testigo.setNombre(nombre);
@@ -216,7 +215,7 @@ public class RepositorioPersonas extends AbstractFactoryAndRepository {
 				
 				//======================================================
     @MemberOrder(name="Personas", sequence="20.5")//Ordeno la visualizacion del menu
-public Jueces ingresarJueces(
+public Juez ingresarJueces(
 		
 		@Named("DNI")final String dni ,
 		@RegEx(validation = "[a-z A-Záéíóú]+")//Sirve para delimitar el tipo de caracteres a ingresar
@@ -234,7 +233,7 @@ public Jueces ingresarJueces(
 		@Named("E-mail")final @Optional String email)
 
 		{
-			final Jueces juez = container.newTransientInstance(Jueces.class);
+			final Juez juez = container.newTransientInstance(Juez.class);
 		   
 		    juez.setDni(dni);
 		    juez.setNombre(nombre);
@@ -254,7 +253,7 @@ public Jueces ingresarJueces(
 		
 		//======================================================
 @MemberOrder(name="Personas", sequence="20.6")//Ordeno la visualizacion del menu
-public Fiscales ingresarFiscales(
+public Fiscal ingresarFiscales(
 		
 		@Named("DNI")final String dni ,
 		@RegEx(validation = "[a-z A-Záéíóú]+")//Sirve para delimitar el tipo de caracteres a ingresar
@@ -272,7 +271,7 @@ public Fiscales ingresarFiscales(
 		@Named("E-mail")final @Optional String email)
 
 		{
-			final Fiscales fiscal = container.newTransientInstance(Fiscales.class);
+			final Fiscal fiscal = container.newTransientInstance(Fiscal.class);
 		   
 		    fiscal.setDni(dni);
 		    fiscal.setNombre(nombre);
@@ -304,8 +303,8 @@ public Fiscales ingresarFiscales(
 		*/
 		//Lleno el dropdown list segun el nombre del estudio
 		@Hidden
-	    public List<Estudios> autoComplete(final String searchPhrase) { 
-	    	return allMatches(QueryDefault.create(Estudios.class, "estudiosPorNombre","nombre",searchPhrase));
+	    public List<Estudio> autoComplete(final String searchPhrase) { 
+	    	return allMatches(QueryDefault.create(Estudio.class, "estudiosPorNombre","nombre",searchPhrase));
 	    }
     
 	@javax.inject.Inject 

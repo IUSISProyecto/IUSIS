@@ -8,7 +8,7 @@ import org.apache.isis.applib.annotation.Hidden;
 import org.apache.isis.applib.annotation.Named;
 import org.apache.isis.applib.query.QueryDefault;
 
-import dom.iusis.Estudios;
+import dom.iusis.Estudio;
 
 @Named("Administrar Estudios")
 public class RepositorioEstudios extends AbstractFactoryAndRepository {
@@ -23,13 +23,13 @@ public class RepositorioEstudios extends AbstractFactoryAndRepository {
     
 	//Defino nombre etiquetas para la clase
     //@Optional nos define si el campo es obligatorio u opcional
-	public Estudios ingresarEstudios(
+	public Estudio ingresarEstudios(
 	@Named("Nombre Estudio")final String nombre,
 	@Named("Localidad")final String localidad,
 	@Named("Telefono")final String telefono,
 	@Named("Direccion")final String direccion)
 	{
-		final Estudios estudio = container.newTransientInstance(Estudios.class);
+		final Estudio estudio = container.newTransientInstance(Estudio.class);
 	    estudio.setNombre(nombre);
 	    estudio.setLocalidad(localidad);
 	    estudio.setTelefono(telefono);
@@ -40,13 +40,13 @@ public class RepositorioEstudios extends AbstractFactoryAndRepository {
 		return estudio;
 	}
 	
-	public List<Estudios> listarEstudios() {
-        return allMatches(QueryDefault.create(Estudios.class, "listarTodosEstudios"));
+	public List<Estudio> listarEstudios() {
+        return allMatches(QueryDefault.create(Estudio.class, "listarTodosEstudios"));
     }
 	
 	@Hidden
-    public List<Estudios> autoComplete(String searchPhrase) {        
-    	return allMatches(QueryDefault.create(Estudios.class, "estudiosPorNombre","nombre",searchPhrase));
+    public List<Estudio> autoComplete(String searchPhrase) {        
+    	return allMatches(QueryDefault.create(Estudio.class, "estudiosPorNombre","nombre",searchPhrase));
     }
 	
 	@javax.inject.Inject 

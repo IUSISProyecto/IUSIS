@@ -10,9 +10,9 @@ import org.apache.isis.applib.annotation.MemberOrder;
 import org.apache.isis.applib.annotation.ObjectType;
 
 import dom.iusis.CategoriaFiscal;
-import dom.iusis.Estudios;
+import dom.iusis.Estudio;
 import repo.iusis.RepositorioPersonas;
-import dom.iusis.Personas;
+import dom.iusis.Persona;
 
 @javax.jdo.annotations.PersistenceCapable(identityType=IdentityType.DATASTORE)
 @ObjectType("Abogados")
@@ -25,15 +25,15 @@ import dom.iusis.Personas;
 //@AutoComplete(repository = RepositorioClientes.class , action = "autoComplete")
 //@AutoComplete(repository = RepositorioEstudios.class , action = "autoCompleteEstudios")
 
-public class Abogados extends Personas {
+public class Abogado extends Persona {
 	
 	private String cuit;
 	private CategoriaFiscal categoriaFiscal;
 	private int tomo;
 	private int folio;
 	private String numeroMatricula;
-	private Estudios estudios;//Utiliso clase estudio para relacionarlas
-	private dom.iusis.relacionAbogado relacionAbogado;
+	private Estudio estudio;//Utiliso clase estudio para relacionarlas
+	private RelacionAbogado relacionAbogado;
 	
     public String iconName() {
         return "clientes";
@@ -82,10 +82,10 @@ public class Abogados extends Personas {
 
     @MemberOrder(sequence = "9")
 	@javax.jdo.annotations.Column(allowsNull="false")	
-	public dom.iusis.relacionAbogado getRelacionAbogado() {
+	public RelacionAbogado getRelacionAbogado() {
 		return relacionAbogado;
 	}
-	public void setRelacionAbogado(dom.iusis.relacionAbogado relacionAbogado) {
+	public void setRelacionAbogado(RelacionAbogado relacionAbogado) {
 		this.relacionAbogado = relacionAbogado;
 	}
 	
@@ -102,11 +102,11 @@ public class Abogados extends Personas {
 
     @javax.jdo.annotations.Column(allowsNull="true")
     @MemberOrder(sequence = "11")
-    public Estudios getEstudios() {
-        return estudios;
+    public Estudio getEstudio() {
+        return estudio;
     }
-    public void setEstudios(Estudios estudios) {
-        this.estudios = estudios;
+    public void setEstudio(Estudio estudios) {
+        this.estudio = estudio;
     }
 	
 	@javax.inject.Inject

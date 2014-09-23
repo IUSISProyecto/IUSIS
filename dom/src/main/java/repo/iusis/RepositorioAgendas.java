@@ -9,7 +9,7 @@ import org.apache.isis.applib.annotation.Named;
 import org.apache.isis.applib.annotation.Optional;
 
 import dom.iusis.Agenda;
-import dom.iusis.tipoProceso;
+import dom.iusis.TipoProceso;
 
 public class RepositorioAgendas  extends AbstractFactoryAndRepository {
 	public String getId() {
@@ -26,7 +26,7 @@ public class RepositorioAgendas  extends AbstractFactoryAndRepository {
   	@Named("Lugar")final String lugar,
   	@Named("Fecha")final Date fecha,
   	@Named("Hora")final Date hora,
-  	@Named("Tipo Proceso")@Optional tipoProceso tipoProceso,
+  	@Named("Tipo Proceso")@Optional TipoProceso tipoProceso,
   	@Named("Responsable")@Optional final String responsable,
   	@Named("Cliente")@Optional final String cliente,
   	@Named("Expediente")@Optional final String expediente,

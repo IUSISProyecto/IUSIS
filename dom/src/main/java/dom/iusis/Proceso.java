@@ -17,7 +17,7 @@ import org.apache.isis.applib.annotation.Title;
 	//{@javax.jdo.annotations.Query(name = "traerPorId", language = "JDOQL", value = "SELECT FROM dom.iusis.Clientes WHERE idCliente== :idCliente"),
 	@javax.jdo.annotations.Query(name = "listarTodoslosProcesos", language = "JDOQL", value = "SELECT FROM dom.iusis.Procesos ")})
 
-public class Procesos {
+public class Proceso {
 
 	private String idProceso;
 	private String caratula;
@@ -26,8 +26,8 @@ public class Procesos {
 	private String domicilioConstituido;
 
 	private String numeroCarpeta;
-	private tipoNivel tipoNivel;
-	private tipoInstancia tipoInstancia;
+	private TipoNivel TipoNivel;
+	private TipoInstancia tipoInstancia;
 	
 	@Title(sequence="1")
 	@MemberOrder(sequence="1")
@@ -81,27 +81,24 @@ public class Procesos {
 	
 	@javax.jdo.annotations.Column(allowsNull="false")
     @MemberOrder(sequence="4")
-	public tipoNivel getTipoNivel() {
-		return tipoNivel;
+	public TipoNivel getTipoNivel() {
+		return TipoNivel;
 	}
 
-	public void setTipoNivel(tipoNivel tipoNivel) {
-		this.tipoNivel = tipoNivel;
+	public void setTipoNivel(TipoNivel TipoNivel) {
+		this.TipoNivel = TipoNivel;
 	}
 
 	@javax.jdo.annotations.Column(allowsNull="false")
     @MemberOrder(sequence="5")
-	public tipoInstancia getTipoInstancia() {
+	public TipoInstancia getTipoInstancia() {
 		return tipoInstancia;
 	}
 
-	public void setTipoInstancia(tipoInstancia tipoInstancia) {
+	public void setTipoInstancia(TipoInstancia tipoInstancia) {
 		this.tipoInstancia = tipoInstancia;
 	}
 	
-
-
-
 	@javax.jdo.annotations.Column(allowsNull="false")
 	public String getNumeroCarpeta() {
 		return numeroCarpeta;

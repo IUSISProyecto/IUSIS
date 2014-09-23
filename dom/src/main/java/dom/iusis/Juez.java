@@ -14,7 +14,7 @@ import org.apache.isis.applib.annotation.ObjectType;
 
 //import dom.iusis.Estudios;
 import repo.iusis.RepositorioPersonas;
-import dom.iusis.Personas;
+import dom.iusis.Persona;
 
 @javax.jdo.annotations.PersistenceCapable(identityType=IdentityType.DATASTORE)
 /*@javax.jdo.annotations.Version(
@@ -31,7 +31,7 @@ import dom.iusis.Personas;
 //@AutoComplete(repository = RepositorioClientes.class , action = "autoComplete")
 //@AutoComplete(repository = RepositorioEstudios.class , action = "autoCompleteEstudios")
 
-public class Jueces extends Personas {
+public class Juez extends Persona {
 	
 	private String tipoabogado;
 	//private Estudios estudios;

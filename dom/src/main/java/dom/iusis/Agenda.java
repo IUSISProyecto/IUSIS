@@ -19,7 +19,7 @@ public class Agenda {
 	private String lugar;
 	private Date fecha;
 	private Date hora;
-	private tipoProceso tipoProceso;
+	private TipoProceso tipoProceso;
 	private String responsable; /*Unir con abogado propio*/
 	private String cliente; /*se podría vincular a un cliente, o cualquier persona (testigo, perito, etc).*/
 	private String expediente;
@@ -62,10 +62,10 @@ public class Agenda {
 
     @javax.jdo.annotations.Column(allowsNull="true")
     @MemberOrder(sequence = "5")
-	public tipoProceso getTipoProceso() {
+	public TipoProceso getTipoProceso() {
 		return tipoProceso;
 	}
-	public void setTipoProceso(tipoProceso tipoProceso) {
+	public void setTipoProceso(TipoProceso tipoProceso) {
 	    this.tipoProceso = tipoProceso;
 	}
 	

@@ -9,9 +9,9 @@ import org.apache.isis.applib.annotation.Named;
 import org.apache.isis.applib.annotation.Optional;
 import org.apache.isis.applib.query.QueryDefault;
 
-import dom.iusis.Procesos;
-import dom.iusis.tipoInstancia;
-import dom.iusis.tipoNivel;
+import dom.iusis.Proceso;
+import dom.iusis.TipoNivel;
+import dom.iusis.TipoInstancia;
 
 @Named("Procesos")//Nombre del menu
 public class RepositorioProcesos extends AbstractFactoryAndRepository {
@@ -25,19 +25,19 @@ public class RepositorioProcesos extends AbstractFactoryAndRepository {
     }
 	//Defino nombre etiquetas para la clase
     //@Optional nos define si el campo es obligatorio u opcional
-	public Procesos agregarProcesos(
+	public Proceso agregarProcesos(
 	@Named("id de Procesos")final String idProcesos ,
 	@MultiLine(numberOfLines=6)//Indica que el campo es multiline y se permiten hasta seis lineas
 	@Named("Caratula")final  String caratula,
 	@Named("Nombre")final String nombre,
 	@Named("Descripcion")final String descripcion,
-	@Named("Tipo Nivel")final tipoNivel tipoNivel,
+	@Named("Tipo Nivel")final TipoNivel tipoNivel,
 	@Named("N Carpeta")final String numeroCarpeta,
-	@Named("Instancia")final tipoInstancia tipoInstancia,
+	@Named("Instancia")final TipoInstancia tipoInstancia,
 	@Named("DomicilioConstituido")final String domicilioConstituido)
 	
 	{
-		final Procesos proceso = container.newTransientInstance(Procesos.class);
+		final Proceso proceso = container.newTransientInstance(Proceso.class);
 	    proceso.setIdProceso(idProcesos);
 	    proceso.setCaratula(caratula);
 	    proceso.setNombre(nombre);
@@ -52,8 +52,8 @@ public class RepositorioProcesos extends AbstractFactoryAndRepository {
 		return proceso;
 	}
 	
-	public List<Procesos> verProcesos() {
-        return allMatches(QueryDefault.create(Procesos.class, "listarTodoslosProcesos"));
+	public List<Proceso> verProcesos() {
+        return allMatches(QueryDefault.create(Proceso.class, "listarTodoslosProcesos"));
     }
 	
 	@javax.inject.Inject 
