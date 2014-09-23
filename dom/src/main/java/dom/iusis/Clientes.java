@@ -36,7 +36,7 @@ public class Clientes extends Personas {
 	
 	private String observacion;
 	//private Estudios estudios;
-	private dom.iusis.tipoCliente tipoCliente;
+	private dom.iusis.TipoCliente tipoCliente;
 	private dom.iusis.tipoPersona tipoPersona;
 	private dom.iusis.estadoCivil estadoCivil;
 	
@@ -51,10 +51,10 @@ public class Clientes extends Personas {
     
     @javax.jdo.annotations.Column(allowsNull="true")
     @MemberOrder(sequence = "7")
-	public dom.iusis.tipoCliente getTipoCliente() {
+	public dom.iusis.TipoCliente getTipoCliente() {
 		return tipoCliente;
 	}
-	public void setTipoCliente(dom.iusis.tipoCliente tipoCliente) {
+	public void setTipoCliente(dom.iusis.TipoCliente tipoCliente) {
 		this.tipoCliente = tipoCliente;
 	}
 	

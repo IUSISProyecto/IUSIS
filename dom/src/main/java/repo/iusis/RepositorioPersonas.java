@@ -25,7 +25,7 @@ import dom.iusis.Estudios;
 import dom.iusis.Testigos;
 import dom.iusis.estadoCivil;
 import dom.iusis.relacionAbogado;
-import dom.iusis.tipoCliente;
+import dom.iusis.TipoCliente;
 import dom.iusis.tipoPersona;
 
 @Named("Personas")
@@ -57,7 +57,7 @@ public class RepositorioPersonas extends AbstractFactoryAndRepository {
 	@Named("Localidad")final @Optional String localidad,
 	@Named("Telefono")final @Optional String telefono,
 	@Named("Celular")final @Optional String celular,
-	@Named("Tipo Cliente")final  @Optional tipoCliente tipoCliente, 
+	@Named("Tipo Cliente")final  @Optional TipoCliente tipoCliente, 
 	@MultiLine(numberOfLines=10)//Indica que el campo es multiline y se permiten hasta diez lineas
 	@Named("Observaciones")final @Optional String observacion,
 	//@Named("Estudio")final @Optional Estudios estudios,

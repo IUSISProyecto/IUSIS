@@ -12,7 +12,7 @@ import org.apache.isis.applib.annotation.AutoComplete;
 import org.apache.isis.applib.annotation.MemberOrder;
 import org.apache.isis.applib.annotation.ObjectType;
 
-import dom.iusis.Estudios;
+//import dom.iusis.Estudios;
 import repo.iusis.RepositorioPersonas;
 import dom.iusis.Personas;
 

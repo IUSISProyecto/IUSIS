@@ -4,7 +4,9 @@ import java.util.Date;
 
 import org.apache.isis.applib.AbstractFactoryAndRepository;
 import org.apache.isis.applib.DomainObjectContainer;
+import org.apache.isis.applib.annotation.MultiLine;
 import org.apache.isis.applib.annotation.Named;
+import org.apache.isis.applib.annotation.Optional;
 
 import dom.iusis.Agenda;
 import dom.iusis.tipoProceso;
@@ -24,11 +26,12 @@ public class RepositorioAgendas  extends AbstractFactoryAndRepository {
   	@Named("Lugar")final String lugar,
   	@Named("Fecha")final Date fecha,
   	@Named("Hora")final Date hora,
-  	@Named("Tipo Proceso")tipoProceso tipoProceso,
-  	@Named("Responsable")final String responsable,
-  	@Named("Cliente")final String cliente,
-  	@Named("Expediente")final String expediente,
-  	@Named("Descripcción")final String descripcion)
+  	@Named("Tipo Proceso")@Optional tipoProceso tipoProceso,
+  	@Named("Responsable")@Optional final String responsable,
+  	@Named("Cliente")@Optional final String cliente,
+  	@Named("Expediente")@Optional final String expediente,
+  	@MultiLine(numberOfLines=10)
+  	@Named("Descripcción")final @Optional String descripcion)
   	{
   		
 		final Agenda agenda = container.newTransientInstance(Agenda.class);
