@@ -1,6 +1,6 @@
 package dom.iusis;
 
-public enum tipoNivel {
+public enum TipoNivel {
 	
-	Consultante, Basico, Avanzado
+	CONSULTANTE, BASICO, AVANZADO
 }
