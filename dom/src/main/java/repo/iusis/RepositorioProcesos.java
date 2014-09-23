@@ -4,7 +4,9 @@ import java.util.List;
 
 import org.apache.isis.applib.AbstractFactoryAndRepository;
 import org.apache.isis.applib.DomainObjectContainer;
+import org.apache.isis.applib.annotation.MultiLine;
 import org.apache.isis.applib.annotation.Named;
+import org.apache.isis.applib.annotation.Optional;
 import org.apache.isis.applib.query.QueryDefault;
 
 import dom.iusis.Procesos;
@@ -25,17 +27,22 @@ public class RepositorioProcesos extends AbstractFactoryAndRepository {
     //@Optional nos define si el campo es obligatorio u opcional
 	public Procesos agregarProcesos(
 	@Named("id de Procesos")final String idProcesos ,
+	@MultiLine(numberOfLines=6)//Indica que el campo es multiline y se permiten hasta seis lineas
+	@Named("Caratula")final  String caratula,
 	@Named("Nombre")final String nombre,
 	@Named("Descripcion")final String descripcion,
 	@Named("Tipo Nivel")final tipoNivel tipoNivel,
+	@Named("N Carpeta")final String numeroCarpeta,
 	@Named("Instancia")final tipoInstancia tipoInstancia,
 	@Named("DomicilioConstituido")final String domicilioConstituido)
 	
 	{
 		final Procesos proceso = container.newTransientInstance(Procesos.class);
 	    proceso.setIdProceso(idProcesos);
+	    proceso.setCaratula(caratula);
 	    proceso.setNombre(nombre);
 	    proceso.setDescripcion(descripcion);
+	    proceso.setNumeroCarpeta(numeroCarpeta);
 	    proceso.setTipoNivel(tipoNivel);
 	    proceso.setTipoInstancia(tipoInstancia);
 	    proceso.setDomicilioConstituido(domicilioConstituido);
