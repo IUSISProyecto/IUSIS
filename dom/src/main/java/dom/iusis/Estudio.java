@@ -22,7 +22,7 @@ import repo.iusis.RepositorioEstudios;
 	})
 @AutoComplete(repository = RepositorioEstudios.class , action = "autoComplete")
 
-public class Estudios {
+public class Estudio {
 	
 	private String nombre;
 	private String localidad;
