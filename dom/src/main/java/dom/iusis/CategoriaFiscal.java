@@ -1,5 +1,5 @@
 package dom.iusis;
 
 public enum CategoriaFiscal {
-	Monotributista, Responsable_Inscripto
+	MONOTRIBUTISTA, REPONSABLE_INSCRIPTO
 }
