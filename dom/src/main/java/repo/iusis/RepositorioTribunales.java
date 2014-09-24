@@ -8,6 +8,7 @@ import org.apache.isis.applib.annotation.DescribedAs;
 import org.apache.isis.applib.annotation.Named;
 import org.apache.isis.applib.annotation.RegEx;
 import org.apache.isis.applib.query.QueryDefault;
+import org.apache.isis.applib.value.Blob;
 
 import dom.iusis.Tribunal;
 import dom.iusis.ListaProvincia;
@@ -36,7 +37,8 @@ public class RepositorioTribunales extends AbstractFactoryAndRepository {
 	@RegEx(validation = "[a-z A-Záéíóú]+")//Sirve para delimitar el tipo de caracteres a ingresar
 	@Named("Juez")final @DescribedAs("Example: Jose Gago") String juez,
 	@RegEx(validation = "[a-z A-Záéíóú]+")//Sirve para delimitar el tipo de caracteres a ingresar
-	@Named("Fiscal")final String fiscal)
+	@Named("Fiscal")final String fiscal,
+	@Named("Adjunto")final Blob attachment)
 	
 				
 	{
@@ -49,6 +51,7 @@ public class RepositorioTribunales extends AbstractFactoryAndRepository {
 		tribunal.setTelefono(telefono);
 		tribunal.setJuez(juez);
 		tribunal.setFiscal(fiscal);
+		tribunal.setAttachment(attachment);
 		//tribunal.setLocation(location);
 		
 	    container.persistIfNotAlready(tribunal);
