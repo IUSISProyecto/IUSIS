@@ -102,6 +102,7 @@ public class RepositorioPersonas extends AbstractFactoryAndRepository {
 				@Named("Tomo")final @Optional int tomo,
 				@RegEx(validation="\\d{6,8}")//Sirve para delimitar el tipo de caracteres a ingresar
 				@Named("Folio")final @Optional int folio,
+				@Named("Colegio de Abogados")final @Optional String colegioAbogados,
 				@Named("Domicilio")final @Optional String domicilio,
 				@Named("Fecha Nacimiento")final @Optional Date fechaNacimiento,
 				@RegEx(validation = "[a-z A-Záéíóú]+")//Sirve para delimitar el tipo de caracteres a ingresar
@@ -121,6 +122,10 @@ public class RepositorioPersonas extends AbstractFactoryAndRepository {
 				    abogado.setApellido(apellido);
 				    abogado.setCuit(cuit);
 				    abogado.setCategoriaFiscal(CategoriaFiscal);
+				    abogado.setNumeroMatricula(numeroMatricula);
+				    abogado.setTomo(tomo);
+				    abogado.setFolio(folio);
+				    abogado.setColegioAbogados(colegioAbogados);
 				    abogado.setDomicilio(domicilio);
 				    abogado.setFechaNacimiento(fechaNacimiento);
 				    abogado.setLocalidad(localidad);
@@ -128,7 +133,6 @@ public class RepositorioPersonas extends AbstractFactoryAndRepository {
 				    abogado.setCelular(celular);
 				    abogado.setEstudio(estudio);
 				    abogado.setRelacionAbogado(relacionabogado);
-				    abogado.setNumeroMatricula(numeroMatricula);
 				    abogado.setEmail(email);
 
 				    container.persistIfNotAlready(abogado);

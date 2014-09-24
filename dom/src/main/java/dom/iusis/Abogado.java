@@ -31,6 +31,7 @@ public class Abogado extends Persona {
 	private CategoriaFiscal categoriaFiscal;
 	private int tomo;
 	private int folio;
+	private String colegioAbogados;
 	private String numeroMatricula;
 	private Estudio estudio;//Utiliso clase estudio para relacionarlas
 	private RelacionAbogado relacionAbogado;
@@ -45,7 +46,7 @@ public class Abogado extends Persona {
 	}
     
     @javax.jdo.annotations.Column(allowsNull="false")
-	@MemberOrder(sequence="7")
+	@MemberOrder(sequence="1")
 	public String getCuit() {
 		return cuit;
 	}
@@ -53,7 +54,7 @@ public class Abogado extends Persona {
 		this.cuit = cuit;
 	}
 	
-	@MemberOrder(sequence = "8")
+	@MemberOrder(sequence = "2")
 	@javax.jdo.annotations.Column(allowsNull="false")	
 	public CategoriaFiscal getCategoriaFiscal() {
 		return categoriaFiscal;
@@ -63,7 +64,7 @@ public class Abogado extends Persona {
 	}
 	
     @javax.jdo.annotations.Column(allowsNull="false")
-	@MemberOrder(sequence="7")
+	@MemberOrder(sequence="3")
 	public int getTomo() {
 		return tomo;
 	}
@@ -72,25 +73,35 @@ public class Abogado extends Persona {
 	}
 
     @javax.jdo.annotations.Column(allowsNull="false")
-	@MemberOrder(sequence="7")
+	@MemberOrder(sequence="4")
 	public int getFolio() {
 		return folio;
 	}
 	public void setFolio(int folio) {
 		this.folio = folio;
 	}
+	
+    @MemberOrder(sequence = "5")
+	@javax.jdo.annotations.Column(allowsNull="true")
+	public String getColegioAbogados() {
+		return colegioAbogados;
+	}
+	public void setColegioAbogados(String colegioAbogados) {
+		this.colegioAbogados = colegioAbogados;
+	}
 
-    @MemberOrder(sequence = "9")
+    @MemberOrder(sequence = "6")
 	@javax.jdo.annotations.Column(allowsNull="false")	
 	public RelacionAbogado getRelacionAbogado() {
 		return relacionAbogado;
 	}
+
 	public void setRelacionAbogado(RelacionAbogado relacionAbogado) {
 		this.relacionAbogado = relacionAbogado;
 	}
-	
+    
 	@javax.jdo.annotations.Column(allowsNull="false")
-	@MemberOrder(sequence="10")
+	@MemberOrder(sequence="7")
 	@Unique //Indica que este campo debe ser unico
 	public String getNumeroMatricula() {
 		return numeroMatricula;
@@ -101,11 +112,11 @@ public class Abogado extends Persona {
 	}
 
     @javax.jdo.annotations.Column(allowsNull="true")
-    @MemberOrder(sequence = "11")
+    @MemberOrder(sequence = "8")
     public Estudio getEstudio() {
         return estudio;
     }
-    public void setEstudio(Estudio estudios) {
+    public void setEstudio(Estudio estudio) {
         this.estudio = estudio;
     }
 	
