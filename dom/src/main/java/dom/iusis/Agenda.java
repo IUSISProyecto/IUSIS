@@ -6,6 +6,7 @@ import javax.jdo.annotations.IdentityType;
 
 import org.apache.isis.applib.annotation.MemberOrder;
 import org.apache.isis.applib.annotation.ObjectType;
+import org.apache.isis.applib.value.Blob;
 
 @javax.jdo.annotations.PersistenceCapable(identityType=IdentityType.DATASTORE)
 @ObjectType("Agenda")
@@ -23,7 +24,7 @@ public class Agenda {
 	private String responsable; /*Unir con abogado propio*/
 	private String cliente; /*se podría vincular a un cliente, o cualquier persona (testigo, perito, etc).*/
 	private String expediente;
-	private String descripcion;
+	private String descripcion; /*adjuntar archivo*/
 
 	@javax.jdo.annotations.Column(allowsNull="false")
 	@MemberOrder(sequence="1")
@@ -101,5 +102,18 @@ public class Agenda {
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
 	}
+	
+	/*Esta porcion de codigo nos permite insertar documentos en nuestra clase.*/
+    private Blob attachment;
+
+    @javax.jdo.annotations.Persistent(defaultFetchGroup="false")
+    @javax.jdo.annotations.Column(allowsNull="true")
+    public Blob getAttachment() {
+        return attachment;
+    }
+
+    public void setAttachment(final Blob attachment) {
+        this.attachment = attachment;
+    }
 	
 }

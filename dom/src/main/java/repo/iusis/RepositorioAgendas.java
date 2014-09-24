@@ -7,6 +7,7 @@ import org.apache.isis.applib.DomainObjectContainer;
 import org.apache.isis.applib.annotation.MultiLine;
 import org.apache.isis.applib.annotation.Named;
 import org.apache.isis.applib.annotation.Optional;
+import org.apache.isis.applib.value.Blob;
 
 import dom.iusis.Agenda;
 import dom.iusis.TipoProceso;
@@ -31,7 +32,9 @@ public class RepositorioAgendas  extends AbstractFactoryAndRepository {
   	@Named("Cliente")@Optional final String cliente,
   	@Named("Expediente")@Optional final String expediente,
   	@MultiLine(numberOfLines=10)
-  	@Named("Descripcción")final @Optional String descripcion)
+  	@Named("Descripcción")final @Optional String descripcion,
+  	@Named("Adjunto")final Blob attachment)
+  	
   	{
   		
 		final Agenda agenda = container.newTransientInstance(Agenda.class);
@@ -44,6 +47,7 @@ public class RepositorioAgendas  extends AbstractFactoryAndRepository {
   	    agenda.setCliente(cliente);
   	    agenda.setExpediente(expediente);
   	    agenda.setDescripcion(descripcion);
+  	    agenda.setAttachment(attachment);
   	      	    
   	    container.persistIfNotAlready(agenda);
   	    
