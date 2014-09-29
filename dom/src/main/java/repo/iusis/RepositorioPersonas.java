@@ -16,7 +16,7 @@ import org.apache.isis.applib.query.QueryDefault;
 
 import dom.iusis.Abogado;
 import dom.iusis.CategoriaFiscal;
-import dom.iusis.Cliente;
+import dom.iusis.ClienteFisico;
 import dom.iusis.EstadoCivil;
 import dom.iusis.Estudio;
 import dom.iusis.Fiscal;
@@ -41,12 +41,14 @@ public class RepositorioPersonas extends AbstractFactoryAndRepository {
     //@Optional nos define si el campo es obligatorio u opcional
     @MemberOrder(name="Personas", sequence="20.1")//Ordeno la visualizacion del menu
     
-    public Cliente ingresarClientes(
+    public ClienteFisico ingresarClienteFisico(
 	@Named("DNI")final String dni ,
 	@RegEx(validation = "[a-z A-Záéíóú]+")//Sirve para delimitar el tipo de caracteres a ingresar
 	@Named("Nombre")final String nombre,
 	@RegEx(validation = "[a-z A-Záéíóú]+")//Sirve para delimitar el tipo de caracteres a ingresar
 	@Named("Apellido")final String apellido,
+	@Named("Cuil")final @Optional String cuil,
+	@Named("Cuit")final @Optional String cuit,
 	@TypicalLength(50)
 	@Named("Domicilio")final @Optional String domicilio,
 	@Named("Estado Civil")final @Optional EstadoCivil estadoCivil,
@@ -65,26 +67,28 @@ public class RepositorioPersonas extends AbstractFactoryAndRepository {
 	@Named("E-mail")final @Optional String email)
 
 	{
-		final Cliente cliente = container.newTransientInstance(Cliente.class);
+		final ClienteFisico clientefisico = container.newTransientInstance(ClienteFisico.class);
 	   
-	    cliente.setDni(dni);
-	    cliente.setNombre(nombre);
-	    cliente.setApellido(apellido);
-	    cliente.setDomicilio(domicilio);
-	    cliente.setEstadoCivil(estadoCivil);
-	    cliente.setTipoPersona(tipoPersona);
-	    cliente.setFechaNacimiento(fechaNacimiento);
-	    cliente.setLocalidad(localidad);
-	    cliente.setTelefono(telefono);
-	    cliente.setCelular(celular);
-	    cliente.setTipoCliente(tipoCliente);
-	    cliente.setObservacion(observacion);
+	    clientefisico.setDni(dni);
+	    clientefisico.setNombre(nombre);
+	    clientefisico.setApellido(apellido);
+	    clientefisico.setCuil(cuil);
+	    clientefisico.setCuit(cuit);
+	    clientefisico.setDomicilio(domicilio);
+	    clientefisico.setEstadoCivil(estadoCivil);
+	    clientefisico.setTipoPersona(tipoPersona);
+	    clientefisico.setFechaNacimiento(fechaNacimiento);
+	    clientefisico.setLocalidad(localidad);
+	    clientefisico.setTelefono(telefono);
+	    clientefisico.setCelular(celular);
+	    clientefisico.setTipoCliente(tipoCliente);
+	    clientefisico.setObservacion(observacion);
 	    //cliente.setEstudios(estudios);
-	    cliente.setEmail(email);
+	    clientefisico.setEmail(email);
 
-	    container.persistIfNotAlready(cliente);
+	    container.persistIfNotAlready(clientefisico);
 	    
-		return cliente;
+		return clientefisico;
 	}
 	
     @MemberOrder(name="Personas", sequence="20.2")//Ordeno la visualizacion del menu

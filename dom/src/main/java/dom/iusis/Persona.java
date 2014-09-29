@@ -32,6 +32,7 @@ public class Persona{
 	private String dni;
 	private String nombre;
 	private String apellido;
+	private String cuil;
 	private String domicilio;
 	private Date fechaNacimiento;
 	private String localidad;
@@ -73,10 +74,21 @@ public class Persona{
 	}
 	
 	@javax.jdo.annotations.Column(allowsNull="true")
+    @MemberOrder(sequence = "3")
+	public String getCuil() {
+		return cuil;
+	}
+
+	public void setCuil(String cuil) {
+		this.cuil = cuil;
+	}
+
+	@javax.jdo.annotations.Column(allowsNull="true")
 	 @MemberOrder(sequence="4")
 	public String getDomicilio() {
 		return domicilio;
 	}
+
 	public void setDomicilio(String domicilio) {
 		this.domicilio = domicilio;
 	}
