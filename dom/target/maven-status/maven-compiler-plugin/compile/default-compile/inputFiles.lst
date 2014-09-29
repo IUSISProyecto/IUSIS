@@ -4,6 +4,7 @@ C:\nacho\Workspace\IUSIS\dom\src\main\java\dom\iusis\Fiscal.java
 C:\nacho\Workspace\IUSIS\dom\src\main\java\dom\iusis\TipoCliente.java
 C:\nacho\Workspace\IUSIS\dom\src\main\java\dom\iusis\Perito.java
 C:\nacho\Workspace\IUSIS\dom\src\main\java\dom\iusis\Tribunal.java
+C:\nacho\Workspace\IUSIS\dom\src\main\java\dom\iusis\ClienteFisico.java
 C:\nacho\Workspace\IUSIS\dom\src\main\java\dom\iusis\TipoInstancia.java
 C:\nacho\Workspace\IUSIS\dom\src\main\java\dom\iusis\Testigo.java
 C:\nacho\Workspace\IUSIS\dom\src\main\java\repo\iusis\RepositorioProcesos.java
@@ -19,7 +20,6 @@ C:\nacho\Workspace\IUSIS\dom\src\main\java\dom\iusis\Agenda.java
 C:\nacho\Workspace\IUSIS\dom\src\main\java\dom\iusis\Estudio.java
 C:\nacho\Workspace\IUSIS\dom\src\main\java\dom\iusis\TipoTribunal.java
 C:\nacho\Workspace\IUSIS\dom\src\main\java\dom\iusis\Juez.java
-C:\nacho\Workspace\IUSIS\dom\src\main\java\dom\iusis\Cliente.java
 C:\nacho\Workspace\IUSIS\dom\src\main\java\dom\iusis\Persona.java
 C:\nacho\Workspace\IUSIS\dom\src\main\java\dom\iusis\TipoNivel.java
 C:\nacho\Workspace\IUSIS\dom\src\main\java\repo\iusis\RepositorioTribunales.java

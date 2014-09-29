@@ -1,6 +1,5 @@
 package dom.iusis;
 
-
 import java.util.List;
 
 import javax.jdo.annotations.IdentityType;
@@ -32,8 +31,9 @@ import dom.iusis.Persona;
 @AutoComplete(repository = RepositorioPersonas.class, action = "autoComplete")
 @Audited
 
-public class Cliente extends Persona {
+public class ClienteFisico extends Persona {
 	
+	private String cuit;
 	private String observacion;
 	//private Estudios estudios;
 	private dom.iusis.TipoCliente tipoCliente;
@@ -50,6 +50,16 @@ public class Cliente extends Persona {
 	}
     
     @javax.jdo.annotations.Column(allowsNull="true")
+    @MemberOrder(sequence = "6")
+    public String getCuit() {
+		return cuit;
+	}
+
+	public void setCuit(String cuit) {
+		this.cuit = cuit;
+	}
+
+	@javax.jdo.annotations.Column(allowsNull="true")
     @MemberOrder(sequence = "7")
 	public dom.iusis.TipoCliente getTipoCliente() {
 		return tipoCliente;
@@ -101,7 +111,7 @@ public class Cliente extends Persona {
 
 @MemberOrder(sequence = "9")
 @Named ("Buscar por DNI")
-public List<Cliente> ListByDni(
+public List<ClienteFisico> ListByDni(
 final @Named("DNI") String dni){
 
 return listByDni(dni);
@@ -109,8 +119,8 @@ return listByDni(dni);
 }
 
 @Programmatic
-public List<Cliente> listByDni(String dni) {
-return container.allMatches(new QueryDefault<Cliente>(Cliente.class, "buscarPorDni", "dni", dni));
+public List<ClienteFisico> listByDni(String dni) {
+return container.allMatches(new QueryDefault<ClienteFisico>(ClienteFisico.class, "buscarPorDni", "dni", dni));
 
 }
 
@@ -120,7 +130,7 @@ return container.allMatches(new QueryDefault<Cliente>(Cliente.class, "buscarPorD
 
 @MemberOrder(sequence = "9")
 @Named ("Buscar por Nombre")
-public List<Cliente> ListByName(
+public List<ClienteFisico> ListByName(
 final @Named("Nombre") String nombre){
 
 return listByName(nombre);
@@ -128,8 +138,8 @@ return listByName(nombre);
 }
 
 @Programmatic
-public List<Cliente> listByName(String nombre) {
-return container.allMatches(new QueryDefault<Cliente>(Cliente.class, "buscarPorNombre", "nombre", nombre));
+public List<ClienteFisico> listByName(String nombre) {
+return container.allMatches(new QueryDefault<ClienteFisico>(ClienteFisico.class, "buscarPorNombre", "nombre", nombre));
 }
 
 ///////////////////////////////////////
@@ -138,7 +148,7 @@ return container.allMatches(new QueryDefault<Cliente>(Cliente.class, "buscarPorN
 
 @MemberOrder(sequence = "9")
 @Named ("Buscar por Apellido")
-public List<Cliente> ListByLastname(
+public List<ClienteFisico> ListByLastname(
 final @Named("Apellido") String apellido){
 
 return listByName(apellido);
@@ -146,8 +156,8 @@ return listByName(apellido);
 }
 
 @Programmatic
-public List<Cliente> listByLastname(String apellido) {
-return container.allMatches(new QueryDefault<Cliente>(Cliente.class, "buscarPorApellido", "apellido", apellido));
+public List<ClienteFisico> listByLastname(String apellido) {
+return container.allMatches(new QueryDefault<ClienteFisico>(ClienteFisico.class, "buscarPorApellido", "apellido", apellido));
 }
 
 @javax.inject.Inject

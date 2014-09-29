@@ -7,6 +7,7 @@ dom\iusis\QTribunal.class
 dom\iusis\TipoInstancia.class
 dom\iusis\Tribunal.class
 dom\iusis\Testigo.class
+dom\iusis\QClienteFisico.class
 dom\iusis\CategoriaFiscal.class
 dom\iusis\QAbogado.class
 repo\iusis\RepositorioProcesos.class
@@ -17,6 +18,7 @@ dom\iusis\Fiscal.class
 dom\iusis\EstadoCivil.class
 repo\iusis\RepositorioPersonas.class
 dom\iusis\RelacionAbogado.class
+dom\iusis\ClienteFisico.class
 dom\iusis\Agenda.class
 dom\iusis\TipoProceso.class
 dom\iusis\Perito.class
@@ -33,5 +35,3 @@ dom\iusis\QPerito.class
 repo\iusis\RepositorioAgendas.class
 dom\iusis\TipoNivel.class
 dom\iusis\QJuez.class
-dom\iusis\QCliente.class
-dom\iusis\Cliente.class
