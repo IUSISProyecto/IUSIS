@@ -1,7 +1,9 @@
 dom\iusis\TipoTribunal.class
 dom\iusis\QEstudio.class
 dom\iusis\Abogado.class
+dom\iusis\QClienteJuridico.class
 dom\iusis\QAgenda.class
+dom\iusis\ClienteJuridico.class
 dom\iusis\QProceso.class
 dom\iusis\QTribunal.class
 dom\iusis\TipoInstancia.class

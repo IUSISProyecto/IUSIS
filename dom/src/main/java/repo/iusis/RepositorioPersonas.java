@@ -17,6 +17,7 @@ import org.apache.isis.applib.query.QueryDefault;
 import dom.iusis.Abogado;
 import dom.iusis.CategoriaFiscal;
 import dom.iusis.ClienteFisico;
+import dom.iusis.ClienteJuridico;
 import dom.iusis.EstadoCivil;
 import dom.iusis.Estudio;
 import dom.iusis.Fiscal;
@@ -40,7 +41,6 @@ public class RepositorioPersonas extends AbstractFactoryAndRepository {
 	//Defino nombre etiquetas para la clase
     //@Optional nos define si el campo es obligatorio u opcional
     @MemberOrder(name="Personas", sequence="20.1")//Ordeno la visualizacion del menu
-    
     public ClienteFisico ingresarClienteFisico(
 	@Named("DNI")final String dni ,
 	@RegEx(validation = "[a-z A-Záéíóú]+")//Sirve para delimitar el tipo de caracteres a ingresar
@@ -92,6 +92,65 @@ public class RepositorioPersonas extends AbstractFactoryAndRepository {
 	}
 	
     @MemberOrder(name="Personas", sequence="20.2")//Ordeno la visualizacion del menu
+    public ClienteJuridico ingresarClienteJuridico(
+    		@Named("DNI")final String dni ,
+    		@RegEx(validation = "[a-z A-Záéíóú]+")//Sirve para delimitar el tipo de caracteres a ingresar
+    		@Named("Nombre")final String nombre,
+    		@RegEx(validation = "[a-z A-Záéíóú]+")//Sirve para delimitar el tipo de caracteres a ingresar
+    		@Named("Apellido")final String apellido,
+    		@Named("Cuil")final @Optional String cuil,
+    		@Named("Cuit")final @Optional String cuit,
+    		@Named("Razon Social")@Optional String razonsocial,
+    		@Named("Tipo Societario")@Optional String tiposocietario,
+    		@Named("Domilicio Constituido")@Optional String domicilioconstituido,
+    		@Named("Sucursales")@Optional String sucursales,
+    		@TypicalLength(50)
+    		@Named("Domicilio")final @Optional String domicilio,
+    		@Named("Estado Civil")final @Optional EstadoCivil estadoCivil,
+    		@Named("Tipo Persona")final @Optional TipoPersona tipoPersona,
+    		@Named("Fecha Nacimiento")final @Optional Date fechaNacimiento,
+    		@RegEx(validation = "[a-z A-Záéíóú]+")//Sirve para delimitar el tipo de caracteres a ingresar
+    		@Named("Localidad")final @Optional String localidad,
+    		@Named("Telefono")final @Optional String telefono,
+    		@Named("Celular")final @Optional String celular,
+    		@Named("Tipo Cliente")final  @Optional TipoCliente tipoCliente, 
+    		@MultiLine(numberOfLines=10)//Indica que el campo es multiline y se permiten hasta diez lineas
+    		@Named("Observaciones")final @Optional String observacion,
+    		//@Named("Estudio")final @Optional Estudios estudios,
+    		@RegEx(validation = "(\\w+\\.)*\\w+@(\\w+\\.)+[A-Za-z]+")
+    		@TypicalLength(50)//Defino en 50 caracteres el ancho del campo
+    		@Named("E-mail")final @Optional String email)
+
+    		{
+    			final ClienteJuridico clientejuridico = container.newTransientInstance(ClienteJuridico.class);
+    		   
+    		    clientejuridico.setDni(dni);
+    		    clientejuridico.setNombre(nombre);
+    		    clientejuridico.setApellido(apellido);
+    		    clientejuridico.setCuil(cuil);
+    		    clientejuridico.setCuit(cuit);
+    		    clientejuridico.setRazonsocial(razonsocial);
+    		    clientejuridico.setTiposocietario(tiposocietario);
+    		    clientejuridico.setDomilicioconstituido(domicilioconstituido);
+    		    clientejuridico.setSucursales(sucursales);
+    		    clientejuridico.setDomicilio(domicilio);
+    		    clientejuridico.setEstadoCivil(estadoCivil);
+    		    clientejuridico.setTipoPersona(tipoPersona);
+    		    clientejuridico.setFechaNacimiento(fechaNacimiento);
+    		    clientejuridico.setLocalidad(localidad);
+    		    clientejuridico.setTelefono(telefono);
+    		    clientejuridico.setCelular(celular);
+    		    clientejuridico.setTipoCliente(tipoCliente);
+    		    clientejuridico.setObservacion(observacion);
+    		    //cliente.setEstudios(estudios);
+    		    clientejuridico.setEmail(email);
+
+    		    container.persistIfNotAlready(clientejuridico);
+    		    
+    			return clientejuridico;
+    		}
+    
+    @MemberOrder(name="Personas", sequence="20.3")//Ordeno la visualizacion del menu
 	public Abogado ingresarAbogados(
 				
 				@Named("DNI")final String dni,
@@ -149,7 +208,7 @@ public class RepositorioPersonas extends AbstractFactoryAndRepository {
   //======================================================
   		//Defino nombre etiquetas para la clase
   	    //@Optional nos define si el campo es obligatorio u opcional
-      @MemberOrder(name="Personas", sequence="20.3")//Ordeno la visualizacion del menu
+      @MemberOrder(name="Personas", sequence="20.4")//Ordeno la visualizacion del menu
       public Perito ingresarPeritos(
   		
   		@Named("DNI")final String dni ,
@@ -184,7 +243,7 @@ public class RepositorioPersonas extends AbstractFactoryAndRepository {
   			return perito;
   		}
     
-    @MemberOrder(name="Personas", sequence="20.4")//Ordeno la visualizacion del menu
+    @MemberOrder(name="Personas", sequence="20.5")//Ordeno la visualizacion del menu
     public Testigo ingresarTestigos(
 				
 				@Named("DNI")final String dni ,
@@ -222,7 +281,7 @@ public class RepositorioPersonas extends AbstractFactoryAndRepository {
 				}
 				
 				//======================================================
-    @MemberOrder(name="Personas", sequence="20.5")//Ordeno la visualizacion del menu
+    @MemberOrder(name="Personas", sequence="20.6")//Ordeno la visualizacion del menu
 public Juez ingresarJueces(
 		
 		@Named("DNI")final String dni ,
@@ -260,7 +319,7 @@ public Juez ingresarJueces(
 		}
 		
 		//======================================================
-@MemberOrder(name="Personas", sequence="20.6")//Ordeno la visualizacion del menu
+@MemberOrder(name="Personas", sequence="20.7")//Ordeno la visualizacion del menu
 public Fiscal ingresarFiscales(
 		
 		@Named("DNI")final String dni ,
