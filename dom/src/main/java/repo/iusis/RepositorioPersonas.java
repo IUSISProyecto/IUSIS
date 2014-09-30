@@ -26,7 +26,7 @@ import dom.iusis.Perito;
 import dom.iusis.RelacionAbogado;
 import dom.iusis.Testigo;
 import dom.iusis.TipoCliente;
-import dom.iusis.TipoPersona;
+
 
 @Named("Personas")
 public class RepositorioPersonas extends AbstractFactoryAndRepository {
@@ -52,7 +52,6 @@ public class RepositorioPersonas extends AbstractFactoryAndRepository {
 	@TypicalLength(50)
 	@Named("Domicilio")final @Optional String domicilio,
 	@Named("Estado Civil")final @Optional EstadoCivil estadoCivil,
-	@Named("Tipo Persona")final @Optional TipoPersona tipoPersona,
 	@Named("Fecha Nacimiento")final @Optional Date fechaNacimiento,
 	@RegEx(validation = "[a-z A-Záéíóú]+")//Sirve para delimitar el tipo de caracteres a ingresar
 	@Named("Localidad")final @Optional String localidad,
@@ -76,7 +75,6 @@ public class RepositorioPersonas extends AbstractFactoryAndRepository {
 	    clientefisico.setCuit(cuit);
 	    clientefisico.setDomicilio(domicilio);
 	    clientefisico.setEstadoCivil(estadoCivil);
-	    clientefisico.setTipoPersona(tipoPersona);
 	    clientefisico.setFechaNacimiento(fechaNacimiento);
 	    clientefisico.setLocalidad(localidad);
 	    clientefisico.setTelefono(telefono);
@@ -107,7 +105,6 @@ public class RepositorioPersonas extends AbstractFactoryAndRepository {
     		@TypicalLength(50)
     		@Named("Domicilio")final @Optional String domicilio,
     		@Named("Estado Civil")final @Optional EstadoCivil estadoCivil,
-    		@Named("Tipo Persona")final @Optional TipoPersona tipoPersona,
     		@Named("Fecha Nacimiento")final @Optional Date fechaNacimiento,
     		@RegEx(validation = "[a-z A-Záéíóú]+")//Sirve para delimitar el tipo de caracteres a ingresar
     		@Named("Localidad")final @Optional String localidad,
@@ -135,7 +132,6 @@ public class RepositorioPersonas extends AbstractFactoryAndRepository {
     		    clientejuridico.setSucursales(sucursales);
     		    clientejuridico.setDomicilio(domicilio);
     		    clientejuridico.setEstadoCivil(estadoCivil);
-    		    clientejuridico.setTipoPersona(tipoPersona);
     		    clientejuridico.setFechaNacimiento(fechaNacimiento);
     		    clientejuridico.setLocalidad(localidad);
     		    clientejuridico.setTelefono(telefono);

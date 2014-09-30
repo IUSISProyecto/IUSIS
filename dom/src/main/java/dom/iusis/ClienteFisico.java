@@ -37,7 +37,6 @@ public class ClienteFisico extends Persona {
 	private String observacion;
 	//private Estudios estudios;
 	private dom.iusis.TipoCliente tipoCliente;
-	private TipoPersona tipoPersona;
 	private EstadoCivil estadoCivil;
 	
     public String iconName() {
@@ -68,15 +67,7 @@ public class ClienteFisico extends Persona {
 		this.tipoCliente = tipoCliente;
 	}
 	
-    @javax.jdo.annotations.Column(allowsNull="true")
-    @MemberOrder(sequence = "8")
-	public TipoPersona getTipoPersona() {
-		return tipoPersona;
-	}
-	public void setTipoPersona(TipoPersona tipoPersona) {
-		this.tipoPersona = tipoPersona;
-	}
-	
+    	
     @javax.jdo.annotations.Column(allowsNull="true")
     @MemberOrder(sequence = "8")
 	public EstadoCivil getEstadoCivil() {

@@ -14,7 +14,6 @@ dom\iusis\CategoriaFiscal.class
 dom\iusis\QAbogado.class
 repo\iusis\RepositorioProcesos.class
 dom\iusis\QTestigo.class
-dom\iusis\TipoPersona.class
 dom\iusis\TipoCliente.class
 dom\iusis\Fiscal.class
 dom\iusis\EstadoCivil.class

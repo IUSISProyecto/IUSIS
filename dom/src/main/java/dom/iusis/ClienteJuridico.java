@@ -41,7 +41,6 @@ public class ClienteJuridico extends Persona {
 	private String observacion;
 	//private Estudios estudios;
 	private dom.iusis.TipoCliente tipoCliente;
-	private TipoPersona tipoPersona;
 	private EstadoCivil estadoCivil;
 	
     public String iconName() {
@@ -54,7 +53,7 @@ public class ClienteJuridico extends Persona {
 	}
     
     @javax.jdo.annotations.Column(allowsNull="true")
-    @MemberOrder(sequence = "1")
+    @MemberOrder(sequence = "4")
     public String getCuit() {
 		return cuit;
 	}
@@ -64,7 +63,7 @@ public class ClienteJuridico extends Persona {
 	}
 
 	@javax.jdo.annotations.Column(allowsNull="true")
-    @MemberOrder(sequence = "2")
+    @MemberOrder(sequence = "7")
 	public dom.iusis.TipoCliente getTipoCliente() {
 		return tipoCliente;
 	}
@@ -72,17 +71,9 @@ public class ClienteJuridico extends Persona {
 		this.tipoCliente = tipoCliente;
 	}
 	
-    @javax.jdo.annotations.Column(allowsNull="true")
-    @MemberOrder(sequence = "3")
-	public TipoPersona getTipoPersona() {
-		return tipoPersona;
-	}
-	public void setTipoPersona(TipoPersona tipoPersona) {
-		this.tipoPersona = tipoPersona;
-	}
 	
     @javax.jdo.annotations.Column(allowsNull="true")
-    @MemberOrder(sequence = "4")
+    @MemberOrder(sequence = "8")
 	public EstadoCivil getEstadoCivil() {
 		return estadoCivil;
 	}
@@ -92,7 +83,7 @@ public class ClienteJuridico extends Persona {
 
 
 	@javax.jdo.annotations.Column(allowsNull="true")
-	@MemberOrder(sequence="5")
+	@MemberOrder(sequence="9")
 	public String getRazonsocial() {
 		return razonsocial;
 	}
@@ -102,7 +93,7 @@ public class ClienteJuridico extends Persona {
 	}	
 
 	@javax.jdo.annotations.Column(allowsNull="true")
-	@MemberOrder(sequence="6")
+	@MemberOrder(sequence="10")
 	public String getTiposocietario() {
 		return tiposocietario;
 	}
@@ -112,7 +103,7 @@ public class ClienteJuridico extends Persona {
 	}
 	
 	@javax.jdo.annotations.Column(allowsNull="true")
-	@MemberOrder(sequence="7")
+	@MemberOrder(sequence="11")
 	public String getDomilicioconstituido() {
 		return domilicioconstituido;
 	}
@@ -122,7 +113,7 @@ public class ClienteJuridico extends Persona {
 	}
 	
 	@javax.jdo.annotations.Column(allowsNull="true")
-	@MemberOrder(sequence="8")
+	@MemberOrder(sequence="12")
 	public String getSucursales() {
 		return Sucursales;
 	}
@@ -132,7 +123,7 @@ public class ClienteJuridico extends Persona {
 	}
 	
 	@javax.jdo.annotations.Column(allowsNull="true")
-	@MemberOrder(sequence="9")
+	@MemberOrder(sequence="13")
 	//Indica que el campo es multiline y se permiten hasta diez lineas
 	public String getObservacion() {
 		return observacion;
