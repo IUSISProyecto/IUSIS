@@ -34,6 +34,7 @@ public class RepositorioProcesos extends AbstractFactoryAndRepository {
 	@Named("N Carpeta")final String numeroCarpeta,
 	@Named("Instancia")final TipoInstancia tipoInstancia,
 	@Named("Fecha de Inicio")final Date fechaInicio,
+	@Named("Fecha de Finalizacion")final Date fechaFinalizacion,
 	@Named("DomicilioConstituido")final String domicilioConstituido)
 	
 	{
@@ -46,6 +47,7 @@ public class RepositorioProcesos extends AbstractFactoryAndRepository {
 	    proceso.setTipoNivel(tipoNivel);
 	    proceso.setTipoInstancia(tipoInstancia);
 	    proceso.setFechaInicio(fechaInicio);
+	    proceso.setFechaFinalizacion(fechaFinalizacion);   
 	    proceso.setDomicilioConstituido(domicilioConstituido);
 	 
 	    container.persistIfNotAlready(proceso);

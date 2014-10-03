@@ -25,6 +25,7 @@ public class Proceso {
 	private String descripcion;
 	private String domicilioConstituido;
 	private Date fechaInicio;
+	private Date fechaFinalizacion;
 	private String numeroCarpeta;
 	private TipoNivel TipoNivel;
 	private TipoInstancia tipoInstancia;
@@ -116,6 +117,17 @@ public class Proceso {
 
 	public void setFechaInicio(Date fechaInicio) {
 		this.fechaInicio = fechaInicio;
+	}
+
+
+
+	@javax.jdo.annotations.Column(allowsNull="false")
+	public Date getFechaFinalizacion() {
+		return fechaFinalizacion;
+	}
+
+	public void setFechaFinalizacion(Date fechaFinalizacion) {
+		this.fechaFinalizacion = fechaFinalizacion;
 	}
 
 
