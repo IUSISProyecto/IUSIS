@@ -1,5 +1,5 @@
 package dom.iusis;
-
+import java.util.Date;
 import javax.jdo.annotations.IdentityType;
 import javax.jdo.annotations.VersionStrategy;
 import org.apache.isis.applib.DomainObjectContainer;
@@ -24,7 +24,7 @@ public class Proceso {
 	private String nombre;
 	private String descripcion;
 	private String domicilioConstituido;
-
+	private Date fechaInicio;
 	private String numeroCarpeta;
 	private TipoNivel TipoNivel;
 	private TipoInstancia tipoInstancia;
@@ -106,6 +106,16 @@ public class Proceso {
 
 	public void setNumeroCarpeta(String numeroCarpeta) {
 		this.numeroCarpeta = numeroCarpeta;
+	}
+
+
+	@javax.jdo.annotations.Column(allowsNull="false")
+	public Date getFechaInicio() {
+		return fechaInicio;
+	}
+
+	public void setFechaInicio(Date fechaInicio) {
+		this.fechaInicio = fechaInicio;
 	}
 
 

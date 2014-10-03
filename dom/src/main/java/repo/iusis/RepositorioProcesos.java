@@ -1,7 +1,7 @@
 package repo.iusis;
 
 import java.util.List;
-
+import java.util.Date;
 import org.apache.isis.applib.AbstractFactoryAndRepository;
 import org.apache.isis.applib.DomainObjectContainer;
 import org.apache.isis.applib.annotation.MultiLine;
@@ -33,6 +33,7 @@ public class RepositorioProcesos extends AbstractFactoryAndRepository {
 	@Named("Tipo Nivel")final TipoNivel tipoNivel,
 	@Named("N Carpeta")final String numeroCarpeta,
 	@Named("Instancia")final TipoInstancia tipoInstancia,
+	@Named("Fecha de Inicio")final Date fechaInicio,
 	@Named("DomicilioConstituido")final String domicilioConstituido)
 	
 	{
@@ -44,6 +45,7 @@ public class RepositorioProcesos extends AbstractFactoryAndRepository {
 	    proceso.setNumeroCarpeta(numeroCarpeta);
 	    proceso.setTipoNivel(tipoNivel);
 	    proceso.setTipoInstancia(tipoInstancia);
+	    proceso.setFechaInicio(fechaInicio);
 	    proceso.setDomicilioConstituido(domicilioConstituido);
 	 
 	    container.persistIfNotAlready(proceso);
