@@ -25,13 +25,14 @@ public class RepositorioProcesos extends AbstractFactoryAndRepository {
 	//Defino nombre etiquetas para la clase
     //@Optional nos define si el campo es obligatorio u opcional
 	public Proceso agregarProcesos(
-	@Named("Notas")final String notas,
+	
 	@MultiLine(numberOfLines=6)//Indica que el campo es multiline y se permiten hasta seis lineas
 	@Named("Caratula")final  String caratula,
-	@Named("Nombre")final String nombre,
-	@Named("Descripcion")final String descripcion,
-	@Named("Tipo Nivel")final TipoNivel tipoNivel,
+	@Named("Notas")final String notas,
 	@Named("N Carpeta")final String numeroCarpeta,
+	@Named("Nombre")final String nombre,
+	@Named("Tipo Nivel")final TipoNivel tipoNivel,
+	@Named("Descripcion")final String descripcion,
 	@Named("Instancia")final TipoInstancia tipoInstancia,
 	@Named("Fecha de Inicio")final Date fechaInicio,
 	@Named("Fecha de Finalizacion")final Date fechaFinalizacion,
@@ -39,12 +40,12 @@ public class RepositorioProcesos extends AbstractFactoryAndRepository {
 	
 	{
 		final Proceso proceso = container.newTransientInstance(Proceso.class);
-	    proceso.setNotas(notas);
-	    proceso.setCaratula(caratula);
+		proceso.setCaratula(caratula);
+		proceso.setNotas(notas);
+		proceso.setNumeroCarpeta(numeroCarpeta);
 	    proceso.setNombre(nombre);
-	    proceso.setDescripcion(descripcion);
-	    proceso.setNumeroCarpeta(numeroCarpeta);
 	    proceso.setTipoNivel(tipoNivel);
+	    proceso.setDescripcion(descripcion);
 	    proceso.setTipoInstancia(tipoInstancia);
 	    proceso.setFechaInicio(fechaInicio);
 	    proceso.setFechaFinalizacion(fechaFinalizacion);   

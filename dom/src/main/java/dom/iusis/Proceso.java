@@ -19,16 +19,16 @@ import org.apache.isis.applib.annotation.Title;
 
 public class Proceso {
 
-	private String notas;
 	private String caratula;
+	private String notas;
+	private String numeroCarpeta;
 	private String nombre;
+	private TipoNivel TipoNivel;
 	private String descripcion;
-	private String domicilioConstituido;
+	private TipoInstancia tipoInstancia;
 	private Date fechaInicio;
 	private Date fechaFinalizacion;
-	private String numeroCarpeta;
-	private TipoNivel TipoNivel;
-	private TipoInstancia tipoInstancia;
+	private String domicilioConstituido;
 	
 	@Title(sequence="1")
 	@MemberOrder(sequence="1")
