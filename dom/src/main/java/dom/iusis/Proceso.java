@@ -19,7 +19,7 @@ import org.apache.isis.applib.annotation.Title;
 
 public class Proceso {
 
-	private String idProceso;
+	private String notas;
 	private String caratula;
 	private String nombre;
 	private String descripcion;
@@ -73,11 +73,11 @@ public class Proceso {
 	@javax.jdo.annotations.Column(allowsNull="false")
     
     @MemberOrder(sequence="2")
-	public String getIdProceso() {
-		return idProceso;
+	public String getNotas() {
+		return notas;
 	}
-	public void setIdProceso(String idProceso) {
-		this.idProceso = idProceso;
+	public void setNotas(String notas) {
+		this.notas = notas;
 	}
 	
 	@javax.jdo.annotations.Column(allowsNull="false")

@@ -25,7 +25,7 @@ public class RepositorioProcesos extends AbstractFactoryAndRepository {
 	//Defino nombre etiquetas para la clase
     //@Optional nos define si el campo es obligatorio u opcional
 	public Proceso agregarProcesos(
-	@Named("id de Procesos")final String idProcesos ,
+	@Named("Notas")final String notas,
 	@MultiLine(numberOfLines=6)//Indica que el campo es multiline y se permiten hasta seis lineas
 	@Named("Caratula")final  String caratula,
 	@Named("Nombre")final String nombre,
@@ -39,7 +39,7 @@ public class RepositorioProcesos extends AbstractFactoryAndRepository {
 	
 	{
 		final Proceso proceso = container.newTransientInstance(Proceso.class);
-	    proceso.setIdProceso(idProcesos);
+	    proceso.setNotas(notas);
 	    proceso.setCaratula(caratula);
 	    proceso.setNombre(nombre);
 	    proceso.setDescripcion(descripcion);
